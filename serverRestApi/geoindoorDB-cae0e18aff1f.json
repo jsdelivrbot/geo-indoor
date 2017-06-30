@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "geoindoordb",
+  "private_key_id": "cae0e18aff1fee693259b498ed26b03b0937ca22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCb4Pq+MVzgJ3O+\nOyrnrP/p8H9fITG9ldHSib2C/O3tsG6nGxJcX/OPO7E3iEQXSkRkusvHN1gOkJbR\noo/qDhfStE8l4C0tu6sp/9B6pBWm7Dc9V7YGVgb3LS3/gZqDk0wu4vzqKeUQvWrB\njTjdakt3w7Vzj8g12OIdV04xfHcTW7naN+tSkeFm2a3+hlFS5fs114bkkcPb8uO8\nlWDvsF3fR03zUrouDUTjqbbdRwHkFsiTVYdzzgx+xqwtriakWFnLQS0ooKvCkFgQ\nzsYJY+p9BVqZ7T4YQ0hIs8BwdkYuOzJ+5wb9Jn+aHt7gLbGJ7pB4HYtx8bgivYt+\nu2ZB5kmDAgMBAAECggEAB8z2ygUkYF9OY9Wy1vc0XgZYCXBa0eGpJ2psiR0+jDze\nZ2RrwyMAyEk0xtJTPgB3HbyvV/UwEJfcbvnoo844E6ZMU66SnuLxCjVavy3Dm5/f\nP9BKM/+ix5nY3xwi7woJr6BSXHw452E4nMkEGyh88FhjQI47IbQMf2q6vK/oMZgQ\niCX9Hrw7WsFXkxFtIzEAeBN1a/eDnDdtD+pT/OS+IZi8pg7A0AYS210qaUP7s3Zb\nFb3J1vVS5JLEJO9OnbrszudmGm1pMc+dHjAPDa31d1tqICLzQUjSFEbjrwlbiKrJ\nYua+LlBYUEp+GVQy6mQ1ljyTRYizu4TCZYXPfgi9IQKBgQDItMbp9NSStVcwWocv\nHlO168kMexU2Uhj5y1HrK49LtXfer750RPvE+UMU0Tw/pDDcgHpjLAp/OKVxEUa/\nx/QGSd4nXEAdVX/hRLY1G1rbS4su3lWh89CPz/8xy0VieblzjYtYJ++PzoRd2Drl\n1j38w7JlCfqAndM1+FVBVHx6EwKBgQDG0qkiF+3nWOm77ILglul14vMD8NeFn62i\nSSajfXT0NxBvzObQr8iaoP/0NQRcWc77mW+IwlOAAyhh0wwi8tsjdjwLt9wzoPYC\nJNvRthgCQ2M146Eg2LOBWxkmPLjLMYCsx6pvjOtG22LYXUsPC3fA3WK7dbtTmjZk\n2qh3G3Lg0QKBgHZ1xIWnvKOOppRiijF0S+Iu9W4JY365PAaLS6FrB1ufEs37moST\nhqo+mKo7yLyjUzeCGTpZbyShsXwnv0NIaC4iAR3oI+tsYFr8LDLyH1EZqF+UWKSK\n/Ek1caDZIe26fIvIOjtg7tNJB/U/v5uSNOnwM2XRWun4vQW4udEiZYnDAoGBAI0P\nbwIKWjbWJVa4EY8IYvDJqML1/+MFDCrknW5HF1AhNR8tD+GlpbzXV2FKsCJZcXme\nPbyYqqdbFi55jtXI2eMKAsYJl0hl/cQ9pFvgRp5scxoLuwjT1l+DY492a2F2aKWt\nL2XfZBmsky+Q2Sz+ZONH7sGzYMmK0uaxH+8JYXLRAoGBALK7N1dnnJnSQhebU3At\nolCaH8NkJAOIJiydu/KDY+Fh9Bv5RIn3F8sSiGzjZJ317AmnGDIoCpACPAA+ci4O\nHIESd3w2c4+coaLYsGRfNLIju6xpm+M9/pGNa3YGoQAiguTwqehGXFK+YJHqnJjN\n32rcSiWmsJWw9FeBm2x+2tYC\n-----END PRIVATE KEY-----\n",
+  "client_email": "geoindoordbserver@geoindoordb.iam.gserviceaccount.com",
+  "client_id": "113459945708987328776",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/geoindoordbserver%40geoindoordb.iam.gserviceaccount.com"
+}
