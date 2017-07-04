@@ -1,8 +1,6 @@
 # Geoindoor
 ![logo](https://github.com/jppasvit/geo-indoor/tree/master/geoindoor/architect/images/logo.png)
 
-<img src="https://github.com/jppasvit/geo-indoor/tree/master/geoindoor/architect/images/logo.png" />
-
 Sistema que con múltiples aplicaciones que añade servicios de geolocalización dentro edificios. 
 Una aplicación Web permite etiquetar ubicaciones dentro del plano del edificio. 
 Otra aplicación para dispositivos móviles permite consultar las ubicaciones de un edificio y 
