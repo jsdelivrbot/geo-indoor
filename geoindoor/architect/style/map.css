@@ -252,12 +252,12 @@ body {
 }
 
 #div-logo {
-    background-image: url('../images/anyplace_logo_text.png');
+    background-image: url('../images/geoindoor_logo_text.png');
     height: 100%;
     width: 80px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 8px;
+   
 }
 
 #bulding-tablist, #building-select-list, #floor-tablist, #floor-select-list, #poi-tablist, #poi-select-list {

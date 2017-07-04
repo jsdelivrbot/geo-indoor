@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.css"/>
     <link rel="stylesheet" href="bower_components/select2/select2.css">
 
-    <title>Anyplace Architect</title>
+    <title>Geoindoor Architect</title>
 
 </head>
 <body>
@@ -358,17 +358,16 @@
                                 <span ng-show="edgeMode" class="subnote">toggle edge mode (on)</span>
                             </div>
 
-                            <div >
-                            <span id="botonroute" ng-click="toggleEdgeModeRoute()">
-                                <img id="edge-mode-btn" src="build/images/routeic.png"/>
-                            </span>
+                            <div class="divider-top-10">
+                                <span id="botonroute" ng-click="toggleEdgeModeRoute()">
+                                    <img id="edge-mode-btn" src="build/images/routeic.png"/>
+                                </span>
                                 <span ng-hide="edgeModeRoute">add route mode (off)</span>
                                 <span ng-show="edgeModeRoute">add mode (on)</span>
                                 </br>
                                 <label ng-show="edgeModeRoute">Name: &nbsp</label></label><input ng-show="edgeModeRoute" type="text" name="nameRoute"/>
                                 <button ng-show="edgeModeRoute" onclick="createRoute()"  > Create route </button>
                             </div>
-
 
                         </div>
                     </div>
