@@ -1,3 +1,15 @@
+
+/******************
+*                 *
+* INICIO          *
+* Añadir ruta     *
+*                 *  
+*******************/
+
+var addRoute = false; // Controlador de acceso a creación de ruta
+var ruta = []; // ruta que se va a añadir
+
+
 // getIdMail
 // Recoge el idmail y lo pasa retorna String
 function getIdMail(){
@@ -63,8 +75,7 @@ function showRoutes(options) {
      }
 }
 
-var addRoute = false;
-var ruta = [];
+
 
 // Para cambiar si agregar o no ruta a la vez que el color
 document.getElementById("botonroute").addEventListener("click", function(){ 
@@ -86,7 +97,6 @@ document.getElementById("botonroute").addEventListener("click", function(){
 document.getElementById("showRoutes").addEventListener("click", function(){ 
    getRoutes();
 });
-
 
 
 
@@ -130,9 +140,7 @@ function createRoute(){
         console.log(GeoindoorAPI.Route.ROUTE_ADD_URL);
         console.log(GeoindoorAPI.Route.EDIFICIOS_GET_URL);
 
-       /* $.get(GeoindoorAPI.Route.EDIFICIOS_GET_URL, function(respuestaSolicitud){
-            alert(respuestaSolicitud["id1"]["nombre"]);
-        })*/
+      
         var idmail = getIdMail();
         var contrasena = getContrasena();
         var edificio = getEdificio();
@@ -157,8 +165,6 @@ function createRoute(){
           data: mydatarequest,
           success: function(retornodata) {
               alert("Ruta added/updated");
-              //var bototnroute=document.getElementById("botonroute");
-              //botonroute.click();
               addRoute = false;
               ruta = [];
               var nombreRuta = document.getElementsByName("nameRoute")[0];
@@ -190,12 +196,8 @@ function getRoutes(){
       url: "https://geoindoorapi.herokuapp.com/Rutas/Edificio",
       data: mydatarequest,
       success: function(retornodata) {
-          //retorno=JSON.stringify(retornodata).toString();
-          //console.log(retorno);
-          //return retorno;
-          //console.log(retornodata);
           retorno=retornodata;
-          console.log(retornodata + "SHIUUUUU");
+          console.log(retornodata + "retornodata");
           showRoutes(retornodata);
           
 
@@ -208,6 +210,89 @@ function getRoutes(){
         //alert("ruta añadida");
     console.log(retorno + "lo otro");
    return retorno;
+}
+
+
+/******************
+*                 *
+* INICIO          *
+* Dibujo de ruta  *
+*                 *  
+*******************/
+
+// getPoisEdificio()
+// Recoge todos los pois de un edificio
+function getPoisEdificio(){
+  var poisEdificio = document.getElementsByName("poisEdificio")[0];
+  //console.log(JSON.parse(poisEdificio.value));
+  return JSON.parse(poisEdificio.value);
+}
+
+// getPosRuta()
+// Devuelve la posicion de los puntos de la ruta
+function getPosRuta(){
+  var retorno=[];
+  var poisEdificio = getPoisEdificio();
+
+  ruta.forEach(function(punto) {
+      poisEdificio.forEach(function(objeto) {
+        if(punto == objeto["puid"]){
+          var posicion = {
+            puid: objeto["puid"],
+            lat: objeto["coordinates_lat"],
+            lng: objeto["coordinates_lon"],
+            floor_number: objeto["floor_number"]
+          }
+          retorno.push(posicion);
+        }
+      });
+  });
+  console.log(retorno);
+  return retorno;
+}
+
+
+// drawRoute()
+// Dibuja la ruta que aparece en ruta
+function drawRoute(gmaps){
+  var posRuta = getPosRuta();
+  var flightPlanCoordinates = [];
+  posRuta.forEach(function(pos) {
+    var coord = {
+      lat: parseFloat(pos["lat"]), 
+      lng: parseFloat(pos["lng"])
+    }
+    //console.log(coord);
+    flightPlanCoordinates.push(coord);
+  });
+
+
+  var flightPath = new google.maps.Polyline({
+      path: flightPlanCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+  });  
+
+/*
+  var mapOptions = {
+      center: {lat: 42.3512209930712, lng: -3.6886174231767654},
+      zoom: 18,
+      panControl: true,
+      zoomControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+          position:google.maps.ControlPosition.RIGHT_BOTTOM
+      },
+      scaleControl: true,
+      streetViewControl: false,
+      overviewMapControl: true
+  };
+  mapa = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);*/
+
+  flightPath.setMap(gmaps);
+
 }
 
 
