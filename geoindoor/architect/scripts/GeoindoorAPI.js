@@ -220,6 +220,8 @@ function getRoutes(){
 *                 *  
 *******************/
 
+var myflightPath;
+
 // getPoisEdificio()
 // Recoge todos los pois de un edificio
 function getPoisEdificio(){
@@ -267,32 +269,25 @@ function drawRoute(gmaps){
   });
 
 
-  var flightPath = new google.maps.Polyline({
+  myflightPath = new google.maps.Polyline({
       path: flightPlanCoordinates,
       geodesic: true,
-      strokeColor: '#FF0000',
+      strokeColor: '#00ff00',
       strokeOpacity: 1.0,
-      strokeWeight: 2
+      strokeWeight: 4
   });  
 
-/*
-  var mapOptions = {
-      center: {lat: 42.3512209930712, lng: -3.6886174231767654},
-      zoom: 18,
-      panControl: true,
-      zoomControl: true,
-      mapTypeControl: true,
-      mapTypeControlOptions: {
-          position:google.maps.ControlPosition.RIGHT_BOTTOM
-      },
-      scaleControl: true,
-      streetViewControl: false,
-      overviewMapControl: true
-  };
-  mapa = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);*/
-
-  flightPath.setMap(gmaps);
+  console.log(myflightPath.getPath());
+  myflightPath.setMap(gmaps);
 
 }
+
+// removeDrawRoute()
+// borra la ruta que aparece en ruta
+
+function removeDrawRoute() {
+  myflightPath.setMap(null);
+}
+
 
 

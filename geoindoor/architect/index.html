@@ -408,7 +408,10 @@
      <select class="selectRoutes" id="showRoutes" onchange="putNameRoute()">
           <option value="" disabled selected>Chose route of the building</option>
     </select> 
-
+   <div ng-controller="MyDraw">
+       <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
+       <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
+   </div>
     <div id="map-canvas"></div>
 
 </div>

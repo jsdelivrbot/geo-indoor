@@ -339,13 +339,18 @@ app.controller('PoiController', ['$scope', '$compile', 'GMapService', 'AnyplaceS
                 });
 
                 htmlContent = '<div class="infowindow-scroll-fix" style="text-align: center; width:170px">'
-                    + '<fieldset class="form-group" style="display: inline-block; width: 73%;">'
+                    + '<fieldset class="form-group" style="display: inline-block; width: 75%;">'
                     + '<button type="submit" class="btn btn-success add-any-button" ng-click="updatePoi(\'' + p.puid + '\')"><span class="glyphicon glyphicon-pencil"></span> Update'
                     + '</button>'
                     + '</fieldset>'
                     + '<fieldset class="form-group" style="display: inline-block;width: 23%;">'
                     + '<button type="submit" class="btn btn-danger add-any-button" style="margin-left:2px" ng-click="deletePoi(\'' + p.puid + '\')"><span class="glyphicon glyphicon-remove"></span>'
                     + '</button>'
+                    + '</fieldset>'
+                    + '<fieldset class="form-group" >'
+                    + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
+                    + '</button>'
+                    + '<input type="hidden" id="addPoiToRoute" value="'+ p.puid +'" />'
                     + '</fieldset>'
                     + '</div>';
             } else {
