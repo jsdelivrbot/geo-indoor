@@ -1,5 +1,5 @@
 # Geoindoor 
-<div style="text-align:center">
+<div align="center">
  <img src="geoindoor/architect/images/logo.png" width="150" > 
 </div>
  
