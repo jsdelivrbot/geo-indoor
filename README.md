@@ -1,4 +1,4 @@
-﻿# Geoindoor
+# Geoindoor
 <img src="geoindoor/architect/images/logo.png" width="48">
 
 Sistema que con múltiples aplicaciones que añade servicios de geolocalización dentro edificios. 
