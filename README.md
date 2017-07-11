@@ -1,6 +1,6 @@
 
-<div align="center">
-# Geoindoor <img src="geoindoor/architect/images/logo.png" width="150" > 
+# Geoindoor<div align="center">
+ <img src="geoindoor/architect/images/logo.png" width="150" > 
 </div>
  
 
