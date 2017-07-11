@@ -1,6 +1,7 @@
 # Geoindoor 
-
-<img src="geoindoor/architect/images/logo.png" width="150" > 
+<div style="text-align:center">
+ <img src="geoindoor/architect/images/logo.png" width="150" > 
+</div>
  
 
 Sistema que con múltiples aplicaciones que añade servicios de geolocalización dentro edificios. 
