@@ -85,17 +85,6 @@ AnyplaceAPI.Mapping.SIGN = "/mapping/accounts/sign";
 AnyplaceAPI.Mapping.SIGN_URL = AnyplaceAPI.FULL_SERVER + AnyplaceAPI.Mapping.SIGN;
 
 
-// Geoindoor API ***********
-
-var GeoindoorAPI = {};
-GeoindoorAPI.FULL_SERVER = "https://geoindoorapi.herokuapp.com";
-GeoindoorAPI.Route = {};
-
-
-GeoindoorAPI.Route.ROUTE_ADD = "/Ruta";
-GeoindoorAPI.Route.ROUTE_ADD_URL = GeoindoorAPI.FULL_SERVER + GeoindoorAPI.Route.ROUTE_ADD;
-
-// Geoindoor API ***********
 
     app.factory('AnyplaceAPIService', ['$http', '$q', 'formDataObject', function ($http, $q, formDataObject) {
 
@@ -103,30 +92,6 @@ GeoindoorAPI.Route.ROUTE_ADD_URL = GeoindoorAPI.FULL_SERVER + GeoindoorAPI.Route
     delete $http.defaults.headers.common['X-Requested-With'];
 
     var apiService = {};
-    var mydatarequest = {
-            "access_token": "ya29.Glx3BIYZJzETBdyxo6QktTPxSuto8icwkrLS3Sv3lB-U_RzGBnqSFuCFegrd3MRWIgEyLkB9sHP4FwyzNt_bc8oCySn_16O4qhY7zGhXM8sluNpaZ-CyOMAnQUOp6A",
-            "pois_from": "poi_9b54981d-9b5e-441b-a196-c4b4ffe560b0",
-            "pois_to": "poi_88db874c-a561-492d-8b8d-7ba0992fbc5c"
-    }
-    // Geoindoor API *********** TO DO
-      apiService.getRouteApi = function (json_req) {
-        return $http({
-            method: "POST",
-            url: "http://anyplace.rayzit.com/anyplace/navigation/route",
-            data: mydatarequest
-        }).
-            success(function (data, status) {
-                console.log(data);
-                alert(retornodata);
-                return data;
-            }).
-            error(function (data, status) {
-                return data;
-            });
-    };
-
-
-    // Geoindoor API ***********
 
     apiService.getRadioHeatmap = function (json_req) {
         //alert( "make the request: " + json_req );

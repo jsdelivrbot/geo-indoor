@@ -144,6 +144,7 @@ function createRoute(){
         var idmail = getIdMail();
         var contrasena = getContrasena();
         var edificio = getEdificio();
+        var camino = getPosRuta();
         if(ruta.length < 2){
             alert("The route should have at least 2 pois, remember to make the route in order");
             return;
@@ -157,7 +158,7 @@ function createRoute(){
             puntos: JSON.stringify(ruta),
             edificio: edificio,
             ruta: nombreRuta.value,
-            camino: " "
+            camino: JSON.stringify(camino)
         }
         $.ajax({
           type: "POST",
@@ -190,7 +191,6 @@ function getRoutes(){
         contrasena: contrasena,
         edificio: edificio,
     }
-    var retorno;
     $.ajax({
       type: "POST",
       url: "https://geoindoorapi.herokuapp.com/Rutas/Edificio",
@@ -289,5 +289,10 @@ function removeDrawRoute() {
   myflightPath.setMap(null);
 }
 
+// drawStoreRoute()
+// Dibuja la ruta pasada por parametro
+function drawStoreRoute(gmaps){
+
+}
 
 
