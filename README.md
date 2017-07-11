@@ -1,4 +1,4 @@
-# Geoindoor <img src="geoindoor/architect/images/logo.png" width="100" style="position: absolute; left: 100px; top: 150px;"> 
+# Geoindoor <img src="geoindoor/architect/images/logo.png" width="100" align="right"> 
 
 Sistema que con múltiples aplicaciones que añade servicios de geolocalización dentro edificios. 
 Una aplicación Web permite etiquetar ubicaciones dentro del plano del edificio. 
