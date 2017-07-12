@@ -405,13 +405,13 @@
     
     <span>
     <input id="pac-input" class="controls" type="text" placeholder="Search for desired area to add a Building">
-     <select class="selectRoutes" id="showRoutes" onchange="putNameRoute()">
-          <option value="" disabled selected>Chose route of the building</option>
-    </select> 
-   <div ng-controller="MyDraw">
+     <div ng-controller="MyDraw">
+         <select class="selectRoutes" id="showRoutes" onchange="putNameRoute()">
+              <option value="" disabled selected>Chose route of the building</option>
+        </select> 
        <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
-       <button ng-click="myGetRoutes()" >My get</button> 
+       <button ng-click="drawStoreRoute('Felio')" >My get</button> 
    </div>
     <div id="map-canvas"></div>
 

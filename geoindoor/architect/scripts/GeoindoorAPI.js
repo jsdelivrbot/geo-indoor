@@ -286,13 +286,10 @@ function drawRoute(gmaps){
 // borra la ruta que aparece en ruta
 
 function removeDrawRoute() {
+  if(myflightPath)
   myflightPath.setMap(null);
 }
 
-// drawStoreRoute()
-// Dibuja la ruta pasada por parametro
-function drawStoreRoute(gmaps){
 
-}
 
 
