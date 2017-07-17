@@ -1,10 +1,33 @@
 app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService','$http', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService,$http) {
 	
+	$scope.storeRoutesName = [];
+	
+	// myStoreRoutes
+	// Mostrar las rutas guardadas
+	// *********************** PONER BIEN EL NOMBRE EN LA VARIABLE********************
+	$scope.myStoreRoutes = function() {
+		var promise = $scope.myGetRoutes();
+		promise.then(function(resp) {
+			if(resp.config.data.edificio == getEdificio() || getEdificio() == "{{anyService.selectedBuilding.name}}"){
+				$scope.storeRoutesName = [];
+				console.log(resp.config.data.edificio);
+				var rutas = resp.data[Object.keys(resp.data)[0]];
+				Object.keys(rutas).forEach(function(key) {
+					$scope.storeRoutesName.push(rutas[key]["nombre"]);
+				});
+			}
+			
+		});
+		//console.log($scope.storeRoutesName);
+		//console.log($scope.myEdificio + " -  Get edificio " + getEdificio());
+	}
+
+	// Dibuja ruta
 	$scope.myDrawRoute = function(){
 		//alert("casa");
 		drawRoute(GMapService.gmap);
 	}
-
+	// Borra ruta dibujada
 	$scope.myRemoveDrawRoute = function(){
 		//alert("casa");
 		removeDrawRoute();
@@ -43,6 +66,9 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 	// Dibuja la ruta pasada por parametro
 	$scope.drawStoreRoute = function(nombreRuta) {
 		var promise = $scope.myGetRoutes();
+		/*if(!nombreRuta){
+			nombreRuta = $scope.myShowRoute;
+		}*/
 		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {
 			$scope.myRemoveDrawRoute();
@@ -81,4 +107,5 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		//console.log(data);
 	};
 
+$scope.myStoreRoutes();
 }]);

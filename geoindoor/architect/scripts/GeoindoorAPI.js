@@ -42,13 +42,15 @@ function getNombreRuta(){
 }
 // putNameRoute()
 // Pone el nombre de la ruta seleccionada en el input text de create route
+// *********************** PONER BIEN EL NOMBRE EN LA VARIABLE********************
 function putNameRoute() {
     var nombreRuta = document.getElementsByName("nameRoute")[0];
     var selectedRuta = document.getElementById("showRoutes");
-    nombreRuta.value = selectedRuta.value;
+    nombreRuta.value = selectedRuta.innerHTML;
 }
 // showRoutes()
 // muestra las rutas de edificio
+// Urilizado para mostrar las rutas sin angular js (Dropdown de rutas)
 var controlshowRoutes;
 function showRoutes(options) {
     var edificio = getEdificio();
@@ -94,9 +96,11 @@ document.getElementById("botonroute").addEventListener("click", function(){
 });
 
 // Mostrar rutas de edificio
+// Descomentar para mostrar las rutas sin angular js
+/*
 document.getElementById("showRoutes").addEventListener("click", function(){ 
    getRoutes();
-});
+});*/
 
 
 
@@ -180,7 +184,8 @@ function createRoute(){
 
 
    
-// Crear ruta
+// Muestra las rutas de un edificio
+// Urilizado para mostrar las rutas sin angular js (Dropdown de rutas)
 function getRoutes(){
     var retorno;
     var idmail = getIdMail();
