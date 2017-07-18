@@ -40,9 +40,18 @@ function getNombreRuta(){
         return nombreRuta.value;
     }
 }
+// getFloor()
+// Retorna la planta en la que se esta.
+function getFloor() {
+  var poisEdificio = getPoisEdificio();
+  if(!poisEdificio){
+    return false;
+  }
+  return poisEdificio[0]["floor_number"];
+}
 // putNameRoute()
 // Pone el nombre de la ruta seleccionada en el input text de create route
-// *********************** PONER BIEN EL NOMBRE EN LA VARIABLE********************
+// Urilizado para mostrar las rutas sin angular js (Dropdown de rutas)
 function putNameRoute() {
     var nombreRuta = document.getElementsByName("nameRoute")[0];
     var selectedRuta = document.getElementById("showRoutes");

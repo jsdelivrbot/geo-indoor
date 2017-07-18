@@ -4,19 +4,18 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 	
 	// myStoreRoutes
 	// Mostrar las rutas guardadas
-	// *********************** PONER BIEN EL NOMBRE EN LA VARIABLE********************
 	$scope.myStoreRoutes = function() {
 		var promise = $scope.myGetRoutes();
 		promise.then(function(resp) {
 			if(resp.config.data.edificio == getEdificio() || getEdificio() == "{{anyService.selectedBuilding.name}}"){
 				$scope.storeRoutesName = [];
-				console.log(resp.config.data.edificio);
+				//console.log(resp.config.data.edificio);
 				var rutas = resp.data[Object.keys(resp.data)[0]];
 				Object.keys(rutas).forEach(function(key) {
 					$scope.storeRoutesName.push(rutas[key]["nombre"]);
 				});
 			}
-			
+			console.log(resp.config.data.edificio + " -  Get edificio " + getEdificio());
 		});
 		//console.log($scope.storeRoutesName);
 		//console.log($scope.myEdificio + " -  Get edificio " + getEdificio());
@@ -66,9 +65,11 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 	// Dibuja la ruta pasada por parametro
 	$scope.drawStoreRoute = function(nombreRuta) {
 		var promise = $scope.myGetRoutes();
-		/*if(!nombreRuta){
+		if(!nombreRuta){
 			nombreRuta = $scope.myShowRoute;
-		}*/
+		}
+		//console.log("El nombre "+ document.getElementsByName("nameRoute")[0]);
+		document.getElementsByName("nameRoute")[0].value = nombreRuta;
 		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {
 			$scope.myRemoveDrawRoute();
@@ -80,26 +81,35 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 					var ruta = JSON.parse(rutas[key]["ruta"]);
 					console.log(ruta);
 					var flightPlanCoordinates = [];
+					var floorctrl=0;
 					ruta.forEach(function(punto) {
 						// ********* AQUI SE PODRIA MIRAR TAMBIEN LA PLANTA (FLOOR) *********
-						var coord = {
-					    	lat: parseFloat(punto["lat"]), 
-					    	lng: parseFloat(punto["lng"])
-					    }
-						//console.log(coord);
-						flightPlanCoordinates.push(coord);
+						if( punto["floor_number"] != getFloor() && floorctrl != 1){
+							alert(nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor() );
+							floorctrl=1;
+						}
+						if(floorctrl != 1){
+							var coord = {
+						    	lat: parseFloat(punto["lat"]), 
+						    	lng: parseFloat(punto["lng"])
+					    	}
+							//console.log(coord);
+							flightPlanCoordinates.push(coord);
+						}
+						
 					});
+					if(floorctrl != 1){
+						myflightPath = new google.maps.Polyline({
+							path: flightPlanCoordinates,
+							geodesic: true,
+							strokeColor: '#00ff00',
+							strokeOpacity: 1.0,
+							strokeWeight: 4
+						});  
 
-					myflightPath = new google.maps.Polyline({
-						path: flightPlanCoordinates,
-						geodesic: true,
-						strokeColor: '#00ff00',
-						strokeOpacity: 1.0,
-						strokeWeight: 4
-					});  
-
-					console.log(myflightPath.getPath());
-					myflightPath.setMap(GMapService.gmap);
+						console.log(myflightPath.getPath());
+						myflightPath.setMap(GMapService.gmap);
+					}
 				}
 			});
 
@@ -107,5 +117,6 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		//console.log(data);
 	};
 
-$scope.myStoreRoutes();
+setTimeout(function(){ $scope.myStoreRoutes(); }, 3000);
+
 }]);
