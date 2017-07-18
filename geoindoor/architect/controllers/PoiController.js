@@ -348,7 +348,7 @@ app.controller('PoiController', ['$scope', '$compile', 'GMapService', 'AnyplaceS
                     + '</button>'
                     + '</fieldset>'
                     + '<fieldset class="form-group" >'
-                    + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
+                    + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();$(\'#clickRoute\').click()"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
                     + '</button>'
                     + '<input type="hidden" id="addPoiToRoute" value="'+ p.puid +'" />'
                     + '</fieldset>'
@@ -397,7 +397,7 @@ app.controller('PoiController', ['$scope', '$compile', 'GMapService', 'AnyplaceS
                     + '</fieldset>'
                     + '</div>'
                     + '</form>'
-                    + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
+                    + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();$(\'#clickRoute\').click()"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
                     + '</button>'
                     + '<input type="hidden" id="addPoiToRoute" value="'+ p.puid +'" />'
                     + '</div>';

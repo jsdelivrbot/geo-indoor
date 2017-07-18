@@ -222,7 +222,7 @@
                             title="Floors">
                         <option value="">Select Floor</option>
                     </select>
-                    
+
                     <div class="divider-top-15-line">
 
                         <div class="subnote">Floor Toolbox</div>
@@ -367,7 +367,8 @@
                                 <span ng-show="edgeModeRoute">add mode (on)</span>
                                 </br>
                                 <label ng-show="edgeModeRoute">Name: &nbsp</label></label><input ng-show="edgeModeRoute" type="text" name="nameRoute"/>
-                                <button ng-show="edgeModeRoute" onclick="createRoute()"  > Create route </button>
+                                <!--AQUIIIIIIIIIIIII PARA LO DE BORRAR RUTA Coloreado de la ruta al crearla -->
+                                <button ng-show="edgeModeRoute" onclick="createRoute();$('#clickRouteRemove').click()"> Create route </button>
                             </div>
 
                         </div>
@@ -411,9 +412,12 @@
          <select class="selectRoutes" id="showRoutes" ng-model="myShowRoute" ng-options="item for item in storeRoutesName" ng-change= "drawStoreRoute()" ng-click="myStoreRoutes()">
               <option value="" disabled selected>Chose route of the building</option>
         </select> 
-       <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
+      <!-- <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
-       <button ng-click="drawStoreRoute('LaMia')" >My get</button> 
+       <button ng-click="drawStoreRoute('LaMia')" >My get</button> -->
+       <input type="hidden" id="clickRoute" ng-click="myDrawRoute()"> 
+       <!--AQUIIIIIIIIIIIII PARA LO DE BORRAR RUTA Coloreado de la ruta al crearla -->
+       <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()"> 
    </div>
     <div id="map-canvas"></div>
 
