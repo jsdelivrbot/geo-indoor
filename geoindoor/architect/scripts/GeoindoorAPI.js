@@ -271,28 +271,31 @@ function getPosRuta(){
 // drawRoute()
 // Dibuja la ruta que aparece en ruta
 function drawRoute(gmaps){
-  var posRuta = getPosRuta();
-  var flightPlanCoordinates = [];
-  posRuta.forEach(function(pos) {
-    var coord = {
-      lat: parseFloat(pos["lat"]), 
-      lng: parseFloat(pos["lng"])
-    }
-    //console.log(coord);
-    flightPlanCoordinates.push(coord);
-  });
+  if(ruta.length > 1){
+    removeDrawRoute();
+    var posRuta = getPosRuta();
+    var flightPlanCoordinates = [];
+    posRuta.forEach(function(pos) {
+      var coord = {
+        lat: parseFloat(pos["lat"]), 
+        lng: parseFloat(pos["lng"])
+      }
+      console.log(coord);
+      flightPlanCoordinates.push(coord);
+    });
 
 
-  myflightPath = new google.maps.Polyline({
-      path: flightPlanCoordinates,
-      geodesic: true,
-      strokeColor: '#00ff00',
-      strokeOpacity: 1.0,
-      strokeWeight: 4
-  });  
+    myflightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+        geodesic: true,
+        strokeColor: '#00ff00',
+        strokeOpacity: 1.0,
+        strokeWeight: 4
+    });  
 
-  console.log(myflightPath.getPath());
-  myflightPath.setMap(gmaps);
+    console.log(myflightPath.getPath());
+    myflightPath.setMap(gmaps);
+  }
 
 }
 
@@ -300,6 +303,7 @@ function drawRoute(gmaps){
 // borra la ruta que aparece en ruta
 
 function removeDrawRoute() {
+  //console.log(ruta);
   if(myflightPath)
   myflightPath.setMap(null);
 }

@@ -161,6 +161,23 @@ body {
     -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
 }
+.rRoutes{
+    text-overflow: ellipsis; 
+    position:absolute;
+    left: 175px;
+    top: 60px;
+    z-index: 4;
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    height: 23px;
+    padding-top: 0px; 
+    
+    -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+}
 /*Geoindoor*/
 #control-bar {
     width: auto;
@@ -275,15 +292,6 @@ body {
     padding-right: 20%;
 }
 
-.
-contextmenu {
-    visibility: hidden;
-    background: #ffffff;
-    border: 1px solid #8888FF;
-    z-index: 10;
-    position: relative;
-    width: 140px;
-}
 
 .contextmenu div {
     padding-left: 5px

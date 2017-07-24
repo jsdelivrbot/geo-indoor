@@ -360,7 +360,7 @@
                             </div>
 
                             <div class="divider-top-10">
-                                <span id="botonroute" ng-click="toggleEdgeModeRoute()">
+                                <span id="botonroute" ng-click="toggleEdgeModeRoute()" onclick="$('#clickRouteRemove').click()">
                                     <img id="edge-mode-btn" src="build/images/routeic.png"/>
                                 </span>
                                 <span ng-hide="edgeModeRoute">add route mode (off)</span>
@@ -412,11 +412,12 @@
          <select class="selectRoutes" id="showRoutes" ng-model="myShowRoute" ng-options="item for item in storeRoutesName" ng-change= "drawStoreRoute()" ng-click="myStoreRoutes()">
               <option value="" disabled selected>Chose route of the building</option>
         </select> 
+        <!-- PENDIENTE DE IMPLEMETNAR -->
+        <button class="rRoutes" ng-click="myRemoveDrawRoute()">Remove route</button>
       <!-- <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
        <button ng-click="drawStoreRoute('LaMia')" >My get</button> -->
        <input type="hidden" id="clickRoute" ng-click="myDrawRoute()"> 
-       <!--AQUIIIIIIIIIIIII PARA LO DE BORRAR RUTA Coloreado de la ruta al crearla -->
        <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()"> 
    </div>
     <div id="map-canvas"></div>
