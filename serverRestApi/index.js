@@ -54,7 +54,10 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });*/
 
+/*
+************************AÑADIR FLOOR+++++++++++++++++++++
 
+*/
 
 
 
@@ -109,7 +112,7 @@ app.post("/Ruta", function(request, response) {
 					lastid=getNumber(key);
 				}
 			});
-			idMail="e" + (++lastid);
+			idMail="e" + (lastid++);
 		}
 		var Emails = db.ref("Emails/" + idMail );
 		Emails.set({
@@ -145,7 +148,7 @@ app.post("/Ruta", function(request, response) {
 		});
 
 		response.status = 200;
-		response.send(nombreRuta + " idMail "  );
+		response.send(nombreRuta + " idMail " +  idMail + " emails " + emails);
 
 	}else if( !idEdificio ){
 
@@ -558,7 +561,7 @@ function getEmails(db) {
 	ref.on("value", function (snapshot) {
 		respuesta=snapshot.val();
 	});
-	if(!respuesta) return false;
+	//if(!respuesta) return false;
 	return JSON.stringify(respuesta);
 }
 
@@ -570,7 +573,7 @@ function getIdEmail(db,email) {
 	keys=Object.keys(emails);
 	keys.forEach(function(key){
 		var mykey=key.toString();
-		if( emails[key]["email"].toLowerCase() == email.toLowerCase() ){
+		if( emails[key]["email"] == email ){
 			respuesta = key;
 		}
 	});
