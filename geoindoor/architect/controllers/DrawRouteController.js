@@ -116,7 +116,16 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		});
 		//console.log(data);
 	};
+	// wakeUpHeroku()
+	// Hace una serie de llamadas al servidor para despertarle
+	$scope.wakeUpHeroku = function() {
+		console.log("AQUIIIII");
+		$scope.myGetRoutes();
+		$scope.myGetRoutes();
+		$scope.myGetRoutes();
+	}
 
-setTimeout(function(){ $scope.myStoreRoutes(); }, 3000);
+	$scope.wakeUpHeroku();
+	setTimeout(function(){ $scope.myStoreRoutes(); }, 3000);
 
 }]);
