@@ -1309,6 +1309,10 @@ app.controller('PoiController', ['$scope', '$compile', 'GMapService', 'AnyplaceS
             + '</fieldset>'
             + '</div>'
             + '</form>'
+            //AL AÑADIR POI AL MAPA
+            + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();$(\'#clickRoute\').click()"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
+            + '</button>'
+            + '<input type="hidden" id="addPoiToRoute" value = "{{anyService.selectedPoi.puid}}" />'
             + '</div>';
 
         var htmlConnector = '<div class="infowindow-scroll-fix" style="text-align: center; width:170px">'
@@ -1326,8 +1330,13 @@ app.controller('PoiController', ['$scope', '$compile', 'GMapService', 'AnyplaceS
         var htmlConnector2 = '<div class="infowindow-scroll-fix" style="text-align: center; width:170px">'
             + '<div style="margin-bottom: 5px">POI Connector</div>'
             + '<fieldset class="form-group">'
-            + '<button type="submit" class="btn btn-danger add-any-button" style="margin-left:2px" ng-click="deletePoi(' + marker.myId + ')"><span class="glyphicon glyphicon-remove"></span> Remove'
+            + '<button type="submit" class="btn btn-danger add-any-button" style="margin-left:2px; width:80%" ng-click="deletePoi(' + marker.myId + ')"><span class="glyphicon glyphicon-remove"></span> Remove'
             + '</button>'
+            + '</fieldset>'
+            + '<fieldset class="form-group" >'
+            + '<button id="btnAddPoiToRoute" onclick="addPoiRoute();$(\'#clickRoute\').click()"  class="btn" style="margin-left:2px" tabindex="6"><span> add POI to the route</span>'
+            + '</button>'
+            + '<input type="hidden" id="addPoiToRoute" value = "{{anyService.selectedPoi.puid}}" />'
             + '</fieldset>'
             + '</div>';
 
