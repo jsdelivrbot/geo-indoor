@@ -9,7 +9,43 @@
 var addRoute = false; // Controlador de acceso a creación de ruta
 var ruta = []; // ruta que se va a añadir
 
+// Gestión de mensajes ---
 
+// Información relevante
+// --- ACUERDATE DE ng-model ---******************
+function msgInfo(msg) {
+  var $scope = getScope("MyDraw");
+  $scope.info(msg);
+  $scope.$apply();
+};
+
+// Warning
+function msgWarn(msg) {
+  var $scope = getScope("MyDraw");
+  $scope.warn(msg);
+  $scope.$apply();
+};
+// Error
+function msgErr(msg) {
+  var $scope = getScope("MyDraw");
+  $scope.err(msg);
+  $scope.$apply();
+};
+// Éxito
+function msgSuc(msg) {
+  var $scope = getScope("MyDraw");
+  $scope.suc(msg);
+  $scope.$apply();
+};
+
+
+// ---
+// getScope
+// Devuelve el scope del controlador indicado en ctrlNombre
+function getScope(ctrlNombre) {
+    var ctrl = 'div[ng-controller="' + ctrlNombre + '"]';
+    return angular.element(ctrl).scope();
+}
 // getIdMail
 // Recoge el idmail y lo pasa retorna String
 function getIdMail(){
@@ -35,7 +71,8 @@ function getNombreRuta(){
     var nombreRuta = document.getElementsByName("nameRoute")[0];
     var pattern = /[A-Za-z0-9]/g;
     if( nombreRuta.value == null || !nombreRuta.value.length || !pattern.test(nombreRuta.value) ){
-        alert("Name field must not be empty");
+        //alert("Name field must not be empty");
+        msgInfo("Name field must not be empty");
     }else{
         return nombreRuta.value;
     }
@@ -99,7 +136,8 @@ document.getElementById("botonroute").addEventListener("click", function(){
         botonroute.setAttribute("class"," ");
         addRoute = false;
         ruta = [];
-        alert("Route clear");
+        //alert("Route clear");
+        msgInfo("Route clear");
         console.log(ruta);
    }
 });
@@ -121,14 +159,17 @@ function addPoiRoute() {
    if (bototnroute.className == "draggable-border-red"){
         if( ruta.indexOf(poi) == -1 ){
             ruta.push(poi);
-            alert("Poi " + poi + " added to the route, position "+ ruta.length);
+            //alert("Poi " + poi + " added to the route, position "+ ruta.length);
+            msgSuc("Poi " + poi + " added to the route, position "+ ruta.length);
             console.log(ruta);
         }else{
-            alert("This Poi "+ poi + " has already been added , position "+ ruta.indexOf(poi)+1);
+            //alert("This Poi "+ poi + " has already been added , position "+ ruta.indexOf(poi)+1);
+            msgWarn("This Poi "+ poi + " has already been added , position "+ (ruta.indexOf(poi)+1));
         }
    }else{
         console.log("Aquiiiii");
-        alert("Turn on the route button 'add route mode' to add pois to the route");
+        //alert("Turn on the route button 'add route mode' to add pois to the route");
+        msgWarn("Turn on the route button 'add route mode' to add pois to the route");
 
    }
    
@@ -139,7 +180,8 @@ function createRoute(){
     var nombreRuta = document.getElementsByName("nameRoute")[0];
     var pattern = /[A-Za-z0-9]/g;
     if( nombreRuta.value == null || !nombreRuta.value.length || !pattern.test(nombreRuta.value) ){
-        alert("Name field must not be empty");
+        //alert("Name field must not be empty");
+        msgInfo("Name field must not be empty");
     }else{
         console.log(nombreRuta.value);
         var GeoindoorAPI = {};
@@ -159,7 +201,8 @@ function createRoute(){
         var edificio = getEdificio();
         var camino = getPosRuta();
         if(ruta.length < 2){
-            alert("The route should have at least 2 pois, remember to make the route in order");
+            //alert("The route should have at least 2 pois, remember to make the route in order");
+            msgInfo("The route should have at least 2 pois, remember to make the route in order");
             return;
         }
       
@@ -178,7 +221,8 @@ function createRoute(){
           url: GeoindoorAPI.Route.ROUTE_ADD_URL,
           data: mydatarequest,
           success: function(retornodata) {
-              alert("Ruta added/updated");
+              //alert("Ruta added/updated");
+              msgSuc("Ruta added/updated");
               addRoute = false;
               ruta = [];
               var nombreRuta = document.getElementsByName("nameRoute")[0];

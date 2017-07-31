@@ -1,7 +1,32 @@
 app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService','$http', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService,$http) {
 	
+	$scope.anyService = AnyplaceService;
+
 	$scope.storeRoutesName = [];
 	
+	// Gestión de mensajes ---
+
+	// Información relevante
+	$scope.info = function (msg) {
+        $scope.anyService.addAlert('info', msg);
+    };
+    // Warning
+    $scope.warn = function (msg) {
+        $scope.anyService.addAlert('warning', msg);
+    };
+    // Error
+    $scope.err = function (msg) {
+        $scope.anyService.addAlert('danger', msg);
+    };
+    // Éxito
+    $scope.suc = function (msg) {
+        $scope.anyService.addAlert('success', msg);
+    };
+
+
+	// ---
+
+
 	// myStoreRoutes
 	// Mostrar las rutas guardadas
 	$scope.myStoreRoutes = function() {
@@ -85,7 +110,8 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 					ruta.forEach(function(punto) {
 						// ********* AQUI SE PODRIA MIRAR TAMBIEN LA PLANTA (FLOOR) *********
 						if( punto["floor_number"] != getFloor() && floorctrl != 1){
-							alert(nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor() );
+							var msg = nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor();
+    						$scope.warn(msg);
 							floorctrl=1;
 						}
 						if(floorctrl != 1){

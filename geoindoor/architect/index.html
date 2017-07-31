@@ -414,11 +414,21 @@
         </select> 
         <!-- PENDIENTE DE IMPLEMETNAR -->
         <button class="rRoutes" ng-click="myRemoveDrawRoute()">Remove route</button>
-      <!-- <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
+      <!-- PARA TEST
+        <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
        <button ng-click="drawStoreRoute('LaMia')" >My get</button> -->
+       <!-- DIBUJO DE RUTAS -->
        <input type="hidden" id="clickRoute" ng-click="myDrawRoute()"> 
-       <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()"> 
+       <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()">
+       <!-- GESTIÓN DE MENSAJES -->
+       <div id="mensajes">
+           
+       </div> 
+      <!-- <input type="hidden" id="warning" ng-click="warn()"> 
+       <input type="hidden" id="error" ng-click="err()">
+       <input type="hidden" id="info" ng-click="info('LO MIO')"> 
+       <input type="hidden" id="exito" ng-click="suc()"> -->
    </div>
     <div id="map-canvas"></div>
 
