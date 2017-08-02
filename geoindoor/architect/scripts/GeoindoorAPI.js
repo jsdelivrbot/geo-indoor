@@ -12,7 +12,6 @@ var ruta = []; // ruta que se va a añadir
 // Gestión de mensajes ---
 
 // Información relevante
-// --- ACUERDATE DE ng-model ---******************
 function msgInfo(msg) {
   var $scope = getScope("MyDraw");
   $scope.info(msg);
@@ -85,6 +84,40 @@ function getFloor() {
     return false;
   }
   return poisEdificio[0]["floor_number"];
+}
+// getNamePoi(poi)
+// Retorna el nombre del poi.
+function getNamePoi(poi) {
+  var poisEdificio = getPoisEdificio();
+  if(!poisEdificio){
+    return false;
+  }
+  var retorno = false;
+  Object.keys(poisEdificio).forEach(function(key) {
+    if(poisEdificio[key]["puid"] == poi){
+      retorno = poisEdificio[key]["name"];
+      return;
+    }
+  });
+  return retorno;
+}
+// getDescriptionPoi(poi)
+// Retorna la descripcion del poi.
+function getDescriptionPoi(poi) {
+  var poisEdificio = getPoisEdificio();
+  if(!poisEdificio){
+    return false;
+  }
+  var retorno = false;
+  Object.keys(poisEdificio).forEach(function(key) {
+    //console.log(poisEdificio[key]["puid"] + " vs " + poi);
+    if(poisEdificio[key]["puid"] == poi){
+      //console.log(poisEdificio[key]["description"] + " vs " + poi);
+      retorno = poisEdificio[key]["description"];
+      return;
+    }
+  });
+  return retorno;
 }
 // putNameRoute()
 // Pone el nombre de la ruta seleccionada en el input text de create route
@@ -160,11 +193,11 @@ function addPoiRoute() {
         if( ruta.indexOf(poi) == -1 ){
             ruta.push(poi);
             //alert("Poi " + poi + " added to the route, position "+ ruta.length);
-            msgSuc("Poi " + poi + " added to the route, position "+ ruta.length);
+            msgSuc("Poi: " + getNamePoi(poi) + " ("+ poi +")" + " added to the route, position "+ ruta.length);
             console.log(ruta);
         }else{
             //alert("This Poi "+ poi + " has already been added , position "+ ruta.indexOf(poi)+1);
-            msgWarn("This Poi "+ poi + " has already been added , position "+ (ruta.indexOf(poi)+1));
+            msgWarn("This Poi: "+ getNamePoi(poi) + " ("+ poi +")" + " has already been added , position "+ (ruta.indexOf(poi)+1));
         }
    }else{
         console.log("Aquiiiii");
@@ -200,6 +233,7 @@ function createRoute(){
         var contrasena = getContrasena();
         var edificio = getEdificio();
         var camino = getPosRuta();
+        //console.log("SHIEEEEEEEEE"+ camino)
         if(ruta.length < 2){
             //alert("The route should have at least 2 pois, remember to make the route in order");
             msgInfo("The route should have at least 2 pois, remember to make the route in order");
@@ -284,7 +318,7 @@ var myflightPath;
 // Recoge todos los pois de un edificio
 function getPoisEdificio(){
   var poisEdificio = document.getElementsByName("poisEdificio")[0];
-  //console.log(JSON.parse(poisEdificio.value));
+  console.log(JSON.parse(poisEdificio.value));
   return JSON.parse(poisEdificio.value);
 }
 
@@ -301,7 +335,9 @@ function getPosRuta(){
             puid: objeto["puid"],
             lat: objeto["coordinates_lat"],
             lng: objeto["coordinates_lon"],
-            floor_number: objeto["floor_number"]
+            floor_number: objeto["floor_number"],
+            name: objeto["name"],
+            description: objeto["description"]
           }
           retorno.push(posicion);
         }
