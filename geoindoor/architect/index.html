@@ -367,8 +367,9 @@
                                 <span ng-show="edgeModeRoute">add mode (on)</span>
                                 </br>
                                 <label ng-show="edgeModeRoute">Name: &nbsp</label></label><input ng-show="edgeModeRoute" type="text" name="nameRoute"/>
-                                <!--AQUIIIIIIIIIIIII PARA LO DE BORRAR RUTA Coloreado de la ruta al crearla -->
-                                <button ng-show="edgeModeRoute" onclick="createRoute();$('#clickRouteRemove').click()"> Create route </button>
+                                <!-- -->
+                                <button ng-show="edgeModeRoute" onclick="createRoute();"> Create route </button>
+                                <!-- onclick="createRoute();$('#clickRouteRemove').click()"-->
                             </div>
 
                         </div>
@@ -413,7 +414,8 @@
               <option value="" disabled selected>Chose route of the building</option>
         </select> 
         <!-- PENDIENTE DE IMPLEMETNAR -->
-        <button class="rRoutes" ng-click="myRemoveDrawRoute()">Remove route</button>
+        <button id="clearRoute" class="rRoutes" ng-click="myRemoveDrawRoute()">Clear</button>
+        <button class="removeRoute btn-danger" ng-click="removeRoute()"><span class="glyphicon glyphicon-remove"></button>
       <!-- PARA TEST
         <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 

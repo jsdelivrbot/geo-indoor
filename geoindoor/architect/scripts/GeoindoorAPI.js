@@ -71,7 +71,8 @@ function getNombreRuta(){
     var pattern = /[A-Za-z0-9]/g;
     if( nombreRuta.value == null || !nombreRuta.value.length || !pattern.test(nombreRuta.value) ){
         //alert("Name field must not be empty");
-        msgInfo("Name field must not be empty");
+        //msgInfo("Name field must not be empty");
+        return false;
     }else{
         return nombreRuta.value;
     }
@@ -156,6 +157,13 @@ function showRoutes(options) {
      }
 }
 
+
+$("#clearRoute").click(function() {
+  ruta = [];
+ // alert("Route clear");
+  msgInfo("Route clear");
+});
+   
 
 
 // Para cambiar si agregar o no ruta a la vez que el color
@@ -256,6 +264,8 @@ function createRoute(){
           data: mydatarequest,
           success: function(retornodata) {
               //alert("Ruta added/updated");
+              var $scope = getScope("MyDraw");
+              $scope.myRemoveDrawRoute();
               msgSuc("Ruta added/updated");
               addRoute = false;
               ruta = [];

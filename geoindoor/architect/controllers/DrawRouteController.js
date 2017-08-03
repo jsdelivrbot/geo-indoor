@@ -85,15 +85,54 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 			return data;
 		});
 	};
+	// removeRoute()
+	// Borra la ruta de la base de datos
+	$scope.removeRoute = function () { 
+	   	var idmail = getIdMail();
+	    var contrasena = getContrasena();
+	    var edificio = getEdificio();
+	    var nombreRuta = $scope.myShowRoute;
+	    if( !nombreRuta || !edificio || !contrasena || !idmail ){
+	    	return false;
+	    }
+	    var datarequest = {
+	        email: idmail,
+	        edificio: edificio,
+	        ruta: nombreRuta,
+	        contrasena: contrasena
+	    }
+		return $http({
+
+		    method: 'POST',
+		    url: "https://geoindoorapi.herokuapp.com/RutaDelete",
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		    transformRequest: function(obj) {
+		        var str = [];
+		        for(var p in obj){
+		        	str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		        }
+		        return str.join("&");
+		    },
+		    data: datarequest
+
+		}).success(function (data,status) {
+			//console.log(data);
+			$scope.suc("Ruta " + nombreRuta + " removed");
+			return data;
+		}).error(function (data,status) {
+			$scope.err("Ruta " + nombreRuta + " has not been removed");
+			return data;
+		});
+	};
 
 	// drawStoreRoute()
 	// Dibuja la ruta pasada por parametro
 	$scope.drawStoreRoute = function(nombreRuta) {
+		// $scope.myShowRoute es el ng-model del desplegable
 		var promise = $scope.myGetRoutes();
 		if(!nombreRuta){
 			nombreRuta = $scope.myShowRoute;
 		}
-		//console.log("El nombre "+ document.getElementsByName("nameRoute")[0]);
 		document.getElementsByName("nameRoute")[0].value = nombreRuta;
 		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {

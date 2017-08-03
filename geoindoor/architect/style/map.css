@@ -163,17 +163,33 @@ body {
 }
 .rRoutes{
     text-overflow: ellipsis; 
+    color: white;
     position:absolute;
-    left: 175px;
+    left: 215px;
     top: 60px;
     z-index: 4;
-    background-color: #fff;
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
     height: 23px;
     padding-top: 0px; 
+
+    background-color: #428bca;
+    border-color: #3865f4;
     
+    -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+}
+.removeRoute{
+    position:absolute;
+    left: 175px;
+    top: 60px;
+    height: 23px;
+    z-index: 4;
+    
+    border-color: red;
+
     -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
