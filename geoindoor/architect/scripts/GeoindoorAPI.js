@@ -80,11 +80,22 @@ function getNombreRuta(){
 // getFloor()
 // Retorna la planta en la que se esta.
 function getFloor() {
+  /* 
+
+  // IMPLEMENTACIÖN ANTIGUA
+
   var poisEdificio = getPoisEdificio();
-  if(!poisEdificio){
+  if(!poisEdificio || poisEdificio == undefined || poisEdificio.length == 0){
     return false;
   }
+  console.log(poisEdificio);
   return poisEdificio[0]["floor_number"];
+
+  */
+
+  var scope = getScope("FloorController as floorCtrl");
+  //console.log(scope.anyService.selectedFloor["floor_number"]);
+  return scope.anyService.selectedFloor["floor_number"];
 }
 // getNamePoi(poi)
 // Retorna el nombre del poi.
@@ -157,7 +168,9 @@ function showRoutes(options) {
      }
 }
 
+// LISTENERS --- # Start # ---
 
+// Vaciado de ruta al pulsar clear
 $("#clearRoute").click(function() {
   ruta = [];
  // alert("Route clear");
@@ -190,6 +203,7 @@ document.getElementById("showRoutes").addEventListener("click", function(){
    getRoutes();
 });*/
 
+// LISTENERS --- # END # ---
 
 
 // Añadir poi a la ruta

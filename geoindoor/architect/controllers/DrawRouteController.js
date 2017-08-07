@@ -150,7 +150,7 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 						// ********* AQUI SE PODRIA MIRAR TAMBIEN LA PLANTA (FLOOR) *********
 						if( punto["floor_number"] != getFloor() && floorctrl != 1){
 							var msg = nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor();
-    						$scope.warn(msg);
+    						$scope.err(msg);
 							floorctrl=1;
 						}
 						if(floorctrl != 1){

@@ -176,6 +176,7 @@ body {
 
     background-color: #428bca;
     border-color: #3865f4;
+    border-radius: 4px;
     
     -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
@@ -189,6 +190,8 @@ body {
     z-index: 4;
     
     border-color: red;
+
+    border-radius: 4px;
 
     -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
