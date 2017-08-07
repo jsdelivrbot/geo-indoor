@@ -133,7 +133,7 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		if(!nombreRuta){
 			nombreRuta = $scope.myShowRoute;
 		}
-		document.getElementsByName("nameRoute")[0].value = nombreRuta;
+		document.getElementsByName("nameRoute")[0].value = nombreRuta.substring(nombreRuta.indexOf(" ")+1, nombreRuta.lenght);
 		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {
 			$scope.myRemoveDrawRoute();
@@ -150,7 +150,7 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 						// ********* AQUI SE PODRIA MIRAR TAMBIEN LA PLANTA (FLOOR) *********
 						if( punto["floor_number"] != getFloor() && floorctrl != 1){
 							var msg = nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor();
-    						$scope.err(msg);
+    						$scope.warn(msg);
 							floorctrl=1;
 						}
 						if(floorctrl != 1){

@@ -410,7 +410,7 @@
     <input id="pac-input" class="controls" type="text" placeholder="Search for desired area to add a Building">
      <div ng-controller="MyDraw">
          <!--<select class="selectRoutes" id="showRoutes" onchange="putNameRoute()"> -->
-         <select class="selectRoutes" id="showRoutes" ng-model="myShowRoute" ng-options="item for item in storeRoutesName" ng-change= "drawStoreRoute()" ng-click="myStoreRoutes()">
+         <select class="selectRoutes" id="showRoutes" ng-model="myShowRoute" ng-options="item for item in storeRoutesName" ng-change= "drawStoreRoute()" ng-click="myStoreRoutes()" >
               <option value="" disabled selected>Chose route of the building</option>
         </select> 
         <!-- PENDIENTE DE IMPLEMETNAR -->

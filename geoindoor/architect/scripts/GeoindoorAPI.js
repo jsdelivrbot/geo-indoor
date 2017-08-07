@@ -66,6 +66,7 @@ function getEdificio(){
 }
 // getNombreRuta()
 // Recoge el nombre de la ruta y la retorna como String
+// Auxiliar
 function getNombreRuta(){
     var nombreRuta = document.getElementsByName("nameRoute")[0];
     var pattern = /[A-Za-z0-9]/g;
@@ -80,22 +81,13 @@ function getNombreRuta(){
 // getFloor()
 // Retorna la planta en la que se esta.
 function getFloor() {
-  /* 
-
-  // IMPLEMENTACIÖN ANTIGUA
-
   var poisEdificio = getPoisEdificio();
   if(!poisEdificio || poisEdificio == undefined || poisEdificio.length == 0){
-    return false;
+    var scope = getScope("FloorController as floorCtrl");
+    return scope.anyService.selectedFloor["floor_number"];
   }
-  console.log(poisEdificio);
+  //console.log(poisEdificio);
   return poisEdificio[0]["floor_number"];
-
-  */
-
-  var scope = getScope("FloorController as floorCtrl");
-  //console.log(scope.anyService.selectedFloor["floor_number"]);
-  return scope.anyService.selectedFloor["floor_number"];
 }
 // getNamePoi(poi)
 // Retorna el nombre del poi.
@@ -269,7 +261,7 @@ function createRoute(){
             contrasena: contrasena,
             puntos: JSON.stringify(ruta),
             edificio: edificio,
-            ruta: nombreRuta.value,
+            ruta: getFloor() + " " + nombreRuta.value,
             camino: JSON.stringify(camino)
         }
         $.ajax({
