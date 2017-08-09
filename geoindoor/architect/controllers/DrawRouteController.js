@@ -39,6 +39,10 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 				Object.keys(rutas).forEach(function(key) {
 					$scope.storeRoutesName.push(rutas[key]["nombre"]);
 				});
+				//console.log("Sin Ordenar " + $scope.storeRoutesName);
+				// ORDENADO
+				$scope.storeRoutesName.sort();
+				//console.log("Ordenado " + $scope.storeRoutesName);
 			}
 			console.log(resp.config.data.edificio + " -  Get edificio " + getEdificio());
 		});
@@ -133,6 +137,7 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		if(!nombreRuta){
 			nombreRuta = $scope.myShowRoute;
 		}
+		if(!nombreRuta){return false;}
 		document.getElementsByName("nameRoute")[0].value = nombreRuta.substring(nombreRuta.indexOf(" ")+1, nombreRuta.lenght);
 		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {

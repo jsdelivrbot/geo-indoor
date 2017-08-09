@@ -368,7 +368,7 @@
                                 </br>
                                 <label ng-show="edgeModeRoute">Name: &nbsp</label></label><input ng-show="edgeModeRoute" type="text" name="nameRoute"/>
                                 <!-- -->
-                                <button ng-show="edgeModeRoute" onclick="createRoute();"> Create route </button>
+                                <button ng-show="edgeModeRoute" onclick="createRoute();$('#storeRoutes').click();$('#storeRoutes').click()"> Create route </button>
                                 <!-- onclick="createRoute();$('#clickRouteRemove').click()"-->
                             </div>
 
@@ -416,10 +416,14 @@
         <!-- PENDIENTE DE IMPLEMETNAR -->
         <button id="clearRoute" class="rRoutes" ng-click="myRemoveDrawRoute()">Clear</button>
         <button class="removeRoute btn-danger" ng-click="removeRoute()"><span class="glyphicon glyphicon-remove"></button>
+        
       <!-- PARA TEST
         <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
        <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
        <button ng-click="drawStoreRoute('LaMia')" >My get</button> -->
+
+       <!-- PARA LA ACTUALIZACIÓN DEL DESPLIEGUE DE RUTAS ALMACENADAS -->
+       <input type="hidden" id="storeRoutes" ng-click="myStoreRoutes()">
        <!-- DIBUJO DE RUTAS -->
        <input type="hidden" id="clickRoute" ng-click="myDrawRoute()"> 
        <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()"> 
