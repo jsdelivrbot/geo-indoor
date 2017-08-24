@@ -11,6 +11,9 @@ body {
     letter-spacing: -1px;
     -webkit-font-smoothing: antialiased;
     position: relative;
+    /*Geoindoor*/
+    background-image: url("../images/mifondo.png");
+    /*Geoindoor*/
 }
 
 #login-details {
@@ -197,6 +200,39 @@ body {
     -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
     box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
 }
+
+.btnLogin {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 35;
+  -moz-border-radius: 35;
+  border-radius: 35px;
+  -webkit-box-shadow: 1px 1px 30px #002afa;
+  -moz-box-shadow: 1px 1px 30px #002afa;
+  box-shadow: 1px 1px 30px #002afa;
+  font-family: Arial;
+  color: #fff;
+  font-size: 34px;
+  padding: 8px 20px 10px 20px;
+  text-decoration: none;
+
+}
+
+.btnLogin:hover {
+  background: #344ad9;
+  text-decoration: none;
+}
+.divBtnLogin{
+    margin: auto;
+    width: 10%;
+    margin-top: 220px;
+}
+
+
 /*Geoindoor*/
 #control-bar {
     width: auto;
