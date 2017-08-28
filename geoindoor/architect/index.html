@@ -45,9 +45,11 @@
 <div id="top-container">
     <div ng-controller="loginGeoindoor">
         <!-- <input type="checkbox" ng-model="logeado"> -->
-        <div class="divBtnLogin" ng-show="logeado">
-          <h1>Architect</h1>
-          <button id="login" class="btnLogin" ng-click="loginGoogle()">Login</button>
+        <div ng-show="logeado">
+            <h1 class="titLogin">Geoindoor Architect</h1>
+            <div class="divBtnLogin" >
+              <button id="login" class="btnLogin" ng-click="loginGoogle()">Login<img class="imgLogin" src="images/architect.png"></button>
+            </div>
         </div>
         <div ng-show="!logeado" >
           <button id="logout" ng-click="logOutGoogle()">LOGOUT</button>
