@@ -1,6 +1,6 @@
 app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService','$http', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService,$http) {
 	
-	$scope.logeado = false;
+	$scope.logeado = true;
 
 	  var config = {
 	    apiKey: "AIzaSyDS4xASU14_0JbaXNEU_1icvU7bX1ugB5A",
@@ -12,41 +12,48 @@ app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceS
 	  firebase.initializeApp(config);
 
 	  $scope.loginGoogle = function() {
-	    if(!firebase.auth().currentUser){
+	    
 	      var provider = new firebase.auth.GoogleAuthProvider();
 	      provider.addScope('https://www.googleapis.com/auth/plus.login'); 
 	      firebase.auth().signInWithPopup(provider).then(function(result) {
 	        var token = result.credential.accesstoken;
 	        var user = result.user;
 	        var name = result.user.displayName;
-	        $scope.logeado = true;          
-	        $scope.wakeup();
+	        $scope.$apply(function () {
+            	$scope.logeado = true; 
+        	});   
 	      }).catch(function(error) {
-	      	$scope.logeado = false;
-	        alert( "ERROR: "+ error);
+	      	var errorCode = error.code;
+  			var errorMessage = error.message;
+	      	if(errorCode == "auth/popup-closed-by-user"){
+	      		alert("Debe logearse para entrar");
+	      	}
+	      	//alert(JSON.stringify(error));
+	      	$scope.$apply(function () {
+            	$scope.logeado = false; 
+        	});
+
+	        
 	      });
-	    }else{
-	      $scope.logOutGoogle();
-	    }
+	   
 	  }
 	 $scope.logOutGoogle =  function () {
+	 	$scope.$apply(function () {
+            $scope.logeado = false; 
+        });
 	    firebase.auth().signOut().then(function() {
-	       $scope.logeado = false;
 	      alert("Saliendo");
 	    }, function(error) {
 	      alert( "ERROR: "+ error);
 	    });
 	  }
-	$scope.wakeup = function() {
-	    var db = firebase.database();
-	    var ref = db.ref("Edificios/");
-	    var respuestaux;
-	    ref.on("value", function (snapshot) {
-	      respuestaux=snapshot.val();
-	    });
-	  
-	};
+	
 
-	  $scope.loginGoogle();
+	if(!firebase.auth().currentUser){
+		//$scope.logeado = false;
+	 	$scope.loginGoogle();
+	 }else{
+	 	$scope.logeado = true;
+	 }
 	
 }]);

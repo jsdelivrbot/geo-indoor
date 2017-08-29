@@ -45,14 +45,14 @@
 <div id="top-container">
     <div ng-controller="loginGeoindoor">
         <!-- <input type="checkbox" ng-model="logeado"> -->
-        <div ng-show="logeado">
+        <div ng-show="!logeado">
             <h1 class="titLogin">Geoindoor Architect</h1>
             <div class="divBtnLogin" >
               <button id="login" class="btnLogin" ng-click="loginGoogle()">Login<img class="imgLogin" src="images/architect.png"></button>
             </div>
         </div>
-        <div ng-show="!logeado" >
-          <button id="logout" ng-click="logOutGoogle()">LOGOUT</button>
+        <div ng-show="logeado" >
+          <input  type= "hidden" id="logout" ng-click="logOutGoogle()"></input>
       
 
             <div id="control-bar" class="ng-cloak box-shadow-1" ng-controller="ControlBarController as ctrlBarCtrl" ng-cloak>
@@ -68,7 +68,7 @@
                         <button class="btn profile-photo-wrapper">
                             <span class="profile-photo" ng-style="{'background-image': 'url('+person.image.url+')'}"></span>
                         </button>
-                        <button ng-click="signOut()" class="btn btn-primary">Log Out</button>
+                        <button onclick="('#login').click()" ng-click="signOut()" class="btn btn-primary">Log Out</button>
                     </span>
                 </div>
 
