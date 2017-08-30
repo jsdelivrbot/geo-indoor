@@ -44,6 +44,7 @@
 <body>
 <div id="top-container">
     <div ng-controller="loginGeoindoor">
+        <input type="hidden" id="logoutgeo" ng-click="logOutGoogle()"/>
     </div>
         <div id="control-bar" class="ng-cloak box-shadow-1" ng-controller="ControlBarController as ctrlBarCtrl" ng-cloak>
 
@@ -58,7 +59,7 @@
                     <button class="btn profile-photo-wrapper">
                         <span class="profile-photo" ng-style="{'background-image': 'url('+person.image.url+')'}"></span>
                     </button>
-                    <button onclick="('#login').click()" ng-click="signOut()" class="btn btn-primary">Log Out</button>
+                    <button onclick="$('#logoutgeo').click()" ng-click="signOut()" class="btn btn-primary">Log Out</button>
                 </span>
             </div>
 

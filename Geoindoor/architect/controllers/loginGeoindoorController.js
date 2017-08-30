@@ -1,6 +1,6 @@
 app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService','$http', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService,$http) {
 	
-	$scope.logeado = true;
+	//$scope.logeado = true;
 
 	  var config = {
 	    apiKey: "AIzaSyDS4xASU14_0JbaXNEU_1icvU7bX1ugB5A",
@@ -19,9 +19,9 @@ app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceS
 	        var token = result.credential.accesstoken;
 	        var user = result.user;
 	        var name = result.user.displayName;
-	        $scope.$apply(function () {
+	       /* $scope.$apply(function () {
             	$scope.logeado = true; 
-        	});   
+        	}); */  
 	      }).catch(function(error) {
 	      	var errorCode = error.code;
   			var errorMessage = error.message;
@@ -29,20 +29,22 @@ app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceS
 	      		alert("Debe logearse para entrar");
 	      	}
 	      	//alert(JSON.stringify(error));
-	      	$scope.$apply(function () {
+	      	/*$scope.$apply(function () {
             	$scope.logeado = false; 
-        	});
+        	});*/
 
 	        
 	      });
 	   
 	  }
 	 $scope.logOutGoogle =  function () {
-	 	$scope.$apply(function () {
+	 	/*$scope.$apply(function () {
             $scope.logeado = false; 
-        });
+        });*/
 	    firebase.auth().signOut().then(function() {
-	      alert("Saliendo");
+	      //alert("Saliendo");
+	      location.href ="http://localhost:8080/geoindoor/architect/login.html";
+	      console.log("Saliendo");
 	    }, function(error) {
 	      alert( "ERROR: "+ error);
 	    });
