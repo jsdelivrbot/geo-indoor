@@ -48,12 +48,15 @@ app.controller("loginGeoindoor",['$scope', '$compile', 'GMapService', 'AnyplaceS
 	    });
 	  }
 	
-
-	if(!firebase.auth().currentUser){
-		//$scope.logeado = false;
-	 	$scope.loginGoogle();
-	 }else{
-	 	$scope.logeado = true;
-	 }
-	
+	 /*if (!firebase.auth().currentUser) {
+				location.href ="http://localhost:8080/geoindoor/architect/login.html";
+	}*/
+		window.onload = function() {
+			if (!firebase.auth().currentUser) {
+				location.href ="http://localhost:8080/geoindoor/architect/login.html";
+			}
+		}
+		
+	 	//$scope.loginGoogle();
+	 
 }]);
