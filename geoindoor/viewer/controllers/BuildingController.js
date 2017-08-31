@@ -119,7 +119,7 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                     icon: {
                         url: 'build/images/building-icon.png',
                         size: s,
-                        scaledSize: new google.maps.Size(55, 80)
+                        scaledSize: new google.maps.Size(70, 55)
                     },
                     draggable: false
                 });
@@ -222,7 +222,7 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                         icon: {
                             url: 'build/images/building-icon.png',
                             size: s,
-                            scaledSize: new google.maps.Size(55, 80)
+                            scaledSize: new google.maps.Size(70, 55)
                         },
                         draggable: false
                     });

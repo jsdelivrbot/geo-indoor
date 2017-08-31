@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    color: #4d394b;;
+    color: #4d394b;
     font-family: 'Lato', sans-serif;
     letter-spacing: -1px;
     -webkit-font-smoothing: antialiased;
@@ -74,9 +74,9 @@ body {
 .selectRoutes{
     text-overflow: ellipsis; 
     position:absolute;
-    right: 70px;
-    top: 90px;
-    z-index: 4;
+    right: 60px;
+    top: 100px;
+    z-index: 8;
     background-color: #fff;
 }
 /*Geoindoor*/
@@ -139,12 +139,15 @@ body {
     right: 0;
     margin: 0;
     z-index: 99;
-    background-color: white;
+    /*background-color: white; Borrado en Geoindoor */
     /*border-top: 10px #428bca solid;*/
 }
 
 #gray-bg {
-    background-color: #2c3e50;
+    /*background-color: #2c3e50; Borrado en Geoindoor */
+    background-color: rgba(133, 0, 161, 0.4);
+    background: rgba(133, 0, 161, 0.4);
+    border-bottom: 1px solid black;
     padding: 8px 0 8px 0;
     /*border: 1px #428bca solid;*/
     /*border-bottom: none;*/
@@ -458,7 +461,8 @@ body {
 
 .bold-f {
     font-weight: bold;
-    color: #ffffff;
+    /*color: #ffffff; Borrado Geoindoor*/
+    color: #000000;
 }
 
 #DIV_1 {
