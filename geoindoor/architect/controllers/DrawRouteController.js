@@ -4,6 +4,7 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 
 	$scope.storeRoutesName = [];
 	
+	
 	// Gestión de mensajes ---
 
 	// Información relevante
@@ -186,6 +187,27 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		});
 		//console.log(data);
 	};
+
+	//getContador()
+	// Devueleve el contador de edifcios
+	$scope.getContador = function() {
+		return $http({
+		    method: 'GET',
+		    url: "https://geoindoorapi.herokuapp.com/Contador",
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+		}).success(function (data,status) {
+			console.log(data);
+			//$scope.suc("Ruta " + nombreRuta + " removed");
+			$scope.contadorId=data.id;
+			return data;
+		}).error(function (data,status) {
+			//$scope.err("Ruta has not been removed");
+			console.log(data);
+			return data;
+		});
+	}
+
 	// wakeUpHeroku()
 	// Hace una serie de llamadas al servidor para despertarle
 	$scope.wakeUpHeroku = function() {

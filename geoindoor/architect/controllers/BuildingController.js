@@ -24,8 +24,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-
-app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService) {
+/* http added in Geoindoor version */
+app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'AnyplaceService', 'AnyplaceAPIService', '$http', function ($scope, $compile, GMapService, AnyplaceService, AnyplaceAPIService,$http) {
 
     $scope.myMarkers = {};
     $scope.myMarkerId = 0;
@@ -219,6 +219,25 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
         );
     };
 
+    // _getContador()
+    // Devueleve el contador de edifcios
+    $scope._getContador = function() {
+        return $http({
+            method: 'GET',
+            url: "https://geoindoorapi.herokuapp.com/Contador",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+        }).success(function (data,status) {
+            console.log(data);
+            //$scope.suc("Ruta " + nombreRuta + " removed");
+            return data;
+        }).error(function (data,status) {
+            //$scope.err("Ruta has not been removed");
+            console.log(data);
+            return data;
+        });
+    }
+
     $scope.addNewBuilding = function (id) {
 
         if ($scope.myMarkers[id] && $scope.myMarkers[id].marker) {
@@ -256,7 +275,24 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                 building.description = "-";
             }
 
+            /*GEOINDOOR*/
+            /*if (building.name) {
+                var promise = $scope._getContador();
+                promise.then(function(resp) {building.name = resp.id + " " + building.name});
+                console.log("NOMBRE " + building.name);
+            }*/
+
+            /*GEOINDOOR*/
+
             if (building.owner_id && building.name && building.description && building.is_published && building.url && building.address) {
+
+                var promise = $scope._getContador();
+                promise.then(function(resp) {
+                    building.name = JSON.stringify(resp.data.id).slice(1, -1)  + " " + building.name;
+                    console.log("RESP " + JSON.stringify(resp.data.id).slice(1, -1));
+                    console.log("NOMBRE " + building.name);
+                });
+                
 
                 var promise = $scope.anyAPI.addBuilding(building);
 
@@ -504,7 +540,7 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
             + '</fieldset>'
             + '<div style="text-align: center;">'
             + '<fieldset class="form-group" style="display: inline-block; width: 75%;">'
-            + '<button type="submit" class="btn btn-success add-any-button" ng-click="addNewBuilding(' + marker.myId + ')">'
+            + '<button type="submit" class="btn btn-success add-any-button"  ng-click="setTimeout(addNewBuilding(' + marker.myId + '),1000)">'
             + '<span class="glyphicon glyphicon-plus"></span> Add'
             + '</button>'
             + '</fieldset>'

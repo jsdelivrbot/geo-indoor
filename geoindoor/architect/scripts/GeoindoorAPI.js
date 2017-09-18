@@ -404,6 +404,15 @@ function removeDrawRoute() {
   myflightPath.setMap(null);
 }
 
+// TODO
+// changeBuilding()
+// cambia el nombre del edificio
+/* function changeBuilding() {
+   $('#building-name').val("id4 "+ $('#building-name').val());
+   alert("Hola");
+   return true;
+}*/
+
 
 
 
