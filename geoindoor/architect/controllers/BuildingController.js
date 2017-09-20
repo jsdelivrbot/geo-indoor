@@ -218,7 +218,7 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
             }
         );
     };
-
+    /*GEOINDOOR START -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
     // _getContador()
     // Devueleve el contador de edifcios
     $scope._getContador = function() {
@@ -238,9 +238,21 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
         });
     }
 
+   var promise = $scope._getContador();
+   $scope.myContador;
+   promise.then(function(resp) {
+        if(JSON.stringify(resp.data.id) == undefined){
+            $scope.myContador = undefined;
+        }else{
+            $scope.myContador = JSON.stringify(resp.data.id).slice(1, -1);
+        }
+    });
+    /*GEOINDOOR END -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
     $scope.addNewBuilding = function (id) {
 
         if ($scope.myMarkers[id] && $scope.myMarkers[id].marker) {
+
 
             var building = $scope.myMarkers[id].model;
 
@@ -275,26 +287,15 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                 building.description = "-";
             }
 
-            /*GEOINDOOR*/
-            /*if (building.name) {
-                var promise = $scope._getContador();
-                promise.then(function(resp) {building.name = resp.id + " " + building.name});
-                console.log("NOMBRE " + building.name);
-            }*/
+                    
 
-            /*GEOINDOOR*/
-
-            if (building.owner_id && building.name && building.description && building.is_published && building.url && building.address) {
-
-                var promise = $scope._getContador();
-                promise.then(function(resp) {
-                    building.name = JSON.stringify(resp.data.id).slice(1, -1)  + " " + building.name;
-                    console.log("RESP " + JSON.stringify(resp.data.id).slice(1, -1));
-                    console.log("NOMBRE " + building.name);
-                });
+            if (building.owner_id && building.name && building.description && building.is_published && building.url && building.address) {            
                 
-
+                /*GEOINDOOR START -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+                building.name = $scope.myContador + " " + building.name;
+                console.log("BUILDING NAME " + building.name);
                 var promise = $scope.anyAPI.addBuilding(building);
+                /*GEOINDOOR END -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
                 promise.then(
                     function (resp) {
