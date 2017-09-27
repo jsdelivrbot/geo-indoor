@@ -78,7 +78,18 @@ app.all('*', function(req, res, next) {
     }
 });
 
-
+// GET
+// https://geoindoorapi.herokuapp.com/Contador
+// Devuelve el contador de edificios
+app.get('/Contador',function(request,response) {
+	var db = firebase.database();
+	var ref = db.ref("Contador/");
+	var respuestaux;
+	ref.on("value", function (snapshot) {
+		respuestaux=snapshot.val();
+	});
+	response.send(respuestaux);
+});
 
 // POST
 // https://geoindoorapi.herokuapp.com/Ruta
@@ -138,6 +149,10 @@ app.post("/Ruta", function(request, response) {
 			nombre: nombreEdificio,
 			idmail: mail
 		});
+		var Contador = db.ref("Contador/");
+		Contador.set({
+			id: idEdificio
+		});
 		idEdificioRutas = idEdificio + "rutas";
 		idRuta = "r1";
 		var Rutas = db.ref("Edificios/Rutas/" + idEdificioRutas + "/" + idRuta + "/");
@@ -175,7 +190,10 @@ app.post("/Ruta", function(request, response) {
 			nombre: nombreEdificio,
 			idmail: mail
 		});
-
+		var Contador = db.ref("Contador/");
+		Contador.set({
+			id: idEdificio
+		});
 		idEdificioRutas = idEdificio + "rutas";
 		idRuta = "r1";
 		var Rutas = db.ref("Edificios/Rutas/" + idEdificioRutas + "/" + idRuta + "/");
@@ -368,7 +386,7 @@ app.post("/RutaDelete", function(request, response) {
 // POST
 // https://geoindoorapi.herokuapp.com/Rutas/Edificio
 // Devuelve las rutas relativas a un edifico con el idEdificioRutas
-app.post("/Rutas/Edificio", function(request, response) {
+/*app.post("/Rutas/Edificio", function(request, response) {
 
 	var db = firebase.database();
 	var nomEdificio = request.body.edificio;
@@ -376,13 +394,26 @@ app.post("/Rutas/Edificio", function(request, response) {
 	var contrasena =  request.body.contrasena;
 	var respuesta=getRutasEdificio(db,nomEdificio,email);
 
-	/*if( !validacion(db,email,contrasena) ){
+	if(!respuesta){
 		response.status = 400;
-		response.send('Incorrect password');
-		return;
-	}*/
-	
+		response.send('There are not routes');
+	}else{
+		//response.setHeader("Content-Type","aplication/json");
+		response.status = 200;
+		//response.send(respuesta);
+		response.send(JSON.parse(respuesta));
+	}
+});*/
 
+// POST
+// https://geoindoorapi.herokuapp.com/Rutas/Edificio
+// Devuelve las rutas relativas a un edifico con el idEdificioRutas
+app.post("/Rutas/Edificio", function(request, response) {
+
+	var db = firebase.database();
+	var idEdificio = request.body.idedificio;
+	
+	var respuesta = _getRutasEdificio(db,idEdificio);
 	if(!respuesta){
 		response.status = 400;
 		response.send('There are not routes');
@@ -530,7 +561,19 @@ function getRutasEdificio(db,nomEdificio,idmail){
 	return retorno;
 }
 
+// getRutasEdificio(db)
+// Devuelve los edificios que hay en la base de datos, con sus identificadores
+function _getRutasEdificio(db,idEdificio){
+	var respuesta;
+	var ref = db.ref("Edificios/Rutas/" + idEdificio + "rutas");
 
+	ref.on("value", function (snapshot) {
+		respuesta=snapshot.val();
+	});
+	if (!respuesta) { return false;}
+	
+	return JSON.stringify(respuesta);
+}
 
 //getIdRuta(db,nombreEdificio,nombreRuta)
 // retorna el id de la ruta con sus valores
