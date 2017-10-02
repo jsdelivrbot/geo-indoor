@@ -111,7 +111,7 @@
     <!-- Must come after jquery/ui imports -->
     <script type="text/javascript" src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-    <title>Anyplace Viewer</title>
+    <title>Geoindoor Viewer</title>
 
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -160,9 +160,12 @@
 
 </head>
 <body>
-<select class="selectRoutes" id="showRoutes" onchange="putNameRoute()" >
-          <option value="" disabled selected>Chose route of the building</option>
-</select>
+<div ng-controller="DrawRouteController">
+    <select class="selectRoutes" id="showRoutes" ng-model="selectedRoute" ng-options="x for x in storeRoutesName">
+              <option value="" disabled selected>Chose route of the building</option>
+    </select>
+    {{selectedRoute}}
+</div> 
 <div id="control-bar" class="box-shadow-1 ng-cloak" ng-controller="ControlBarController as ctrlBarCtrl" ng-cloak>
 
     <div class="container-fluid" id="gray-bg">
@@ -258,7 +261,6 @@
         </div>
 
     </div>
-
     <div id="notification_panel" ng-controller="AlertController as alertCtrl"
          ng-show="alerts.length || anyService.isLoading">
         <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="anyService.closeAlert($index)">
