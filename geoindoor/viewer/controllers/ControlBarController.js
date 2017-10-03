@@ -318,7 +318,13 @@ app.controller('ControlBarController', ['$scope', '$rootScope', '$routeParams', 
         $scope.gmapService.gmap.panTo(position);
         $scope.gmapService.gmap.setZoom(20);
     }
-
+    // GEOINDOOR -- -- -- -- -- -- -- -- 
+    // Se utiliza para inciciar el cambio de rutas, al cambiar el edificio
+    $scope.storeTranslate = function() {
+        $("input[name='nombreEdificio']").val($scope.anyService.selectedBuilding.name);
+        $("input[name='nombreEdificio']").click();
+    };
+    // GEOINDOOR -- -- -- -- -- -- -- -- 
 }
 ])
 ;

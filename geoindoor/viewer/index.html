@@ -179,7 +179,7 @@
              ng-controller="BuildingController as buildingCtrl">
             <div class="bold-f" style="color:transparent; pointer-events:none;">_</div>
 
-            <ui-select ng-model="anyService.selectedBuilding" theme="bootstrap" ng-disabled="disabled">
+            <ui-select ng-model="anyService.selectedBuilding" theme="bootstrap" ng-disabled="disabled" ng-change = "storeTranslate()">
                 <ui-select-match placeholder="Select a Building...">{{$select.selected.name}}</ui-select-match>
                 <ui-select-choices
                         repeat="b in myBuildings | orderBy : orderByDistCentre | propsFilter: { name: $select.search, description: $select.search }">

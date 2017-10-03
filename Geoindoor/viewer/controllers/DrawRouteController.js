@@ -2,7 +2,7 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
 
 	$scope.anyService = AnyplaceService;
 
-	$scope.storeRoutesName = ["Casa","Tia Felisa", "Mari"];
+	$scope.storeRoutesName = ["RUTA_1", "RUTA_2", "RUTA_3"];
 	$scope.selectedRoute;
 	
 	// Gestión de mensajes ---
@@ -51,8 +51,8 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
             },
             data: datarequest
 		}).success(function (data,status) {
-			console.log(data);
-            console.log("AQUIIIIIIIIII");
+			console.log("myGetRoutes-> " + "data: " + data + " \n" + "status: " + status );
+            console.log("ERROR en myGetRoutes");
 			return data;
 		});
 	};
@@ -65,26 +65,29 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
             if ( data ) {
                 resolve(data);
             }else{
-                reject("Error");
+                reject("Error en storeRoutes");
             }
         });
         promise.then(function(result) {
             var rutas = result.data;
-            console.log(rutas);
+            console.log("Rutas: " + rutas);
             $scope.storeRoutesName = [];
-            Object.keys(rutas).forEach(function(key) {$scope.storeRoutesName.push(rutas[key]["nombre"])});
-            console.log($scope.storeRoutesName);
+            if (rutas == "There are not routes") {
+                $scope.storeRoutesName.push(rutas);
+                console.log("Rutas de storeRoutesName");
+                console.log($scope.storeRoutesName);
+            }else{
+                Object.keys(rutas).forEach(function(key) {$scope.storeRoutesName.push(rutas[key]["nombre"])});
+                console.log("Rutas de storeRoutesName");
+                console.log($scope.storeRoutesName);
+            }
         },function(err) {
             console.log(err);
         });
          
     };
     
-    // AÑADIR UNA FORMA PARA HACER AUTOMATICO EL AÑADIR
-    document.getElementsByName("nombreEdificio")[0].addEventListener('change', alert("casa"));
-    
-   
-
-	setTimeout(function(){alert(JSON.stringify($scope.storeRoutes()))}, 9000);
+    // Mostrar las rutas una vez inicializada la página
+    setTimeout(function(){$scope.storeRoutes()}, 3000);
 	
 }]);

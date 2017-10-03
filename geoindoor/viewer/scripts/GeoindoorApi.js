@@ -19,7 +19,21 @@ function getPoisEdificio(){
     if(!poisEdificio.value || poisEdificio.value == undefined) return false;
     return poisEdificio.value;
 }
+// getScope
+// Devuelve el scope del controlador indicado en ctrlNombre
+function getScope(ctrlNombre) {
+    var ctrl = 'div[ng-controller="' + ctrlNombre + '"]';
+    return angular.element(ctrl).scope();
+}
 
+window.onload = function() {
+	// Escucha para hacer el cambio de rutas
+	var $scope = getScope("DrawRouteController");
+	$("input[name='nombreEdificio']").on('click', function() { 
+    	$scope.storeRoutes();
+	});
+	
+};
 
 
 
