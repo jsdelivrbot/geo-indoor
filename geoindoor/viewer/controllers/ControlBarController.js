@@ -318,12 +318,28 @@ app.controller('ControlBarController', ['$scope', '$rootScope', '$routeParams', 
         $scope.gmapService.gmap.panTo(position);
         $scope.gmapService.gmap.setZoom(20);
     }
-    // GEOINDOOR -- -- -- -- -- -- -- -- 
+    // GEOINDOOR -- -- -- -- -- -- -- --
+    $scope.OLD_Building;
     // Se utiliza para inciciar el cambio de rutas, al cambiar el edificio
     $scope.storeTranslate = function() {
+        $scope.OLD_Building = $("input[name='nombreEdificio']").val();
         $("input[name='nombreEdificio']").val($scope.anyService.selectedBuilding.name);
         $("input[name='nombreEdificio']").click();
     };
+    // Se utiliza para inciciar el cambio de rutas, al cambiar el edificio
+    $("#showRoutes").on('click', function() { 
+        console.log( "\n Edificio Translate: " + $scope.anyService.selectedBuilding.name + "\n");
+        if(!$scope.anyService.selectedBuilding.name){
+            $("input[name='nombreEdificio']").val("There are not routes");
+            $("input[name='nombreEdificio']").click();
+        }else{
+            if( $scope.anyService.selectedBuilding.name != $scope.OLD_Building ){
+                $scope.OLD_Building = $scope.anyService.selectedBuilding.name;
+                $("input[name='nombreEdificio']").val($scope.anyService.selectedBuilding.name);
+                $("input[name='nombreEdificio']").click();
+            }
+        }
+    });
     // GEOINDOOR -- -- -- -- -- -- -- -- 
 }
 ])
