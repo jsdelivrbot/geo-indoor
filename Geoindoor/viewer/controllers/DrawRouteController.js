@@ -86,8 +86,96 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
         });
          
     };
+
+   /* $scope.myGetRoutesSync = function(){
+        var retorno;
+        var promise = new Promise(function(resolve, reject) {
+            var data =  $scope.myGetRoutes();
+            if ( data ) {
+                resolve(data);
+            }else{
+                reject("Error en myGetRoutesSync");
+            }
+        });
+        promise.then(function(result) {
+            var rutas = result.data;
+            console.log("Rutas: " + rutas);
+            $scope.storeRoutesName = [];
+            if (rutas == "There are not routes") {
+                console.log("Rutas de myGetRoutesSync");
+                console.log(rutas);
+                retorno = undefined;
+            }else{
+                console.log("Rutas de myGetRoutesSync");
+                console.log(rutas);
+                retorno = rutas;
+            }
+        },function(err) {
+            console.log(err);
+        });
+        return retorno;
+    }*/
+
+
+    $scope.myDrawRoute = function(){
+
+        var rutas ;
+        var ids ;
+        var ruta;
+
+        var promise = new Promise(function(resolve, reject) {
+            var data =  $scope.myGetRoutes();
+            if ( data ) {
+                resolve(data);
+            }else{
+                reject("Error en storeRoutes");
+            }
+        });
+        promise.then(function(result) {
+            rutas = result.data;
+            console.log("Rutas: " + rutas);
+            if (rutas == "There are not routes") {
+                console.log("Rutas de myDrawRoute: No hay rutas");
+                console.log(rutas);
+            }else{
+                ids = Object.keys(rutas);
+                console.log("Rutas de myDrawRoute");
+                console.log(rutas);
+                ids.forEach(function(key) {
+                    console.log($scope.selectedRoute + " - id " + key + " - " + rutas[key]["nombre"] );
+                    if( rutas[key]["nombre"] == $scope.selectedRoute ){
+                        ruta = rutas[key];
+                    }
+                });
+                var flightPath;
+       
+                console.log("Ruta encontrada ");
+                console.log(ruta);
+                var flightPathCoordinates = [
+                  /*{lat: 37.772, lng: -122.214},
+                  {lat: 21.291, lng: -157.821},
+                  {lat: -18.142, lng: 178.431},
+                  {lat: -27.467, lng: 153.027}*/
+                ];
+
+                flightPath = new google.maps.Polyline({
+                  path: flightPathCoordinates,
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 2
+                });
+                flightPath.setMap(GMapService.gmap);
+
+            }
+        },function(err) {
+            console.log(err);
+        });
+
+       
+    }
     
     // Mostrar las rutas una vez inicializada la página
     setTimeout(function(){$scope.storeRoutes()}, 3000);
+    setTimeout(function(){console.log("CAASA"); $scope.myDrawRoute();}, 9000);
 	
 }]);
