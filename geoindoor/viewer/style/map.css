@@ -78,6 +78,24 @@ body {
     top: 100px;
     z-index: 8;
     background-color: #fff;
+    height: 23px;
+}
+.removeRoutes{
+    text-overflow: ellipsis; 
+    position:absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 8;
+    height: 23px;
+
+    border-color: red;
+
+    border-radius: 4px;
+
+    -webkit-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    box-shadow: 7px 6px 31px -5px rgba(0,0,0,0.75);
+    /*background-color: #FF0000;*/
 }
 /*Geoindoor*/
 

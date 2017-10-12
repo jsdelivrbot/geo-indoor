@@ -161,10 +161,14 @@
 </head>
 <body>
 <div ng-controller="DrawRouteController">
-    <select class="selectRoutes" id="showRoutes" ng-model="selectedRoute" ng-options="x for x in storeRoutesName">
+    <select class="selectRoutes" id="showRoutes" ng-model="selectedRoute" ng-options="x for x in storeRoutesName" ng-change="removeLine();myDrawRoute()">
               <option value="" disabled selected>Chose route of the building</option>
     </select>
-    {{selectedRoute}}
+    <!--{{selectedRoute}}-->
+    <button class="removeRoutes btn-danger" ng-click="removeLine();" style="margin-top: 90px" >
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    </input>
 </div> 
 <div id="control-bar" class="box-shadow-1 ng-cloak" ng-controller="ControlBarController as ctrlBarCtrl" ng-cloak>
 
