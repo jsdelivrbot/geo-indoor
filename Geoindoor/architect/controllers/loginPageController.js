@@ -19,19 +19,20 @@ myapp.controller("loginPageController", function ($scope) {
 	        var token = result.credential.accesstoken;
 	        var user = result.user;
 	        var name = result.user.displayName;
-	        location.href ="http://localhost:8080/geoindoor/architect/";  
+	        location.href ="http://localhost:9000/architect/";  
 	      }).catch(function(error) {
 	      	var errorCode = error.code;
   			var errorMessage = error.message;
 	      	if(errorCode == "auth/popup-closed-by-user"){
 	      		alert("Debe logearse para entrar");
 	      	}
+	      	firebase.auth().signInWithRedirect(provider);
 	      });
 	   
 	  }
 
 	  if(firebase.auth().currentUser){
-	  	location.href ="http://localhost:8080/geoindoor/architect/";
+	  	location.href ="http://localhost:9000/architect/";
 	  }
 	
 	

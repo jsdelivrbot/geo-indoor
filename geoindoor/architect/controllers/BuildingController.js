@@ -221,6 +221,43 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
     /*GEOINDOOR START -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
     // _getContador()
     // Devueleve el contador de edifcios
+    $scope._crearEdificioGeoindoor = function(edificio) {
+        var idmail = getIdMail();
+        var contrasena = getContrasena();
+        console.log("ID_MAIL: " + idmail );
+        console.log("PASSWD: " + contrasena );
+        
+        var datarequest = {
+            email: idmail,
+            contrasena: contrasena,
+            edificio: edificio
+        }
+
+        return $http({
+            method: 'POST',
+            url: "https://geoindoorapi.herokuapp.com/CrearEdificio",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            transformRequest: function(obj) {
+                var str = [];
+                for(var p in obj){
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+                return str.join("&");
+            },
+            data: datarequest
+        }).success(function (data,status) {
+            console.log(data);
+            //$scope.suc("Ruta " + nombreRuta + " removed");
+            return data;
+        }).error(function (data,status) {
+            //$scope.err("Ruta has not been removed");
+            console.log(data);
+            return undefined;
+        });
+    }
+
+    // _getContador()
+    // Devueleve el contador de edifcios
     $scope._getContador = function() {
         return $http({
             method: 'GET',
@@ -328,6 +365,16 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                         }
 
                         _suc("Building added successfully.");
+                        var promise_create = $scope._crearEdificioGeoindoor(building.name);
+                        promise_create.then(
+                            function(resp) {
+                                console.log("Building added successfully, respose Geoindoor server " + resp);
+                                var temp_contador = 1 + parseInt($scope.myContador.substring(2));
+                                $scope.myContador = "id" + temp_contador;
+                            },function(resp) {
+                                _err("Something went wrong while adding the building to geoindoor");
+                            }
+                        );
 
                     },
                     function (resp) {

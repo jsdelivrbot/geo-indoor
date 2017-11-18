@@ -90,7 +90,100 @@ app.get('/Contador',function(request,response) {
 	});
 	response.send(respuestaux);
 });
+// POST
+// https://geoindoorapi.herokuapp.com/CrearEdificio
+// Añadir un nuevo edificio
+app.post("/CrearEdificio", function(request, response) {
 
+	var db = firebase.database();
+	var nombreEdificio = request.body.edificio;
+	var mail = request.body.email;
+	var contrasena = request.body.contrasena;
+
+	var idMail = getIdEmail(db,mail);
+	var idEdificio;
+	var edificios=JSON.parse(getEdificios(db));
+	var emails = JSON.parse(getEmails(db));
+
+	if (!idMail){
+		var emails = JSON.parse(getEmails(db));
+		if(!emails){
+			idMail="e1";
+		}else{
+			var keys = Object.keys(emails);
+			var lastid=0;
+			keys.forEach(function(key) {
+				if(getNumber(key)>lastid){
+					lastid=getNumber(key);
+				}
+			});
+			idMail="e" + (++lastid);
+		}
+		var Emails = db.ref("Emails/" + idMail );
+		Emails.set({
+			email: mail,
+			contrasena: contrasena
+		});
+		//Obtener el siguiente id
+		var edificios=JSON.parse(getEdificios(db));
+		if(!edificios){
+			idEdificio="id1";
+		}else{
+			var keys = Object.keys(edificios);
+			var lastid=0;
+			keys.forEach(function(key) {
+				if(getNumber(key)>lastid){
+					lastid=getNumber(key);
+				}
+			});
+			idEdificio="id" + (++lastid);
+		}
+		var Edificio = db.ref("Edificios/" + idEdificio);
+		Edificio.set({
+			nombre: nombreEdificio,
+			idmail: mail
+		});
+		var Contador = db.ref("Contador/");
+		Contador.set({
+			id: idEdificio
+		});
+		response.status = 200;
+		response.send( nombreEdificio + " idEdificio " );
+	}else{
+
+		if( !validacion(db,mail,contrasena) ){
+			response.status = 400;
+			response.send('Incorrect password ' + idEdificio + "idEdificio");
+			return;
+		}
+		var edificios=JSON.parse(getEdificios(db));
+		if(!edificios){
+			idEdificio="id1";
+		}else{
+			var keys = Object.keys(edificios);
+			var lastid=0;
+			keys.forEach(function(key) {
+				if(getNumber(key)>lastid){
+					lastid=getNumber(key);
+				}
+			});
+			idEdificio="id" + (++lastid);
+		}
+		var Edificio = db.ref("Edificios/" + idEdificio);
+		Edificio.set({
+			nombre: nombreEdificio,
+			idmail: mail
+		});
+		var Contador = db.ref("Contador/");
+		Contador.set({
+			id: idEdificio
+		});
+		response.status = 200;
+		response.send( nombreEdificio + " idEdificio " );
+		
+	}
+
+});
 // POST
 // https://geoindoorapi.herokuapp.com/Ruta
 // Añadir ruta nueva, a un edificio con unos puntos determinados
@@ -123,7 +216,7 @@ app.post("/Ruta", function(request, response) {
 					lastid=getNumber(key);
 				}
 			});
-			idMail="e" + (lastid++);
+			idMail="e" + (++lastid);
 		}
 		var Emails = db.ref("Emails/" + idMail );
 		Emails.set({
