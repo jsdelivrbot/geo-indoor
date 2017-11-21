@@ -144,8 +144,15 @@ app.post("/CrearEdificio", function(request, response) {
 			idmail: mail
 		});
 		var Contador = db.ref("Contador/");
+		var actual_contador;
+		Contador.on("value", function (snapshot) {
+			actual_contador = snapshot.val();
+		});
+		var last_id_contador = getNumber(actual_contador["id"]);
+		var idContador = "id" + (++last_id_contador);
+		console.log("ID CONTADOR " + idContador);
 		Contador.set({
-			id: idEdificio
+			id: idContador
 		});
 		response.status = 200;
 		response.send( nombreEdificio + " idEdificio " );
@@ -175,8 +182,15 @@ app.post("/CrearEdificio", function(request, response) {
 			idmail: mail
 		});
 		var Contador = db.ref("Contador/");
+		var actual_contador;
+		Contador.on("value", function (snapshot) {
+			actual_contador = snapshot.val();
+		});
+		var last_id_contador = getNumber(actual_contador["id"]);
+		var idContador = "id" + (++last_id_contador);
+		console.log("ID CONTADOR " + idContador);
 		Contador.set({
-			id: idEdificio
+			id: idContador
 		});
 		response.status = 200;
 		response.send( nombreEdificio + " idEdificio " );
@@ -243,8 +257,15 @@ app.post("/Ruta", function(request, response) {
 			idmail: mail
 		});
 		var Contador = db.ref("Contador/");
+		var actual_contador;
+		Contador.on("value", function (snapshot) {
+			actual_contador = snapshot.val();
+		});
+		var last_id_contador = getNumber(actual_contador["id"]);
+		var idContador = "id" + (++last_id_contador);
+		console.log("ID CONTADOR " + idContador);
 		Contador.set({
-			id: idEdificio
+			id: idContador
 		});
 		idEdificioRutas = idEdificio + "rutas";
 		idRuta = "r1";
@@ -284,8 +305,15 @@ app.post("/Ruta", function(request, response) {
 			idmail: mail
 		});
 		var Contador = db.ref("Contador/");
+		var actual_contador;
+		Contador.on("value", function (snapshot) {
+			actual_contador = snapshot.val();
+		});
+		var last_id_contador = getNumber(actual_contador["id"]);
+		var idContador = "id" + (++last_id_contador);
+		console.log("ID CONTADOR " + idContador);
 		Contador.set({
-			id: idEdificio
+			id: idContador
 		});
 		idEdificioRutas = idEdificio + "rutas";
 		idRuta = "r1";
@@ -717,7 +745,7 @@ function getIdEmail(db,email) {
 }
 
 // getNumber(string)
-// Se le pasa una cadena de testo y devuelve el numero entero contenido en el texto
+// Se le pasa una cadena de texto y devuelve el numero entero contenido en el texto
 function getNumber(cadena) {
 	var retorno = cadena.replace(/[a-zA-z]/g,'');
 	return parseInt(retorno);

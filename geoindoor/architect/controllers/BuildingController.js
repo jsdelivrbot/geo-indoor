@@ -333,58 +333,62 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                 console.log("BUILDING NAME " + building.name);
                 var promise = $scope.anyAPI.addBuilding(building);
                 /*GEOINDOOR END -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+                var isUndefined = /undefined/.test(building.name);
+                console.log("If is undefined " + isUndefined);
+                if(isUndefined){
+                    _err("Something went wrong while adding the building to geoindoor, refresh the page");
+                }else{
+                    promise.then(
+                        function (resp) {
+                            // on success
+                            var data = resp.data;
+                            console.log("new buid: " + data.buid);
+                            building.buid = data.buid;
 
-                promise.then(
-                    function (resp) {
-                        // on success
-                        var data = resp.data;
-                        console.log("new buid: " + data.buid);
-                        building.buid = data.buid;
-
-                        if (building.is_published === 'true' || building.is_published == true) {
-                            building.is_published = true;
-                        } else {
-                            building.is_published = false;
-                        }
-
-                        // insert the newly created building inside the loadedBuildings
-                        $scope.myBuildings.push(building);
-
-                        $scope.anyService.selectedBuilding = $scope.myBuildings[$scope.myBuildings.length - 1];
-
-                        $scope.myMarkers[id].marker.setDraggable(false);
-
-                        $scope.myBuildingsHashT[building.buid] = {
-                            marker: $scope.myMarkers[id].marker,
-                            model: building
-                        };
-
-                        if ($scope.myMarkers[id].infowindow) {
-                            $scope.myMarkers[id].infowindow.setContent($scope.myMarkers[id].marker.tpl2[0]);
-                            $scope.myMarkers[id].infowindow.close();
-                        }
-
-                        _suc("Building added successfully.");
-                        var promise_create = $scope._crearEdificioGeoindoor(building.name);
-                        promise_create.then(
-                            function(resp) {
-                                console.log("Building added successfully, respose Geoindoor server " + resp);
-                                var temp_contador = 1 + parseInt($scope.myContador.substring(2));
-                                $scope.myContador = "id" + temp_contador;
-                            },function(resp) {
-                                _err("Something went wrong while adding the building to geoindoor");
+                            if (building.is_published === 'true' || building.is_published == true) {
+                                building.is_published = true;
+                            } else {
+                                building.is_published = false;
                             }
-                        );
 
-                    },
-                    function (resp) {
-                        // on error
-                        var data = resp.data;
-                        _err("Something went wrong while adding the building. " + data.message);
-                    }
-                );
+                            // insert the newly created building inside the loadedBuildings
+                            $scope.myBuildings.push(building);
 
+                            $scope.anyService.selectedBuilding = $scope.myBuildings[$scope.myBuildings.length - 1];
 
+                            $scope.myMarkers[id].marker.setDraggable(false);
+
+                            $scope.myBuildingsHashT[building.buid] = {
+                                marker: $scope.myMarkers[id].marker,
+                                model: building
+                            };
+
+                            if ($scope.myMarkers[id].infowindow) {
+                                $scope.myMarkers[id].infowindow.setContent($scope.myMarkers[id].marker.tpl2[0]);
+                                $scope.myMarkers[id].infowindow.close();
+                            }
+
+                            _suc("Building added successfully.");
+                            var promise_create = $scope._crearEdificioGeoindoor(building.name);
+                            promise_create.then(
+                                function(resp) {
+                                    console.log("Building added successfully, respose Geoindoor server " + resp);
+                                    var temp_contador = 1 + parseInt($scope.myContador.substring(2));
+                                    $scope.myContador = "id" + temp_contador;
+                                },function(resp) {
+                                    _err("Something went wrong while adding the building to geoindoor");
+                                }
+                            );
+
+                        },
+                        function (resp) {
+                            // on error
+                            var data = resp.data;
+                            _err("Something went wrong while adding the building. " + data.message);
+                        }
+                    ); 
+                }
+               
             } else {
                 _err("Some required fields are missing.");
             }
