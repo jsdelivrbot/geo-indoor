@@ -184,7 +184,7 @@ app.controller('ControlBarController', ['$scope', '$rootScope', '$routeParams', 
     };
 	// GEO-INDOOR API +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 	
-	var pospassed=[  ];
+	/*var pospassed=[  ];
 	var _win = function(poss,allpos) {
 		var val=pospassed.some(function(elemento){
 			var retorno = elemento.some(function(item){
@@ -253,7 +253,7 @@ app.controller('ControlBarController', ['$scope', '$rootScope', '$routeParams', 
 			watchPosNum=navigator.geolocation.watchPosition(success,_err("Start"),options);
 		}
 	};
-	
+	*/
 	
 	
 	

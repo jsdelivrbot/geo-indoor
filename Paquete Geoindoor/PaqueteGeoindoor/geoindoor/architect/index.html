@@ -148,17 +148,17 @@
                                 <div class="form-group">Drag the building's marker to change its position.</div>
                                 <form name="buildingEditForm">
                                     <fieldset class="form-group">
-                                        <input ng-model="anyService.selectedBuilding.bucode"
+                                        <input readonly ng-model="anyService.selectedBuilding.bucode"
                                                class="form-control" type="text"
-                                               placeholder="Building Code">
+                                               placeholder="Building Code" >
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <input ng-model="anyService.selectedBuilding.name"
+                                        <input readonly ng-model="anyService.selectedBuilding.name"
                                                class="form-control" type="text"
-                                               placeholder="Building Name">
+                                               placeholder="Building Name" >
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <textarea ng-model="anyService.selectedBuilding.description"
+                                        <textarea readonly ng-model="anyService.selectedBuilding.description"
                                                   class="form-control" type="text"
                                                   placeholder="Building Description"></textarea>
                                     </fieldset>
