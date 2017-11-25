@@ -1,0 +1,89 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\author{Juan Pedro Pascual Vitores}
+\title{Test de estrés Geoindoor}
+\begin{document}
+\maketitle
+Debido a que Geoindoor funciona con servicios web como Heroku y Firebase, las pruebas de estrés y rendimiento están limitadas por las características de ambos servicios.
+\section{Heroku}
+
+Heroku es utilizado para implementar un servidor que nos proporcione una API rest, las limitaciones de heroku son las siguientes.
+
+\subsection{HTTP timeouts} 
+
+Las solicitudes HTTP tienen tiempo de espera de 30 segundos en la que el proceso web debe devolver los datos de respuesta. Los procesos que no envían datos de respuesta dentro de 30 segundos verán un error H12 en sus registros.
+
+Después de la respuesta inicial, cada byte enviado desde el servidor reinicia su timeout a 55 segundos.
+
+Si no se reciben datos del dyno\footnote{Todas las aplicaciones de Heroku se ejecutan en una colección de contenedores de Linux llamados dynos} dentro de 55 segundos, la conexión finaliza y se registra un error H15.
+
+De igual manera, si no se reciben datos del cliente dentro de 55 segundos, la conexión finaliza y se registra un error H28.
+
+\subsection{Buffer de respuesta HTTP}
+
+Se mantiene un buffer de 1MB para las respuestas del dyno por conexión.
+
+\subsection{Buffer de solicitud HTTP}
+
+Al procesar una solicitud entrante, se configura un búfer de recepción de 8 KB y se comienza a leer la solicitud y se solicita encabezados. Cada uno de estos puede tener un máximo de 8 KB de longitud, pero juntos pueden ser de más de 8 KB en total. Las solicitudes que contienen una línea de solicitud o una línea de encabezado de más de 8 KB se eliminarán.
+
+\subsection{Conexiones simultáneas}
+
+herokuapp.com permite muchas conexiones concurrentes a dynos web.
+
+\subsection{Dynos}
+
+Las versión free tiene 512MB de RAM
+
+\section{Firebase}
+Aquí todo se refiere a la funcionalidad de Firebase que estamos utilizando, Realtime Database.
+\\
+- Conexiones simultáneas: 100,000 // 100 en free
+\\
+- Capacidad: 1GB en free
+\\
+- Respuestas simultáneas enviadas desde una misma base de datos: 100,000/s
+\\
+- Tamaño de escritura de la base de datos que activa una función: 1 MB
+
+
+
+\subsection{Árbol de datos}
+- Profundidad máxima de los nodos secundarios: 32
+\\
+- Longitud de una clave: 768 bytes
+\\
+- Tamaño máximo de un String: 10 MB
+
+\subsection{Lecturas}
+- Tamaño de una sola respuesta atendida por la base de datos: 256 MB
+\\
+- Cantidad total de nodos en una ruta que tiene agentes de escucha o consultas: 75 millones 
+
+\subsection{Escrituras}
+- Tamaño de una única solicitud de escritura en la base de datos: 16 MB
+\\
+- Bytes escritos: 64 MB/minuto
+
+
+\begin{thebibliography}{a}
+
+\bibitem{Heroku}
+\textit{Heroku Limits}
+[ Fecha de consulta: 25/11/2017 ]
+\url{https://devcenter.heroku.com/articles/limits}
+
+\bibitem{Firebase}
+\textit{Firebase Limits}
+[ Fecha de consulta: 25/11/2017 ]
+\url{https://firebase.google.com/docs/database/usage/limits?hl=es-419}
+
+
+\end{thebibliography}
+
+\end{document}
