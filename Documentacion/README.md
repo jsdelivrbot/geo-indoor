@@ -1,3 +1,4 @@
+﻿# Documentación Geoindoor
 # Plantilla Latex
 
 La plantilla se compone de dos documentos maestros, uno para la memoría y otra para los anexos.
