@@ -1,0 +1,258 @@
+\capitulo{3}{Conceptos teóricos}
+
+A continuación se explicaran unos conceptos indispensables para el entendimiento del proyecto.
+\section{Geolocalización}\label{geolocalizacion}
+La Geolocalización es le concepto mas importante en este proyecto, y primero hablaremos un poco del API utilizada y después profundizaremos más en el concepto.
+
+La API utilizada para este proyecto se basa en la API Google Maps, que está escrita en JavaScript \cite{noauthor_google_nodate:a}.
+
+La clase principal es google.maps.Map, cuyo constructor nos permite crear un mapa dentro de un contenedor HTML. Después encontramos google.maps.LatLng, donde LatLng es un punto en coordenadas geográficas: latitud y longitud.
+
+Para más información se puede visitar la documentación de Google Maps donde aparece información más detallada, ya que no profundizaremos en cuales, y como son las clases y funciones de esta API, si no como funciona Google Maps en si.
+
+Google Maps funciona a través de conexión a internet y la función de GPS del dispositivo, las coordenadas de Google Maps están en el sistema WGS842 \footnote{WGS84 \textit{es un sistema de coordenadas geográficas mundial que permite localizar cualquier punto de la Tierra (sin necesitar otro de referencia) por medio de tres unidades dadas.}} y se mostrará la latitud y la longitud, positiva para Norte y Este, negativa para Sur y Oeste.
+
+Cuando nos referimos a la función GPS, estamos hablando de la función de geolocalización del dispositivo, en la que profundizaremos con más detalle.
+\\
+
+\textbf{Definición:} Geolocalización (Geo-localización) está formada por la palabra geo, que tiene origen griego en geos que significa tierra. Y la palabra localización, de las raíces latinas localis  (relativo a lugar), que proviene de locus (lugar).
+
+Por lo tanto, la geolocalización consiste en la ubicación de un ``lugar`` en la ``tierra`` \cite{noauthor_diccionario_nodate:a}. 
+
+Haciendo una definición más exacta, la geolocalización consiste en ubicar o determinar donde se encuentra un objeto o lugar en un determinado espacio.
+
+Cuando nos referimos a objeto no tiene porqué ser inanimado, y el determinado espacio al que nos referimos es la tierra como tal, pero no siempre se la pone como plano de referencia. 
+
+Cuando hablamos sobre la geolocalización también debemos hablar de los sistemas de posicionamiento que son los encargados de analizar, manejar y procesar la información geográfica, que nos permite obtener la localización de un objeto u lugar.
+
+El sistema de posicionamiento más conocido en el mundo es el GPS (Global Positioning System ), que es un sistema que permite localizar objetos móviles, gracias a la recepción de señales emitidas por un conjunto de satélites. Para determinar las localizaciones este sistema se sirve de 24 satélites y trilateración. Y es de origen estadounidense, otros sistemas de posicionamiento conocidos son el GLONASS, de origen ruso y Galileo europeo \cite{noauthor_sistema_2017:a}.
+
+La trilateración es un método matemático para determinar las posiciones relativas de los objetos usando la geometría de triángulos y la triangulación. La trilateración para ubicar el objeto usa las posiciones conocidas de dos o más puntos de referencia, y la distancia entre el objeto y cada punto de referencia \cite{noauthor_trilateracion_2015:a}.
+
+
+Se consigue saber la distancia entre objetos y puntos de referencia gracias a que el dispositivo emite una señal y espera una respuesta de los puntos de referencia, el diferencial de tiempo entre el envío y la recepción se utiliza para determinar la distancia.
+
+Como se muestra en las imágenes en la trilateracion en tres dimensiones, los puntos de referencia (satélites) crean una esfera virtual o imaginaria de radio igual a la distancia entre el objeto y el satélite, donde ellos son el epicentro. Se utilizan los puntos de intersección entre esferas para calcular la posición del objeto a localizar.
+
+Los satélites tienen que saber la distancia entre ellos por lo tanto también mandan señales, además para hacer un cálculo correcto de distancias se necesitan tener relojes coordinados.
+\\
+\imagen{img/GPS-Trilateracion}{Explicacion de trilateración.}
+
+
+
+\imagen{img/trilateracion}{Explicacion de trilateración. \cite{abato_espanol:_2012:a}}
+
+
+La geolocalización por wifi funciona de forma parecida a la de los sistemas de posicionamiento con satélites. Esta vez los puntos de referencia en vez de ser satélites son puntos de acceso wi-fi \cite{luz_wi-fi_2017:a}, y hay varias técnicas y tecnologías para hallar la ubicación de los dispositivos, además de la explicada anteriormente. Una de estas técnicas es la de utilizar RSSI, que indica la intensidad de la señal, a mayor intensidad más cerca está del punto de acceso Wi-Fi que proporciona la señal.  Pero normalmente la para la ubicación en interiores se utilizan ondas de radio ya que obtiene mayor precisión \cite{noauthor_mejores_nodate:a}. 
+
+\section{Formatos gráficos escalables}\label{formatos-graficos-escalables}
+
+
+Cuando hablamos de formatos gráficos escalables, nos estamos refiriendo a aquellos formatos digitales basados en objetos geométricos, cuya labor es hacer que la imagen tenga formas m\'{a}s definidas.
+Los formatos más conocidos son SVG \cite{noauthorcursonodate:a}, WMF \cite{noauthor_metaarchivo_2016:a}, ODG \cite{noauthor_definicion_nodate:c} y AI \cite{noauthorextensionnodate:b}.
+
+Debemos entender la importancia de los formatos gráficos escalables en la mejora de imágenes para hacerlas más geométricas, y este proyecto cumplen una gran labor haciendo los planos más geométricos y entendibles.
+
+
+\subsection{WMF}\label{wmf}
+
+
+Es un formato de gr\'{a}ficos vectoriales creado por Microsoft, naci\'{o} a principio de los 90 y ahora est\'{a} en desuso. Un archivo WMF se utiliza para regenerar una imagen a trav\'{e}s Windows GDI \footnote{Graphics Device Interface \textit{interfaz de programaci\'{o}n de aplicaciones que se encarga del control gr\'{a}fico de los dispositivos de salida}} \hypertarget{_Hlk482387012}{. WMF guarda una serie de llamadas a funciones que son enviadas a Windows GDI para regenerar la imagen.}
+
+Enhanced Metafile (EMF) es una versi\'{o}n de 32 bits de WMF (16 bits), con comandos adicionales.
+
+
+
+\subsection{ODG}\label{ODG}
+
+
+ODG formato de imagen vectorial enlazado con la versión 2 de OpenDocument de OpenOffice, es un estándar abierto para la creación de dibujos vectoriales, utiliza XML, fue creado por Sun Microsystems y OASIS.
+
+
+
+
+
+\subsection{AI}\label{ai}
+
+Formato de imagen vectorial de Adobe Illustrator, está desarrollado por Adobe Systems para la representación de gráficos vectoriales en formato EPS o PDF. El formato AI está compuesto por rutas conectadas mediante puntos, en lugar de datos de imagen. 
+En principio el formato AI fue un formato nativo llamado PGF hasta que se compatibilizo con PDF mediante la copia completa de datos PGF en el archivo de formato PDF.
+
+
+
+
+\subsection{SVG}\label{svg}
+
+
+SVG (Scalable Vector Graphics) \cite{lasso_formatos_2015:a} es un formato de imagen vectorial recomendado y desarrollado por W3C (World Wide Web Consortium), es un estándar abierto, trabaja con gráficos vectoriales bidimensionales estáticos y animados, en formato XML \cite{noauthor_scalable_2017:a}.
+SVG aparece de forma nativa en multitud de navegadores como Amaya, Mozilla Firefox, Google Chrome, Safari e Internet Explorer. Para navegadores que no tienen SVG de forma nativa existen plugins que permiten mostrar imágenes en formato SVG.
+SVG permite tres tipos de objetos graficos:
+
+
+
+
+\begin{itemize}
+\item 
+	Elementos geom\'{e}tricos vectoriales
+
+
+
+\begin{itemize}
+\item 
+	Rectas 
+
+
+
+\item 
+	curvas
+\end{itemize}
+
+
+\item 
+	Mapa de bits
+
+
+
+\item 
+	Texto
+
+
+
+\end{itemize}
+
+
+Los objetos gráficos con los que trabaja SVG pueden transformarse y agruparse para después ser compuestos en otros objetos renderizados con anterioridad. 
+El dibujado con SVG es dinámico e interactivo, mediante el uso de DOM para SVG (Document Object Model), que mediante ECMAScript \footnote{ECMAScript \textit{es una especificación de lenguaje de programación publicada por ECMA International. Se empezó a desarrollar en 1996 y se basó en JavaScript, fue propuesto como estándar por Netscape Communications Corporation. Actualmente es el estándar ISO 16262.}} o SMIL \footnote{SMIL (Synchronized Multimedia Integration Language)\textit{es un estándar del World Wide Web Consortium (W3C) para presentaciones multimedia, permite integrar audio, video, imágenes, texto o cualquier otro contenido multimedia.}} permite animaciones de gráficos vectoriales sencillas y eficientes
+SVG tiene una gran cantidad de manejadores de eventos como ``onMouseOver" y ``onClick", que pueden ser asignados a cualquier objeto SVG. La compatibilidad de SVG con estándares web permiten aplicar características como el scripting sobre elementos SVG o XML, de forma simultánea, en la misma página web desde distintos espacios de nombre XML.
+Las imágenes SVG pueden ser comprimidas con gzip (SVGZ)
+
+\imagen{img/mapabits}{explicación diferencia mapa de bits y gráfico vectorial}
+
+\section{Lenguajes de etiquetas}\label{lenguajes-etiuetas}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+Los lenguajes de etiquetas, o de marcado son utilizados para codificar un documento añadiendo etiquetas al texto, las cuales permiten otorgarle unas características o cualidades específicas. En este proyecto es mu importante ya que facilita tanto el procesado de la información, como a la hora de mostrar la información \cite{noauthor_lenguaje_2017:a}.
+
+No se debe confundir los lenguajes de etiquetas con los de programación, ya que el lenguaje de etiquetas no tiene funciones aritméticas ni variables.
+
+Podemos diferenciar entre 4 tipos de lenguajes de marcado \cite{noauthor_1.1_nodate:a} o de etiquetas \cite{noauthor_lenguaje_nodate:a}.
+\begin{itemize}
+\item
+Marcado de presentación
+\item
+Marcado de procedimientos
+\item
+Marcado descriptivo
+\item
+Lenguajes especializados
+
+\end{itemize}
+
+También existen lenguajes de etiquetado que son difíciles de enmarcar en uno de estos 4 tipos, ya que comparten características de varios de ellos, como podría ser el caso de HTML, que contiene etiquetas procedimentales, como la B de bold , con otras descriptivas como es BLOCKQUOTE y atributo HREF.
+
+
+(Los ejemplos representan como se suele ver el lenguaje de marcado)
+
+\subsection{Marcado de presentación}\label{marcado-presentacion}
+
+Indica el formato del texto, y como su propio nombre indica es utilizado para cambiar la presentación de un texto o documento. En este tipo las etiquetas suelen estar ocultas al usuario.
+\\
+\\
+Ejemplo: Microsoft Word
+\\
+\\
+Cuantas veces habremos oído esa frase...
+\\
+En muchas ocasiones nos encontramos en sitios nuevos
+
+\subsection{Marcado de procedimientos}\label{marcado-procedimientos}
+
+El lenguaje de marcado de procedimientos también es utilizado para la presentación del texto, pero en este caso las etiquetas sí que son visibles para los usuarios que editan el texto, y se realiza un procesamiento dependiendo de la etiqueta asociada.
+\\
+\\
+Ejemplo: LaTeX
+\\
+\\
+\textbackslash documentclass$[$10pt,a4paper$]$\{article\}
+\\
+\textbackslash usepackage$[$latin1$]$\{inputenc\}
+\\
+\textbackslash author\{Juan Pedro Pascual Vitores\}
+\\
+\textbackslash title\{Introducción\}
+\\
+\textbackslash begin\{document\}
+\\
+\textbackslash section\{Introducción\}\textbackslash label{introduccion}
+\\
+\textbackslash texttt\{``No se dónde está"\}
+\\
+Cuantas veces habremos oído esa frase...
+\\
+En muchas ocasiones nos encontramos en sitios nuevos
+\\
+\textbackslash end\{document\}
+\\
+\\
+
+\subsection{Marcado descriptivo}\label{marcado-descriptivo}
+
+Se utilizan etiquetas o marcas para describir el texto, sin especificar cómo deben ser presentados, ni en qué orden.
+
+Este tipo de marcado tiene más usos que lo que aparenta a primera vista, pueden utilizarse para el almacenamiento de metadatos, comunicación de datos (cualquier aplicación pude escribir un documento de texto plano con datos en formato XML), migración de datos (si necesitamos migrar los datos de una base de datos a otra, si ambas trabajan en xml, el trabajo es más sencillo), almacenamiento de gráficos vectoriales (VML) \footnote{VML \textit{Vector Markup Language es un lenguaje XML destinado a la creación de los gráficos vectoriales en 2D o 3D}} \cite{noauthor_vector_2016:a}, fórmulas matemáticas con XML (MathML)\footnote{MathML \textit{Mathematical Markup Language lenguaje de marcado basado en XML \cite{noauthor_usos_2003:a}, cuyo objetivo es expresar notación matemática para que distintas máquinas puedan entenderla}}, Estructuras moleculares e información cientifica y química con XML ( CML ) \footnote{Chemical Markup Lenguaje \cite{noauthor_chemical_2016:a} \textit{es un lenguaje de marcas basado en XML cuyo objeto es expresar información molecular}} \cite{desarrolloweb.com_objetivos_nodate:b}
+\\
+\\
+Ejemplo: XML
+\\
+\\
+$<$?xml version=``1.0" encoding=``UTF-8" ?$>$
+\\
+$<$Documento$>$
+\\
+	 \tab $<$Texto$>$
+	\\
+		 \tab \tab $<$Parrafo$>$
+		\\
+			\tab\tab\tab Cuantas veces habremos oído esa frase...
+			\\
+			\tab\tab\tab En muchas ocasiones nos encontramos en sitios
+			\\
+		 \tab \tab $<$\textbackslash Parrafo$>$
+		\\
+	 \tab $<$\textbackslash Texto$>$
+	\\
+$<$\textbackslash Documento $>$
+
+
+\subsection{Lenguajes especializados}\label{lenguajes-especializados}
+
+
+Los lenguajes especializados podríamos decir que derivan de los lenguajes de marcado descriptivo, ya que se diferencian con el tipo anterior, en que se especializan en una materia como podría ser la matemática ( OpenMath o MathML ) \cite{noauthor_openmath_2017:e} \cite{noauthor_usos_2003:a} o los gráficos (SVG o VRML).
+\\
+\\
+Ejemplo: OpenMath
+\\
+\\
+$<$OMOBJ xmlns=``url"$>$
+\\
+ \tab $<$OMA cdbase=``url"$>$
+ \\
+    \tab\tab$<$OMS cd=``relation1" name=``eq"/$>$
+    \\
+   \tab\tab$<$OMV name=``x"/$>$
+   \\
+  \tab$<$OMA\textbackslash $>$
+  \\
+$<$\textbackslash OMOBJ$>$
+\\
+Ejemplo: SVG
+\\
+$<$svg width=``100" height="100"$>$
+\\
+  \tab$<$circle cx=``50" cy="50" r="40"\textbackslash $>$
+  \\
+$<$\textbackslash svg4$>$
+\\
+
+
+
+
