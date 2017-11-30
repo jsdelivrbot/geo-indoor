@@ -291,6 +291,56 @@ $<$svg width=``100" height="100"$>$
 $<$\textbackslash svg4$>$
 \\
 
+\section{Algoritmo de Dijkstra}\label{Dijkstra}
+En Geoindoor es fundamental el algoritmo de Dijkstra ya que es utilizado para el trazado de rutas a la hora de elegir el camino.
+A continuación explicaremos en que consiste este algoritmo.
 
+El algoritmo de Dijkstra o algoritmo de caminos mínimos es un algoritmo para encontrar el camino más corto en un grafo, desde un punto de partida u origen, hasta uno los demás puntos del grafo.
+
+El grafo consta de vértices y aristas donde cada arista tiene un peso, mediante el cual se calcula cual es el camino mas corto de un nodo o vértice hasta otro nodo. El principal problema de este algoritmo reside en que es una especialización de la búsqueda de costo uniforme, y no funciona en grafos con aristas de coste o peso negativo, es decir, al elegir siempre el nodo con un peso menor, pueden quedar excluidos nodos que en próximas iteraciones bajarían el costo general del camino. 
+\\
+\imagenResize{1}{img/Dijkstra}{Ejemplo de grafo con aplicación del algoritmo Dijkstra}
+\\
+\subsection{Algoritmo}\label{Explicacion-algoritmo-Dijkstra}
+\begin{itemize}
+\item
+Teniendo un grafo dirigido ponderado de N nodos no aislados.
+\item 
+Siendo x el nodo inicial.
+\item 
+Teniendo un vector D de tamaño N en el cual se guardará las distancias desde x al resto de los nodos.
+\end{itemize}
+
+\begin{enumerate}
+\item
+Inicializar la distancia de x en D a 0, debido a que la distancia de x a x es 0. Las demás distancias de D deben ser inicilizadas a un valor infinito, ya que al principio son desconocidas.
+\item
+Siendo a = x tomamos a como nodo inicial.
+\item
+Recorreremos todos los nodos adyacentes de a, menos los nodos que ya han sido marcados, llamaremos a los nodos no han sido marcados $v_i$.
+\item
+Para el nodo actual, calculamos la distancia desde dicho nodo a los vecinos con la fórmula: dt($v_i$) = Da + d(a,$v_i$), y Si dt($v_i$) $<$ D$v_i$ entonces D$v_i$ = dt($v_i$)
+\item
+Marcamos el noda a como completo.
+\item
+Tomamos como próximo nodo actual el de menor valor en D, y volvemos al paso 3 mientras existan nodos no marcados. También se podría hacer almacenando los valores en una cola de prioridad.
+
+\end{enumerate}
+
+Cuando termine el algoritmo, D contendrá las distancias desde x al resto de los nodos.
+\\
+La complejidad de este algoritmo es O($|V|^2+|A|$) = O($|V|^2$) sin utilizar cola de prioridad, O(($|A|+|V|$) log $|V|$) = O($|A|$ log $|V|$) utilizando cola de prioridad.
+
+\begin{itemize}
+\item
+En cada iteración se añade un vértice al subconjunto, para operar y el algoritmo realiza en n-1 iteraciones como máximo.
+\item
+Se identifica el vértice con la menor etiqueta entre los que no están en el subconjunto, en cada iteración.
+\item
+Se realiza una operación de suma y una comparación para actualizar la etiqueta de cada uno de los vértices que no están en el subconjunto.
+
+\end{itemize}
+
+Por lo tanto en cada iteración se realiza como máximo 2(n-1) operaciones. Entonces el algoritmo de Dijkstra realiza O($n^2$) operaciones para determinar la longitud del camino más corto entre dos vértices de un grafo. (El grafo debe ser ponderado simple, conexo y no dirigido con n vértices determinados)
 
 
