@@ -20,6 +20,7 @@ Python\\
 AngularJS\\
 Java (Selenium)\\
 Node.js\\
+jQuery\\
 }
 
 \tablaSmall{Herramientas utilizadas para realizar los test del proyecto}{|l|}{pruebas}
@@ -48,9 +49,83 @@ Firebase\\
 
 \tablaSmall{Herramientas utilizadas para la interfaz del proyecto}{|l|}{interfaz}
 { Interfaz \\ }{ 
-HTML5 \\
-CSS3 \\
+HTML5\\
+CSS3\\
+Bootstrap\\
 }
+
+\section{Bower}\label{Bower}
+
+Bower es un gestor de paquetes para la web, es indispensable, ya que nos ha servido para manejar los paquetes del proyecto de una forma simple y rápida. Nos ha permitido manejar las dependencias (angular, bootstrap, jquery, etc\ldots) de forma sencilla y ordenada. 
+
+\section{Grunt}\label{Grunt}
+
+Grunt ha sido de gran utilidad, ya que nos ha permitido compilar el proyecto de forma sencilla y rápida, ayudándonos a tener siempre centralizados los scripts y sus dependencias (imágenes, css, etc\ldots ). A su vez nos dejaba hacer cambios en los scripts en caliente y se volvía a recompilar el proyecto para poder probarlo \textit{in situ}.
+
+Grunt es un corredor de tareas de javascript, que es utilizado para centralizar tareas y scripts, para tener que evitar procedimientos repetitivos. Si se une con Bower permite trabajar con una gran cantidad de paquetes y scripts de forma sencilla.
+
+\section{JSON}\label{JSON}
+JSON tiene un papel fundamental en el proyecto ya que al trabajar con JS se hace indispensable, además se ha utilizado en la base de datos.
+
+JSON (JavaScript Object Notation) es un formato de intercambio de datos. Es simple tanto a  la  hora de leerlo, como de escribirlo, es ideal para la transmisión de objetos por la red, y es esa la razón por la que es utilizado.
+
+\section{JavaScript}\label{JavaScript}
+
+JavaScript se considera el lenguaje principal del proyecto, es un lenguaje de scripting, ampliamente utilizado en todos los ámbitos de este proyecto, ya sea para cambiar el flujo de salida, recogida de datos, como para procesamiento de información y llamadas a un sevidor. Recordar que es la base de los frameworks jQuery y AngularJS y para el entorno de ejecución Node.js. Ha sido elegido por su versatilidad y capacidad de adaptarse a cualquier entorno.
+
+\section{Python}\label{python}
+
+Python es un lenguaje de programación interpretado que busca ser un código legible. Es un lenguaje de programación multiparadigma, programación imperativa y programación funcional.
+
+En este proyecto es indispensable ya que es utilizado a la hora de lanzar la aplicación, permitiendo recrear un servidor de forma local.
+
+\section{AngularJS}\label{AngularJS}
+
+AngularJS (Google) es un framework JavaScript de desarrollo de aplicaciones web en el lado cliente, y utiliza el patrón MVC (Model-View-Controller).
+
+AngularJS adquiere las buenas características que tiene JavaScript, pero añade que permite procesar datos de forma mas sencilla y realizar un gran control sobre el flujo de salida.
+
+Este framework se ha utilizado enormemente en este proyecto, ha sido fundamental ya que con ello hemos creado los controladores que permiten interactuar con la información y los usuarios, haciendo control sobre accesos y lo que se permite editar o no.
+
+\section{Java}\label{java}
+
+Java es un lenguaje de programación orientado a objetos, concurrente y de propósito general, y ha sido utilizado en el proyecto en las pruebas, con el WebDriver \footnote{Selenium WebDriver: Colección de enlaces (bindings) específicos para manejar el navegador} y entorno de pruebas de Selenium.
+
+\section{Node.js}\label{Node.js}
+
+Node es un intérprete Javascript en el lado del servidor. Permite construir aplicaciones muy escalables y  maneja miles de conexiones simultáneas en una sólo una máquina física.
+
+En el proyecto ha sido utilizado para crear la Rest API para manejar la base de datos, se ha elegido por su simpleza, aunque cabe destacar que debido a que te permite manejar muchas opciones, es fácil equivocarse y realizar acciones que no se tenían pensadas.
+
+\section{jQuery}\label{jquery}
+
+jQuery podría se considerado una librería más que un framework, esta basada en JavaScript, y su función es simplificar la manera de interactuar con los documentos HTML, con los elementos DOM, manejar eventos, crear animaciones y permite el uso de AJAX.
+
+En este proyecto se ha utilizado tanto sus funcionalidades de AJAX como las manejar eventos y manejar elementos DOM.
+
+\section{Selenium}\label{selenium}
+
+Selenium es un automatizador los navegadores, lo que quiere decir es que permite automatizar pruebas (acciones) directamente sobre una navegador, a través de un WebDriver del propio navegador.
+
+Existen varias librerías para diferentes lenguajes para crear pruebas automatizadas. Pero para este proyecto se ha elegido en lenguaje Java.
+
+\section{Webserver Stress Tool}\label{WebserverStressTool} 
+
+Webserver Stress Tool es una aplicación de prueba HTTP-client/server diseñada para detectar problemas de rendimiento en un sitio web o servidor web.
+
+En este proyecto se ha utilizado para realizar pruebas de rendimiento y estrés.
+
+\section{Git}\label{Git}
+
+Git es un software de control de versiones diseñado por Linus Torvalds, se ha elegido porque es usado por el servicio web heroku así como por GitHub, que es la plataforma en la que se aloja el repositorio del proyecto.
+
+\section{ZenHub}\label{zenhub}
+
+ZenHub es un plug in que permite añadir a GitHub características para mejorar la administración ágil del proyecto, así como mostrar estadísticas sobre el trabajo aplicado al proyecto.
+
+\imagenResize{0.4}{img/zenhubboard}{Tablero ofrecido por ZenHub en GitGub}{zenhubboard}
+
+\ref{zenhubboard}
 
 \section{HTML5}\label{HTML5}
 
@@ -61,43 +136,7 @@ Se ha utilizado porque es muy utilizado, y es soportado por todos los dispositiv
 \section{CSS3}\label{CSS3}
 
 CSS3 lenguaje de hojas de estilo en cascada utilizado para dar una impresión diferente al código HTML, hay que decir que permite crear estilos de forma rápida y sencilla, pero al aumentar el número de clases y el anidamiento es muy difícil de mantener. 
-
-\section{JavaScript}\label{JavaScript}
-
-JavaScript es un lenguaje de scripting, que en este proyecto es ampliamente utilizado en todos los ámbitos, ya sea para cambiar el flujo de salida (HTML,) como para procesamiento de información y llamadas a un sevidor. Ha sido elegido por su versatilidad y capacidad de adaptarse a cualquier entorno.
-
-\section{AngularJS}\label{AngularJS}
-
-AngularJS (Google) es un framework JavaScript de desarrollo de aplicaciones web en el lado cliente, y utiliza el patrón MVC (Model-View-Controller).
-
-AngularJS adquiere las buenas características que tiene JavaScript, pero su característica mas importante es que permite realizar un gran control sobre el flujo de salida.
-
-\section{Bower}\label{Bower}
-
-Bower es un gestor de paquetes para la web, es indispensable, ya que permite manejar los paquetes del proyecto de una forma simple y rápida.
-
-\section{Grunt}\label{Grunt}
-
-Grunt es un corredor de tareas de javascript, que es utilizado para centralizar tareas y scripts, para tener que evitar procedimientos repetitivos. Si se une con Bower permite trabajar con una gran cantidad de paquetes y scripts de forma sencilla. 
-
-\section{JSON}\label{JSON}
-JSON (JavaScript Object Notation) es un formato de intercambio de datos. Es simple tanto a  la  hora de leerlo, como de escribirlo, es ideal para la transmisión de objetos por la red, y es esa la razón por la que es utilizado.
-
-\section{Node.js}\label{Node.js}
-
-Node es un intérprete Javascript en el lado del servidor. Permite construir aplicaciones muy escalables y  maneja miles de conexiones simultáneas en una sólo una máquina física.
-
-En el proyecto ha sido utilizado para crear la Rest API para manejar la base de datos, se ha elegido por su simpleza, aunque cabe destacar que debido a que te permite manejar muchas opciones, es fácil equivocarse y realizar acciones que no se tenían pensadas.
-
-\section{python}\label{python}
-
-Python es un lenguaje de programación interpretado que busca ser un código legible. Es un lenguaje de programación multiparadigma, programación imperativa y programación funcional.
-
-En este proyecto ha sido utilizado de manera escasa, pero ha sido muy útil para realizar pruebas individuales. 
-
-\section{Git}\label{Git}
-
-Git es un software de control de versiones diseñado por Linus Torvalds, se ha elegido y usado porque es usado por el sevicio web heroku así como por GitHub.
+ 
 
 \section{Latex}\label{Latex}
 
