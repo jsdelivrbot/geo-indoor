@@ -46,6 +46,23 @@
 	\end{figure}
 }
 
+%COMANDOS GEOINDOOR -- START --
+
+% El comando \imagen_resize nos permite insertar figuras ajustando el tamaño manualmente
+\newcommand{\imagenResize}[4]{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale= #1  ]{#2}\label{fig:#4}
+		\caption{#3}
+	\end{figure}
+}
+
+%Comando para añadir espacios de 1cm, como tabulador
+\newcommand\tab[1][1cm]{
+	\hspace*{#1}
+}
+
+%COMANDOS GEOINDOOR -- END --
 
 
 % El comando \figura nos permite insertar figuras comodamente, y utilizando
