@@ -1,4 +1,5 @@
-﻿[![Codacy Badge](https://api.codacy.com/project/badge/Grade/16aa07e190b74784a78b31d268ef4b4a)](https://www.codacy.com/app/jppasvit/geo-indoor?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jppasvit/geo-indoor&amp;utm_campaign=Badge_Grade)
+[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/16aa07e190b74784a78b31d268ef4b4a)](https://www.codacy.com/app/jppasvit/geo-indoor?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jppasvit/geo-indoor&amp;utm_campaign=Badge_Grade)
 
 <div align="center">
  <img src="geoindoor/architect/images/logo.png" width="250" > 
