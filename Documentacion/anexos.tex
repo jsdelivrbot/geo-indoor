@@ -20,6 +20,9 @@
 % Ecuaciones
 \usepackage{amsmath}
 
+% Euro simbolos
+\usepackage{eurosym}
+
 % Rutas de fichero / paquete
 \newcommand{\ruta}[1]{{\sffamily #1}}
 
@@ -116,6 +119,26 @@
     #4
     \otoprule
     #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+% GEOINDOOR
+% Nuevo comando para tablas pequeñas (menos de una página).
+\newcommand{\tablaWithTotal}[6]{%
+ \begin{table}[h!]
+  \begin{center}
+   \rowcolors {2}{gray!35}{}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+    #6
     \bottomrule
    \end{tabular}
    \caption{#1}

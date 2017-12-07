@@ -84,15 +84,58 @@ No tiene fecha final ya que abarca, como hemos dicho antes, los últimas pincela
  
 \section{Estudio de viabilidad}
 
-En cuanto al estudio de la viabilidad, se ha investigado y no hay mucha competencia en cuanto a geolocalización indoor basada en GPS.La mayoría de servicios de geolocalización indoor son de pago, y utilizan bacons para la localización. Lo que hace a Geoindoor uno de los sistemas más atractivos.
-
+En cuanto al estudio de la viabilidad, se ha investigado y no hay mucha competencia en cuanto a geolocalización indoor basada en GPS. La mayoría de servicios de geolocalización indoor son de pago, y utilizan bacons para la localización. Lo que hace a Geoindoor uno de los sistemas más atractivos.
 
 \subsection{Viabilidad económica}
 
-En cuanto a la viabilidad económica,el desarrollo de la aplicación ha sido totalmente gratuito, una vez desarrollada la aplicación el único costo es el hosting. En este caso el hosting es gratuito 12 meses con lo cual, el primer año sería totalmente gratis, los siguientes años sería pagar 25.8 euros al año.
+En cuanto a la viabilidad económica, el desarrollo de la aplicación ha sido totalmente gratuito, se ha aprovechado los servicios gratuitos de Heroku y Firebase que aunque tengan restricciones singuen dando rendimiento.
 
-Si existe remuneración sería a partir de anuncios, pero no se contempla cobrar por el servicio. 
+A continuación haremos un análisis de la viabilidad económica que puede tener Geoindoor.
+
+\tablaWithTotal{Gastos de desarrollo }{ll}{gastosdesarrollo}
+{ Concepto & Coste\\}{ 
+Servicio Heroku & 0\euro \\
+Servicio Firebase & 0\euro \\
+Horas de desarrollo & 0\euro \\
+}{
+Total: & 0\euro \\
+}
+
+Se cuenta que el desarrollo ha sido gratuito ya que se ha realizado sin ninguna remuneración económica, en cuanto a Firebase y Heroku, los servicios utilizados son gratuitos y no compensa cambiarlos a la tarifa de pago hasta que no haya un uso por parte de los usuarios, que sobrepase el rendimiento de ambos servicios.
+
+Si nos imaginamos que los ingresos son 2000\euro y contamos al propietario de la herramienta como un autónomo de menos de 1 año, los gastos serían los siguientes.
+
+\tablaWithTotal{Gastos de comercialización }{ll}{gastoscomer}
+{ Concepto & Coste\\}{ 
+Servicio Heroku & 0\euro \\
+Servicio Firebase & 0\euro \\
+Cuota de autónomo & 264\euro \\
+Ordenador & 300\euro \\
+Sistema Operativo(Ubuntu) & 0\euro \\
+Linea de teléfono & 100\euro \\
+Internet & 100\euro \\
+Marketing & 0\euro \\
+Seguridad Social & 100\euro \\
+IVA & 420\euro \\
+IRPF & 152.4\euro \\
+}{
+Total: & 1436.4\euro \\
+}
+
+En total el beneficio obtenido sería de unos 563,6\euro.
+
+La herramienta no esta creada para sacarla un beneficio económico si no dar un servicio. De todas formas si se pretendiera obtener beneficios sería a partir de anuncios en la propia herramienta.
+
+En cuanto a la distribución no se piensa distribuir a través de ninguna plataforma, se piensa dejar abierto a descarga desde el propio GitHub. En cuanto al marketing, se pretende promocionar la aplicación a través de las redes sociales y foros para minimizar así los gastos.
+Hemos considerado también que se deben incluir en los gastos de comercialización la linea telefónica, el ordenador, el SO e internet, ya que se hace necesario si se quiere dar un mínimo de soporte y mantenimiento.  
+ 
 
 \subsection{Viabilidad legal}
 
-En cuanto a la viabilidad legal no existe ningún problema siempre y cuando no se introduzca planos de forma ilegal o sin consentimiento, aunque la responsabilidad recaería sobre el individuo que sube el plano de forma ilegal o sin consentimiento.
+En cuanto a la viabilidad legal AnyPlace posee una licencia MIT de código abierto lo que nos permite modificar libremente la herramienta. El uso de los mapas de Google Maps y sus facilidades también se encuentra abierto al publico, así que en primera instancia, no nos encontraríamos ningún problema.  Por otra parte hay un tema muy importante a tener en cuenta y es el derecho a la intimidad, y que puede afectar a la ley Orgánica 1/1982, de 5 de mayo, sobre protección civil del derecho al honor, a la intimidad personal y familiar y a la propia imagen.
+
+A lo que nos referimos es que Geoindoor no se hace responsable de la colocación de los planos por la parte de los usuarios, pero se guarda el derecho a eliminar y borrar cualquier cuenta o plano si esta no respeta el derecho a la intimidad de la gente.
+
+Otro tema a tener en cuenta es si se permitiría subir planos de infraestructuras críticas o edificios públicos que se pudieran utilizar con fines dañinos para la sociedad.
+
+Teniendo todos estos factores en cuenta, se concluye con la certeza de que Geoindoor es legal pero, tiene cierto potencial que lo puede convertir en peligroso y se debe controlar.
