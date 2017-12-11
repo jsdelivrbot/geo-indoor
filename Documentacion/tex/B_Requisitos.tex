@@ -1,40 +1,87 @@
 \apendice{Especificación de Requisitos}
 
 \section{Introducción}
-EL anexo recoge la especifcación de requisitos que define el comportamiento del sistema desarrollado, y sirve como documento contractual entre el cliente y el equipo así como la documentación correspondiente al análisis a la aplicación.
+Este anexo recoge la especificación de requisitos, la cual define el comportamiento del sistema desarrollado, es utilizado tanto por el cliente y por el equipo para tener una concepto generalizado de lo que se quiere, para que ambas partes lleguen a una idea común. Para este fin muchas veces son utilizados diagramas los cuales aclaren el concepto y lo que se necesita.
 
-Las características de una buena Especificación de requisitos son definidas por:
+Podemos distinguir entre requisitos funcionales y requisitos no funcionales.
 \begin{itemize}
 \item
-Completa: Todos los requerimientos deben estar reflejados en ella y todas las referencias deben estar definidas.
+\textbf{Requisito funcional:} es aquel que especifica una función o un servicio que debe cumplir un sistema.
 \item
-Consistente: Debe ser coherente con los propios requerimientos y también con otros documentos de especificación.
+\textbf{Requisito no funcional:} este especifica restricciones sobre el diseño y la implementción del sistema.
+\end{itemize}
+
+Las características de una buena especificación de requisitos son definidas por:
+\begin{itemize}
 \item
-Inequívoca: La redacción debe ser clara de modo que no se pueda mal interpretar.
+\textbf{Completa:} deben estar todos los requerimientos y todas sus relaciones.
 \item
-Correcta: El software debe cumplir con los requisitos de la especificación.
+\textbf{Consistente:} todos los requerimientos y otros documentos de especificación se debe relacionar de forma coherente.
 \item
-Trazable: Se refiere a la posibilidad de verificar la historia, ubicación o aplicación de un ítem a través de su identificación almacenada y documentada.
+\textbf{Inequívoca:} se debe ser claro y darse a entender.
 \item
-Priorizable: Los requisitos deben poder organizarse jerárquicamente según su relevancia para el negocio y clasificándolos en esenciales, condicionales y opcionales.
+\textbf{Correcta:} el sistema debe cumplir con todos los requisitos especificados.
 \item
-Modificable: Aunque todo requerimiento es modificable, se refiere a que debe ser fácilmente modificable.
+\textbf{Trazable:} los requerimientos deben de estar ordenados y organizados de una manera tal, que sea sencilla su identificación.
 \item
-Verificable: Debe existir un método finito sin costo para poder probarlo
+\textbf{Priorizable:} los requisitos deben estar organizados de forma jerárquica, según su importancia.
+\item
+\textbf{Modificable:} los requerimientos deben ser fácilmente modificables.
+\item
+\textbf{Verificable:} se debe poder probar todo requerimiento.
 \end{itemize}
 
 
 \section{Objetivos generales}
 \begin{itemize}
 \item
-Desarrollar un sistema que con múltiples aplicaciones permita añadir
-servicios de geolocalización dentro de edificios.
+Desarrollar un sistema que permita la localización del individuo en interiores.
 \item
-Facilitar la localización de lugares dentro de edificios.
+Desarrollar un sistema que permita la localización de lugares en interiores.
 \item
-Creación de rutas para determinados entornos.
+Desarrollar un sistema que permita el trazado de rutas en interiores.
+\item
+Desarrollar un sistema que permita mostrar lugares y rutas predefinidas en interiores.
 \end{itemize}
 \section{Catalogo de requisitos}
+A partir de los objetivos anteriormente citados obtenemos los siguientes requisitos.
+
+\subsection{Requisitos Funcionales}
+
+\begin{itemize}
+\item
+\textbf{RF-1 Gestión de edificio:} la herramienta debe permitir la gestión de un edifico.
+\begin{itemize}
+	\item
+	\textbf{RF-1.1 Emplazamiento de edificio:} la herramienta debe permitir la colocación de un edifico sobre el plano de localización
+	\item
+	\textbf{RF-1.2 Detallar información del plano:} se debe permitir adjuntar información al edificio (nombre, descripción, etc			\ldots).
+	\item
+	\textbf{RF-1.3 Emplazamiento de plano:} la herramienta debe permitir la colocación del plano del edifico sobre el plano de 			localización.
+	\item
+	\textbf{RF-1.4 Redimensión y movimiento del plano:} se debe permitir el movimiento y redimensión del plano añadido.
+\end{itemize}
+\item
+\textbf{RF-2 Gestión de pois:} la herramienta debe permitir la gestión de pois.
+\begin{itemize}
+	\item
+	\textbf{RF-2.1 Emplazamiento de pois:} se debe permitir la colocación de puntos de interés sobre el plano.
+	\item
+	\textbf{RF-2.2 Detallar información del poi:} se debe permitir adjuntar información al poi (nombre, descripción, tipo, etc			\ldots).
+	\item
+	\textbf{RF-2.3 Ubicación del poi:} la herramienta debe permitir la colocación del poi sobre una localización del plano de un edifico.
+\end{itemize}
+\item
+\textbf{RF-3 Enlazado de pois:} se debe permitir crear un camino entre pois.
+\item
+\textbf{RF-4 Gestión de rutas:} se debe permitir la gestión de rutas predefinidas.
+\item
+\textbf{RF-:}
+\item
+\textbf{RF-:}
+\item
+\textbf{RF-:}
+\end{itemize}
 
 \section{Especificación de requisitos}
 
