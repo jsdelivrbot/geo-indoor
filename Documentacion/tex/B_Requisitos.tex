@@ -140,6 +140,84 @@ A partir de los objetivos anteriormente citados obtenemos los siguientes requisi
 
 \section{Especificación de requisitos}
 
+\subsection{Actores}
+
+El sistema diferencia entre dos tipos de actores.
+
+\begin{itemize}
+	\item
+	\textbf{Usuario de Architect:} este usuario debe de estar autenticado para poder trabajar con la herramienta, se encarga de producir información (crear edificios, rutas, pois, etc\ldots) que será vista por los usuarios de Viewer.
+	\item
+	\textbf{Usuario de Viewer:} este usuario no debe de estar autenticado para poder trabajar con la herramienta, y no se encarga de producir información, si no de su visualización.
+\end{itemize}
+
+\subsection{Aclaraciones}
+
+\begin{itemize}
+	\item
+	\textbf{Geoindoor:} herramienta o aplicación web que esta formada por dos sub aplicaciones, Architect y Viewer.
+	\item
+	\textbf{Architect:} herramienta o aplicación web que es utilizada por los usuarios para introducir y editar información sobre los edificios, que luego serán disponibles por los usuarios del Viewer.
+	\item
+	\textbf{Viewer:} herramienta o aplicación web que es utilizada por los usuarios para visualizar la información sobre los edificios (rutas, pois, etc\ldots) introducidos a través del Architect.
+\end{itemize}
+
+\subsection{Diagrama de casos de uso}
+
+\imagenResize{0.5}{img/GestionDeEdificio}{Gestión de edificio}{GestionDeEdificio}
+\imagenResize{0.5}{img/GestionDePois}{Gestión de pois}{GestionDePois}
+\imagenResize{0.5}{img/GestionDeRutas}{Gestión de rutas}{GestionDeRutas}
+
+\imagenResize{0.5}{img/VisualizDeEdificios}{Visualización de edificios}{VisualizDeEdificios}
+\imagenResize{0.5}{img/VisualizDePois}{Visualización de pois}{VisualizDePois}
+\imagenResize{0.5}{img/VisualizDeRutas}{Visualización de rutas}{VisualizDeRutas}
+
+\subsubsection{Diagrama de caso de uso (General)}
+
+\imagenResize{0.25}{img/DiagramaCasoDeUso}{Diagrama de caso de uso}{DiagramaCasoDeUso}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-02 Obtener respuesta.}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-02}
+{\textbf{CU-02} & \textbf{Obtener respuesta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Daniel Santidrián Alonso\\
+	\textbf{Requisitos asociados} 	& RF-2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario obtener una respuesta a una pregunta realizada.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentra disponible la base de datos.
+		\item Se ha realizado una pregunta para la que existe un caso en la base de datos.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la página web.
+		\item El usuario abre la interfaz del asistente virtual.
+		\item Se muestra un formulario para introducir el texto de la pregunta.
+		\item El usuario realiza una pregunta.
+		\item Se muestra la respuesta encontrada.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item Se muestra el mecanismo de valoración.
+		\item Se almacena el log de la búsqueda en la base de datos.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item La base de datos no está disponible.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
