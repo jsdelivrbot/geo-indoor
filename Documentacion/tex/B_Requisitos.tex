@@ -162,62 +162,112 @@ El sistema diferencia entre dos tipos de actores.
 	\textbf{Viewer:} herramienta o aplicación web que es utilizada por los usuarios para visualizar la información sobre los edificios (rutas, pois, etc\ldots) introducidos a través del Architect.
 \end{itemize}
 
+\newpage
 \subsection{Diagrama de casos de uso}
 
-\imagenResize{0.5}{img/GestionDeEdificio}{Gestión de edificio}{GestionDeEdificio}
-\imagenResize{0.5}{img/GestionDePois}{Gestión de pois}{GestionDePois}
-\imagenResize{0.5}{img/GestionDeRutas}{Gestión de rutas}{GestionDeRutas}
-
+\imagenResize{0.65}{img/GestionDeEdificio}{Gestión de edificio}{GestionDeEdificio}
+\newpage
+\imagenResize{0.65}{img/GestionDePois}{Gestión de pois}{GestionDePois}
+\newpage
+\imagenResize{0.55}{img/GestionDeRutas}{Gestión de rutas}{GestionDeRutas}
+\newpage
 \imagenResize{0.5}{img/VisualizDeEdificios}{Visualización de edificios}{VisualizDeEdificios}
 \imagenResize{0.5}{img/VisualizDePois}{Visualización de pois}{VisualizDePois}
-\imagenResize{0.5}{img/VisualizDeRutas}{Visualización de rutas}{VisualizDeRutas}
+\newpage
+\imagenResize{0.55}{img/VisualizDeRutas}{Visualización de rutas}{VisualizDeRutas}
 
+\newpage
 \subsubsection{Diagrama de caso de uso (General)}
 
 \imagenResize{0.25}{img/DiagramaCasoDeUso}{Diagrama de caso de uso}{DiagramaCasoDeUso}
 
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tablaSinColores{CU-02 Obtener respuesta.}
+\newpage
+\subsection{Casos de uso}
+
+\tablaSinColores{CU-01 Gestión de edificio}
 {L{3.5cm} L{10cm}}
 {2}
-{Tabla CU-02}
-{\textbf{CU-02} & \textbf{Obtener respuesta} \\}
+{Tabla CU-01}
+{\textbf{CU-01} & \textbf{Gestión de edificio} \\}
 {\textbf{Versión} 				& 1.0\\ 
-	\textbf{Autor} 				& Daniel Santidrián Alonso\\
-	\textbf{Requisitos asociados} 	& RF-2\\
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-1, RF-1.2, RF-1.3, RF-1.4, RF-1.5\\
 	\textbf{Descripción} 			& 
-	Permite al usuario obtener una respuesta a una pregunta realizada.\\
+	Permite al usuario la administración y gestión de un edifico.\\
 	\textbf{Precondiciones} 		& 
 	\begin{itemize}
 		\item Se encuentra disponible la base de datos.
-		\item Se ha realizado una pregunta para la que existe un caso en la base de datos.
+		\item Se encuentra disponible la REST API.
+		\item Se accede como usuario Architect (autenticado).
 	\end{itemize}
 	\\
 	\textbf{Acciones} 				& 
 	\begin{enumerate}
-		\item El usuario accede a la página web.
-		\item El usuario abre la interfaz del asistente virtual.
-		\item Se muestra un formulario para introducir el texto de la pregunta.
-		\item El usuario realiza una pregunta.
-		\item Se muestra la respuesta encontrada.
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario interacciona con la herramienta para introducir la información concerniente a un edificio.
+		\item Se introduce la información.
 	\end{enumerate}
 	\\
 	
 	\textbf{Postcondiciones} 		& 
 	\begin{itemize}
-		\item Se muestra el mecanismo de valoración.
-		\item Se almacena el log de la búsqueda en la base de datos.
+		\item La información se almacena en la base de datos.
 	\end{itemize}
 	\\
 	\textbf{Excepciones} 			& 
 	\begin{itemize}
 		\item La base de datos no está disponible.
+		\item La REST API no está disponible.
+		\item La información introducida no es válida
 	\end{itemize}
 	
 	\\
 	\textbf{Importancia} 			& Alta\\}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tablaSinColores{CU-02 Emplazar edificio}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-02}
+{\textbf{CU-02} & \textbf{Emplazar edificio} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-1.2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario la colocación de un edifico sobre el plano de localización.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentra disponible la base de datos.
+		\item Se encuentra disponible la REST API.
+		\item Se accede como usuario Architect (autenticado).
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario elige una posición en el plano.
+		\item El usuario pincha en la pestaña ``Buildings" de su panel de control.
+		\item El picha en el botón ``Add'', después en el icono del edificio y arrastra el puntero hasta una posición del plano.
+		\item El usuario pulsa sobre el botón ``Add" del panel emergente, para añadir de forma definitiva el edificio.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre el edificio se almacena en la base de datos.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item La base de datos no está disponible.
+		\item La REST API no está disponible.
+		\item La información introducida no es válida
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
