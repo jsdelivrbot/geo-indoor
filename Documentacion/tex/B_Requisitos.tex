@@ -739,3 +739,374 @@ El sistema diferencia entre dos tipos de actores.
 	\textbf{Importancia} 			& Alta\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-13 Crear ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-13}
+{\textbf{CU-13} & \textbf{Crear ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.1\\
+	\textbf{Descripción} 			& 
+	Permite al usuario la creación de rutas predefinidas.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay dos o más pois creados en un plano del edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	Se especifican todos los pasos necesarios para crear una ruta, teniendo en cuenta restricciones como; que el nombre de la ruta no este vacío, que una ruta tenga más de un poi, que no se repitan pois en la ruta etc\ldots
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio y su respectivo plano.
+		\item El usuario pincha en la pestaña ``POIs" de su panel de control.
+		\item El usuario pincha en el icono de  ``add route mode".
+		\item El usuario rellena el campo que acaba de aparecer con el nombre de la ruta que desea crear.
+		\item El usuario pincha en los pois que quiere añadir a la ruta, y en el panel emergente, pulsa el botón ``add POI to the route" para añadirlos.
+		\item El usuario pulsa el botón ``Create route" para crear una ruta predefinida de forma definitiva.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre las rutas del edificio se almacena en la base de datos.
+		\item La información de las rutas del edificio será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+		\item No hay edificio donde ubicar las rutas y pois para formarlas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-14 Detallar información de la ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-14}
+{\textbf{CU-14} & \textbf{Detallar información de la ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario agregar información a la ruta, como el nombre o la planta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay dos o más pois creados en un plano del edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio y su respectivo plano.
+		\item El usuario pincha en la pestaña ``POIs" de su panel de control.
+		\item El usuario pincha en el icono de  ``add route mode".
+		\item El usuario rellena el campo que acaba de aparecer con el nombre de la ruta que desea crear.
+		\item El usuario pincha en los pois que quiere añadir a la ruta, y en el panel emergente, pulsa el botón ``add POI to the route" para añadirlos.
+		\item El usuario pulsa el botón ``Create route" para crear una ruta predefinida de forma definitiva. En este momento es en el que se le agrega de forma automática el número de planta.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre las rutas del edificio se almacena en la base de datos.
+		\item La información de las rutas del edificio será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+		\item No hay edificio donde ubicar las rutas y pois para formarlas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-15 Añadir pois a la ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-15}
+{\textbf{CU-15} & \textbf{Añadir pois a la ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.3\\
+	\textbf{Descripción} 			& 
+	Permite al usuario añadir puntos de interés a la ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay dos o más pois creados en un plano del edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio y su respectivo plano.
+		\item El usuario pincha en la pestaña ``POIs" de su panel de control.
+		\item El usuario pincha en el icono de  ``add route mode".
+		\item El usuario pincha en los pois que quiere añadir a la ruta, y en el panel emergente, pulsa el botón ``add POI to the route" para añadirlos.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre las rutas del edificio se almacena en la base de datos.
+		\item La información de las rutas del edificio será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+		\item No hay edificio donde ubicar las rutas y pois para formarlas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-16 Trazar ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-16}
+{\textbf{CU-16} & \textbf{Trazar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.4\\
+	\textbf{Descripción} 			& 
+	Permite al usuario ver el trazado de la ruta que está creando.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay dos o más pois creados en un plano del edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio y su respectivo plano.
+		\item El usuario pincha en la pestaña ``POIs" de su panel de control.
+		\item El usuario pincha en el icono de ``add route mode".
+		\item El usuario pincha en los pois que quiere añadir a la ruta, y en el panel emergente, pulsa el botón ``add POI to the route" para añadirlos. Cada vez que el usuario añada un poi se irá mostrando el trazado de la ruta.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre las rutas del edificio se almacena en la base de datos.
+		\item La información de las rutas del edificio será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+		\item No hay edificio donde ubicar las rutas y pois para formarlas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-17 Seleccionar ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-17}
+{\textbf{CU-17} & \textbf{Seleccionar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.5\\
+	\textbf{Descripción} 			& 
+	Permite al usuario elegir entre las diferentes rutas existentes, ya sea para mostrar su trazado o modificarlo.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay rutas creadas en el edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio, su respectivo plano y crear al menos una ruta predefinida.
+		\item El usuario pincha en el desplegable que se encuentra arriba a la izquierda, y selecciona una ruta, se mostrará su trazado. Para editarla se debe ir a la pestaña ``POIs" del panel de control, activar el botón ``add route mode" y ya se permitiría su edición.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información sobre las rutas del edificio se almacena en la base de datos, si se edita la ruta.
+		\item La información de las rutas del edificio será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-18 Limpiar ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-18}
+{\textbf{CU-18} & \textbf{Limpiar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.6\\
+	\textbf{Descripción} 			& 
+	Permite al usuario dejar de ver el trazado de la ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay rutas creadas en el edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio, su respectivo plano y crear al menos una ruta predefinida.
+		\item El usuario pincha en el desplegable que se encuentra arriba a la izquierda, y selecciona una ruta, se mostrará su trazado.
+		\item El usuario pincha en el botón ``Clear" que se encuentra arriba a la izquierda, para dejar de ver el trazado de la ruta seleccionada.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item No existe mayor repercusión más allá de la visual.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-19 Borrar ruta}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-19}
+{\textbf{CU-19} & \textbf{Borrar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-3.7\\
+	\textbf{Descripción} 			& 
+	Permite al usuario el borrado de una ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Architect (autenticado).
+		\item Hay rutas creadas en el edificio.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Architect.
+		\item El usuario se autentica.
+		\item El usuario pincha sobre el icono de edificio que aparece en el plano de localización, si no, debe emplazar un edificio, su respectivo plano y crear al menos una ruta predefinida.
+		\item El usuario pincha en el desplegable que se encuentra arriba a la izquierda, y selecciona una ruta, se mostrará su trazado.
+		\item El usuario pincha en el botón ``x" que se encuentra arriba a la izquierda, para borrar de forma definitiva la ruta seleccionada.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de la ruta borrada no será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está disponibles.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-20 Visualización de edificios}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-20}
+{\textbf{CU-20} & \textbf{Visualización de edificios} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-4, RF-4.1, RF-4.2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario el borrado de una ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				& 
+	El usuario puede localizar un edificio a través de un desplegable que se encuentra en la parte superior de la interfaz, además de la manera que se va explicar a continuación. 
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G", el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G" y podrá visualizar la información sobre el edificio.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de la ruta borrada no será visible.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
