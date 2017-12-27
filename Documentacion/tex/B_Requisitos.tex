@@ -1089,14 +1089,14 @@ El sistema diferencia entre dos tipos de actores.
 	El usuario puede localizar un edificio a través de un desplegable que se encuentra en la parte superior de la interfaz, además de la manera que se va explicar a continuación. 
 	\begin{enumerate}
 		\item El usuario accede a la herramienta Viewer.
-		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G", el cual significa que, ahí se encuentra un edificio.
-		\item El usuario pincha sobre el icono ``G" y podrá visualizar la información sobre el edificio.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y podrá visualizar la información sobre el edificio.
 	\end{enumerate}
 	\\
 	
 	\textbf{Postcondiciones} 		& 
 	\begin{itemize}
-		\item La información de la ruta borrada no será visible.
+		\item La información del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
 	\end{itemize}
 	\\
 	\textbf{Excepciones} 			& 
@@ -1108,5 +1108,450 @@ El sistema diferencia entre dos tipos de actores.
 	
 	\\
 	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-21 Buscar edificio}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-21}
+{\textbf{CU-21} & \textbf{Buscar edificio} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-4.1\\
+	\textbf{Descripción} 			& 
+	Permite al usuario encontrar y visualizar un edificio a partir de su identificador o nombre.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario tiene 2 opciones para buscar un edificio:
+		\begin{itemize}
+			\item Localizando el edificio en el mapa: el usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G", el cual significa que, ahí se encuentra un edificio.
+			\item Mediante el nombre o el identificador del edificio: el usuario puede localizar un edificio a través de un desplegable que se encuentra en la parte superior de la interfaz, introduciendo su nombre o identificador.
+		\end{itemize}
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-22 Visualizar información}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-22}
+{\textbf{CU-22} & \textbf{Visualizar información} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-4.2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario visualizar la información de un edificio.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se debe visualizar toda la información del edificio, número de planta, el plano del edificio, los pois, sus rutas predefinidas etc\ldots. Es decir debe ver toda la información que el usuario administrador (Architect) desee mostrar.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-23 Visualización de pois}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-23}
+{\textbf{CU-23} & \textbf{Visualización de pois} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-5, RF-5.1, RF-5.2, RF-5.3\\
+	\textbf{Descripción} 			& 
+	Permite al usuario visualizar los pois de un edificio.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y pois.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio. Además visualizan los pois correspondientes al edificio y la planta.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de los pois del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o pois.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-24 Visualizar información}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-24}
+{\textbf{CU-24} & \textbf{Visualizar información} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-5.1\\
+	\textbf{Descripción} 			& 
+	Permite al usuario visualizar la información de los pois un edificio.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y pois.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre un poi (los poi tienen iconos representativos, para identificarlos). Al pinchar en el poi aparece un panel desplegable en el que se puede visualizar su información, además pulsando en el icono ``i'' se visualizará la descripción del poi. 
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de los pois del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o pois.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-25 Marcar un poi}
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-25}
+{\textbf{CU-25} & \textbf{Marcar un poi} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-5.2\\
+	\textbf{Descripción} 			& 
+	Permite al usuario marcar o seleccionar un poi.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y pois.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre un poi para marcarlo, los pois tienen iconos representativos, para identificarlos.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de los pois del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o pois.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-26 Proyectar camino de forma automática }
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-26}
+{\textbf{CU-26} & \textbf{Proyectar camino de forma automática} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-5.3\\
+	\textbf{Descripción} 			& 
+	Permite al usuario al marcar un poi, que se dibuje un camino automático desde la ubicación del usuario hasta el poi indicado.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y pois.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre un poi para marcarlo.
+		\item El usuario pincha sobre el icono de navegación que aparece en el panel emergente, para proyectar el camino.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de los pois del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o pois.
+		\item No se puede localizar al usuario.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-27 Visualización de rutas }
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-27}
+{\textbf{CU-27} & \textbf{Visualización de rutas} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-6, RF-6.1, RF-6.2, RF-6.3 \\
+	\textbf{Descripción} 			& 
+	Permite al usuario visualizar las rutas predefinidas del edificio seleccionado.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y rutas predefinidas.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre el desplegable que aparece arriba a la derecha para seleccionar las rutas predefinidas del edificio.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de las rutas predefinidas del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o rutas predefinidas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-28 Seleccionar ruta }
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-28}
+{\textbf{CU-28} & \textbf{Seleccionar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-6.1 \\
+	\textbf{Descripción} 			& 
+	Permite al usuario elegir entre las diferentes rutas predefinidas existentes en un edificio.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y rutas predefinidas.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre el desplegable que aparece arriba a la derecha para seleccionar entre las rutas predefinidas del edificio.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de las rutas predefinidas del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o rutas predefinidas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-29 Mostrar ruta }
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-29}
+{\textbf{CU-29} & \textbf{Mostrar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-6.1 \\
+	\textbf{Descripción} 			& 
+	Permite al usuario ver el trazado de la ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y rutas predefinidas.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre el desplegable que aparece arriba a la derecha. 
+		\item El usuario selecciona una ruta predefinida, lo que hará que se muestre su trazado.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de las rutas predefinidas del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o rutas predefinidas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Alta\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tablaSinColores{CU-30 Limpiar ruta }
+{L{3.5cm} L{10cm}}
+{2}
+{Tabla CU-30}
+{\textbf{CU-30} & \textbf{Limpiar ruta} \\}
+{\textbf{Versión} 				& 1.0\\ 
+	\textbf{Autor} 				& Juan Pedro Pascual Vitores\\
+	\textbf{Requisitos asociados} 	& RF-6.1 \\
+	\textbf{Descripción} 			& 
+	Permite al usuario dejar de ver el trazado de la ruta.\\
+	\textbf{Precondiciones} 		& 
+	\begin{itemize}
+		\item Se encuentran disponibles las bases de datos.
+		\item Se encuentran disponibles las REST API.
+		\item Se accede como usuario Viewer (no autenticado).
+		\item Hay edificios creados y rutas predefinidas.
+	\end{itemize}
+	\\
+	\textbf{Acciones} 				&  
+	\begin{enumerate}
+		\item El usuario accede a la herramienta Viewer.
+		\item El usuario pincha sobre clusters que aparecen en el plano de localización hasta ver un icono ``G'', el cual significa que, ahí se encuentra un edificio.
+		\item El usuario pincha sobre el icono ``G'' y se visualiza la información del edificio.
+		\item El usuario pincha sobre el desplegable que aparece arriba a la derecha. 
+		\item El usuario selecciona una ruta predefinida, lo que hará que se muestre su trazado.
+		\item El usuario pincha sobre el botón ``x'' para dejar de ver el trazado de la ruta predefinida.
+	\end{enumerate}
+	\\
+	
+	\textbf{Postcondiciones} 		& 
+	\begin{itemize}
+		\item La información de las rutas predefinidas del edificio se ve tal como el usuario administrador (Architect), la ha introducido.
+	\end{itemize}
+	\\
+	\textbf{Excepciones} 			& 
+	\begin{itemize}
+		\item Las bases de datos no están disponibles.
+		\item Las REST API no está 
+		\item No existen edificios o rutas predefinidas.
+	\end{itemize}
+	
+	\\
+	\textbf{Importancia} 			& Media\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
