@@ -86,7 +86,6 @@ function getFloor() {
     var scope = getScope("FloorController as floorCtrl");
     return scope.anyService.selectedFloor["floor_number"];
   }
-  //console.log(poisEdificio);
   return poisEdificio[0]["floor_number"];
 }
 // getNamePoi(poi)
@@ -114,9 +113,7 @@ function getDescriptionPoi(poi) {
   }
   var retorno = false;
   Object.keys(poisEdificio).forEach(function(key) {
-    //console.log(poisEdificio[key]["puid"] + " vs " + poi);
     if(poisEdificio[key]["puid"] == poi){
-      //console.log(poisEdificio[key]["description"] + " vs " + poi);
       retorno = poisEdificio[key]["description"];
       return;
     }
@@ -143,12 +140,9 @@ function showRoutes(options) {
             $('#showRoutes').empty();
             $('#showRoutes').append("<option value=\"\" disabled selected>Chose route of the building</option>");
         }else{
-            console.log(options);
             var id = Object.keys(options)[0];
             var options = options[id];
             var keys = Object.keys(options);
-            //console.log(keys);
-            //console.log(options["r1"]["nombre"]);
             $('#showRoutes').empty();
             $('#showRoutes').append("<option value=\"\" disabled selected>Chose route of the building</option>");
             keys.forEach(function(key) {
@@ -174,7 +168,6 @@ $("#clearRoute").click(function() {
 // Para cambiar si agregar o no ruta a la vez que el color
 document.getElementById("botonroute").addEventListener("click", function(){ 
    var bototnroute=document.getElementById("botonroute");
-   console.log(botonroute.className);
    if(!botonroute.className || botonroute.className == " " ){
         botonroute.setAttribute("class","draggable-border-red");
         addRoute = true;
@@ -182,18 +175,10 @@ document.getElementById("botonroute").addEventListener("click", function(){
         botonroute.setAttribute("class"," ");
         addRoute = false;
         ruta = [];
-        //alert("Route clear");
         msgInfo("Route clear");
-        console.log(ruta);
    }
 });
 
-// Mostrar rutas de edificio
-// Descomentar para mostrar las rutas sin angular js
-/*
-document.getElementById("showRoutes").addEventListener("click", function(){ 
-   getRoutes();
-});*/
 
 // LISTENERS --- # END # ---
 
@@ -202,20 +187,16 @@ document.getElementById("showRoutes").addEventListener("click", function(){
 function addPoiRoute() {
    var poi=document.getElementById("addPoiToRoute").value;
    var bototnroute=document.getElementById("botonroute");
-   console.log(poi);
    if (bototnroute.className == "draggable-border-red"){
         if( ruta.indexOf(poi) == -1 ){
             ruta.push(poi);
             //alert("Poi " + poi + " added to the route, position "+ ruta.length);
-            msgSuc("Poi: " + getNamePoi(poi) + " ("+ poi +")" + " added to the route, position "+ ruta.length);
-            console.log(ruta);
+            msgSuc("Poi: " + getNamePoi(poi) + " added to the route, position "+ ruta.length);
         }else{
             //alert("This Poi "+ poi + " has already been added , position "+ ruta.indexOf(poi)+1);
-            msgWarn("This Poi: "+ getNamePoi(poi) + " ("+ poi +")" + " has already been added , position "+ (ruta.indexOf(poi)+1));
+            msgWarn("This Poi: "+ getNamePoi(poi) + " has already been added , position "+ (ruta.indexOf(poi)+1));
         }
    }else{
-        console.log("Aquiiiii");
-        //alert("Turn on the route button 'add route mode' to add pois to the route");
         msgWarn("Turn on the route button 'add route mode' to add pois to the route");
 
    }
@@ -230,7 +211,6 @@ function createRoute(){
         //alert("Name field must not be empty");
         msgInfo("Name field must not be empty");
     }else{
-        console.log(nombreRuta.value);
         var GeoindoorAPI = {};
         GeoindoorAPI.FULL_SERVER = "https://geoindoorapi.herokuapp.com";
         GeoindoorAPI.Route = {};
@@ -239,23 +219,20 @@ function createRoute(){
 
         GeoindoorAPI.Route.EDIFICIOS_GET = "/Edificios";
         GeoindoorAPI.Route.EDIFICIOS_GET_URL = GeoindoorAPI.FULL_SERVER + GeoindoorAPI.Route.EDIFICIOS_GET;
-        console.log(GeoindoorAPI.Route.ROUTE_ADD_URL);
-        console.log(GeoindoorAPI.Route.EDIFICIOS_GET_URL);
 
       
         var idmail = getIdMail();
         var contrasena = getContrasena();
         var edificio = getEdificio();
         var camino = getPosRuta();
-        //console.log("SHIEEEEEEEEE"+ camino)
+        
         if(ruta.length < 2){
-            //alert("The route should have at least 2 pois, remember to make the route in order");
+            
             msgInfo("The route should have at least 2 pois, remember to make the route in order");
             return;
         }
       
-        console.log("idmail " + idmail);
-        console.log("contrasena " + contrasena);
+        
         var mydatarequest = {
             email: idmail,
             contrasena: contrasena,
@@ -277,7 +254,7 @@ function createRoute(){
               ruta = [];
               var nombreRuta = document.getElementsByName("nameRoute")[0];
               nombreRuta.value="";
-              console.log(retornodata);
+              
           }
         });
         //alert("ruta añadida");
@@ -305,7 +282,6 @@ function getRoutes(){
       data: mydatarequest,
       success: function(retornodata) {
           retorno=retornodata;
-          console.log(retornodata + "retornodata");
           showRoutes(retornodata);
           
 
@@ -315,8 +291,6 @@ function getRoutes(){
           showRoutes(false);
       }
     });
-        //alert("ruta añadida");
-    console.log(retorno + "lo otro");
    return retorno;
 }
 
@@ -334,7 +308,6 @@ var myflightPath;
 // Recoge todos los pois de un edificio
 function getPoisEdificio(){
   var poisEdificio = document.getElementsByName("poisEdificio")[0];
-  console.log(JSON.parse(poisEdificio.value));
   return JSON.parse(poisEdificio.value);
 }
 
@@ -359,7 +332,6 @@ function getPosRuta(){
         }
       });
   });
-  console.log(retorno);
   return retorno;
 }
 
@@ -376,7 +348,6 @@ function drawRoute(gmaps){
         lat: parseFloat(pos["lat"]), 
         lng: parseFloat(pos["lng"])
       }
-      console.log(coord);
       flightPlanCoordinates.push(coord);
     });
 
@@ -389,7 +360,6 @@ function drawRoute(gmaps){
         strokeWeight: 4
     });  
 
-    console.log(myflightPath.getPath());
     myflightPath.setMap(gmaps);
   }
 
@@ -399,19 +369,10 @@ function drawRoute(gmaps){
 // borra la ruta que aparece en ruta
 
 function removeDrawRoute() {
-  //console.log(ruta);
   if(myflightPath)
   myflightPath.setMap(null);
 }
 
-// TODO
-// changeBuilding()
-// cambia el nombre del edificio
-/* function changeBuilding() {
-   $('#building-name').val("id4 "+ $('#building-name').val());
-   alert("Hola");
-   return true;
-}*/
 
 
 

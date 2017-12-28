@@ -370,9 +370,7 @@
                                     <span ng-show="edgeModeRoute">add mode (on)</span>
                                     </br>
                                     <label ng-show="edgeModeRoute">Name: &nbsp</label></label><input ng-show="edgeModeRoute" type="text" name="nameRoute"/>
-                                    <!-- -->
                                     <button ng-show="edgeModeRoute" onclick="createRoute();$('#storeRoutes').click();$('#storeRoutes').click()"> Create route </button>
-                                    <!-- onclick="createRoute();$('#clickRouteRemove').click()"-->
                                 </div>
 
                             </div>
@@ -412,26 +410,17 @@
         <span>
         <input id="pac-input" class="controls" type="text" placeholder="Search for desired area to add a Building">
          <div ng-controller="MyDraw">
-             <!--<select class="selectRoutes" id="showRoutes" onchange="putNameRoute()"> -->
              <select class="selectRoutes" id="showRoutes" ng-model="myShowRoute" ng-options="item for item in storeRoutesName" ng-change= "drawStoreRoute()" ng-click="myStoreRoutes()" >
                   <option value="" disabled selected>Chose route of the building</option>
             </select> 
-            <!-- PENDIENTE DE IMPLEMETNAR -->
             <button id="clearRoute" class="rRoutes" ng-click="myRemoveDrawRoute()">Clear</button>
             <button class="removeRoute btn-danger" ng-click="removeRoute()"><span class="glyphicon glyphicon-remove"></button>
-            
-          <!-- PARA TEST
-            <button ng-click="myDrawRoute()" >Dibuja ruta</button>  
-           <button ng-click="myRemoveDrawRoute()" >Borrar ruta</button> 
-           <button ng-click="drawStoreRoute('LaMia')" >My get</button> -->
 
            <!-- PARA LA ACTUALIZACIÓN DEL DESPLIEGUE DE RUTAS ALMACENADAS -->
            <input type="hidden" id="storeRoutes" ng-click="myStoreRoutes()">
            <!-- DIBUJO DE RUTAS -->
            <input type="hidden" id="clickRoute" ng-click="myDrawRoute()"> 
            <input type="hidden" id="clickRouteRemove" ng-click="myRemoveDrawRoute()">
-           <!-- CAMBIO DE NOMBRE DE EDIFICIO -->
-           <!--<input type="text" id="changeBuilding" onclick="alert($('#changeBuilding').val())"></input> -->
        </div>
         <div id="map-canvas"></div>
     </div>

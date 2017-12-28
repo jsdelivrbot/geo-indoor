@@ -35,30 +35,22 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		promise.then(function(resp) {
 			if(resp.config.data.edificio == getEdificio() || getEdificio() == "{{anyService.selectedBuilding.name}}"){
 				$scope.storeRoutesName = [];
-				//console.log(resp.config.data.edificio);
 				var rutas = resp.data[Object.keys(resp.data)[0]];
 				Object.keys(rutas).forEach(function(key) {
 					$scope.storeRoutesName.push(rutas[key]["nombre"]);
 				});
-				//console.log("Sin Ordenar " + $scope.storeRoutesName);
 				// ORDENADO
 				$scope.storeRoutesName.sort();
-				//console.log("Ordenado " + $scope.storeRoutesName);
 			}
-			console.log(resp.config.data.edificio + " -  Get edificio " + getEdificio());
 		});
-		//console.log($scope.storeRoutesName);
-		//console.log($scope.myEdificio + " -  Get edificio " + getEdificio());
 	}
 
 	// Dibuja ruta
 	$scope.myDrawRoute = function(){
-		//alert("casa");
 		drawRoute(GMapService.gmap);
 	}
 	// Borra ruta dibujada
 	$scope.myRemoveDrawRoute = function(){
-		//alert("casa");
 		removeDrawRoute();
 	}
 	// myGetRoutes()
@@ -86,7 +78,6 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		    data: datarequest
 
 		}).success(function (data,status) {
-			//console.log(data);
 			return data;
 		});
 	};
@@ -121,7 +112,6 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		    data: datarequest
 
 		}).success(function (data,status) {
-			//console.log(data);
 			$scope.suc("Ruta " + nombreRuta + " removed");
 			return data;
 		}).error(function (data,status) {
@@ -133,27 +123,21 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 	// drawStoreRoute()
 	// Dibuja la ruta pasada por parametro
 	$scope.drawStoreRoute = function(nombreRuta) {
-		// $scope.myShowRoute es el ng-model del desplegable
 		var promise = $scope.myGetRoutes();
 		if(!nombreRuta){
 			nombreRuta = $scope.myShowRoute;
 		}
 		if(!nombreRuta){return false;}
 		document.getElementsByName("nameRoute")[0].value = nombreRuta.substring(nombreRuta.indexOf(" ")+1, nombreRuta.lenght);
-		//var nombreRuta = $('#showRoutes').val.toString();
 		promise.then(function(resp) {
 			$scope.myRemoveDrawRoute();
 			var rutas = resp.data[Object.keys(resp.data)[0]];
-			//console.log(resp.data);
-			console.log(rutas);
 			Object.keys(rutas).forEach(function(key) {
 				if(rutas[key]["nombre"] == nombreRuta){
 					var ruta = JSON.parse(rutas[key]["ruta"]);
-					console.log(ruta);
 					var flightPlanCoordinates = [];
 					var floorctrl=0;
 					ruta.forEach(function(punto) {
-						// ********* AQUI SE PODRIA MIRAR TAMBIEN LA PLANTA (FLOOR) *********
 						if( punto["floor_number"] != getFloor() && floorctrl != 1){
 							var msg = nombreRuta + " is on floor " + punto["floor_number"] + ", you are on floor " + getFloor();
     						$scope.warn(msg);
@@ -164,7 +148,6 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 						    	lat: parseFloat(punto["lat"]), 
 						    	lng: parseFloat(punto["lng"])
 					    	}
-							//console.log(coord);
 							flightPlanCoordinates.push(coord);
 						}
 						
@@ -178,14 +161,13 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 							strokeWeight: 4
 						});  
 
-						console.log(myflightPath.getPath());
 						myflightPath.setMap(GMapService.gmap);
 					}
 				}
 			});
 
 		});
-		//console.log(data);
+		
 	};
 
 	//getContador()
@@ -197,13 +179,9 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
 		}).success(function (data,status) {
-			console.log(data);
-			//$scope.suc("Ruta " + nombreRuta + " removed");
 			$scope.contadorId=data.id;
 			return data;
 		}).error(function (data,status) {
-			//$scope.err("Ruta has not been removed");
-			console.log(data);
 			return data;
 		});
 	}
@@ -211,7 +189,6 @@ app.controller("MyDraw",['$scope', '$compile', 'GMapService', 'AnyplaceService',
 	// wakeUpHeroku()
 	// Hace una serie de llamadas al servidor para despertarle
 	$scope.wakeUpHeroku = function() {
-		console.log("AQUIIIII");
 		$scope.myGetRoutes();
 		$scope.myGetRoutes();
 		$scope.myGetRoutes();

@@ -13,6 +13,9 @@ body {
     position: relative;
     /*Geoindoor*/
     background-image: url("../images/mifondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e5e4de;
     /*Geoindoor*/
 }
 

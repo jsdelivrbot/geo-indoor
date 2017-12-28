@@ -51,8 +51,6 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
             },
             data: datarequest
 		}).success(function (data,status) {
-			console.log("myGetRoutes-> " + "data: " + data + " \n" + "status: " + status );
-            console.log("ERROR en myGetRoutes");
 			return data;
 		});
 	};
@@ -70,16 +68,11 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
         });
         promise.then(function(result) {
             var rutas = result.data;
-            console.log("Rutas: " + rutas);
             $scope.storeRoutesName = [];
             if (rutas == "There are not routes") {
                 $scope.storeRoutesName.push(rutas);
-                console.log("Rutas de storeRoutesName");
-                console.log($scope.storeRoutesName);
             }else{
                 Object.keys(rutas).forEach(function(key) {$scope.storeRoutesName.push(rutas[key]["nombre"])});
-                console.log("Rutas de storeRoutesName");
-                console.log($scope.storeRoutesName);
             }
         },function(err) {
             console.log(err);
@@ -111,26 +104,19 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
         });
         promise.then(function(result) {
             rutas = result.data;
-            console.log("Rutas: " + rutas);
             if (rutas == "There are not routes") {
                 console.log("Rutas de myDrawRoute: No hay rutas");
                 console.log(rutas);
             }else{
                 flightPathCoordinates = [ ];
                 ids = Object.keys(rutas);
-                console.log("Rutas de myDrawRoute");
-                console.log(rutas);
                 ids.forEach(function(key) {
-                    console.log($scope.selectedRoute + " - id " + key + " - " + rutas[key]["nombre"] );
                     if( rutas[key]["nombre"] == $scope.selectedRoute ){
                         ruta = rutas[key];
                     }
                 });
-                console.log("Ruta encontrada ");
-                console.log(ruta);
-                
+            
                 var rutaInfo = JSON.parse(ruta["ruta"]);
-                console.log(rutaInfo);
 
                 rutaInfo.forEach(function(myruta){
                     var coord = {
@@ -138,9 +124,7 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
                         lng: parseFloat(myruta["lng"])
                     }
                     flightPathCoordinates.push(coord);
-                    console.log(myruta);
                 });
-                console.log(flightPathCoordinates);
                 flightPath = new google.maps.Polyline({
                   path: flightPathCoordinates,
                   strokeColor: '#00ff00',
@@ -162,6 +146,5 @@ app.controller('DrawRouteController',  ['$scope', '$compile', 'GMapService', 'An
 
     // Mostrar las rutas una vez inicializada la página
     setTimeout(function(){$scope.storeRoutes()}, 3000);
-    //setTimeout(function(){$scope.myDrawRoute()}, 9000);
 	
 }]);

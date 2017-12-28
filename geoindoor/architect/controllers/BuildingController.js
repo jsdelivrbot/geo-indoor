@@ -224,8 +224,6 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
     $scope._crearEdificioGeoindoor = function(edificio) {
         var idmail = getIdMail();
         var contrasena = getContrasena();
-        console.log("ID_MAIL: " + idmail );
-        console.log("PASSWD: " + contrasena );
         
         var datarequest = {
             email: idmail,
@@ -246,12 +244,10 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
             },
             data: datarequest
         }).success(function (data,status) {
-            console.log(data);
             //$scope.suc("Ruta " + nombreRuta + " removed");
             return data;
         }).error(function (data,status) {
             //$scope.err("Ruta has not been removed");
-            console.log(data);
             return undefined;
         });
     }
@@ -265,12 +261,10 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
         }).success(function (data,status) {
-            console.log(data);
             //$scope.suc("Ruta " + nombreRuta + " removed");
             return data;
         }).error(function (data,status) {
             //$scope.err("Ruta has not been removed");
-            console.log(data);
             return data;
         });
     }
@@ -330,7 +324,6 @@ app.controller('BuildingController', ['$scope', '$compile', 'GMapService', 'Anyp
                 
                 /*GEOINDOOR START -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
                 building.name = $scope.myContador + " " + building.name;
-                console.log("BUILDING NAME " + building.name);
                 var promise = $scope.anyAPI.addBuilding(building);
                 /*GEOINDOOR END -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
                 var isUndefined = /undefined/.test(building.name);
