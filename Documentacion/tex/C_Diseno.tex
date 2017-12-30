@@ -1,8 +1,69 @@
 \apendice{Especificación de diseño}
 
 \section{Introducción}
-
+En este apartado, nos detendremos a detallar la estructura de datos, los procedimientos y la arquitectura, que sigue la herramienta Geoindoor.
 \section{Diseño de datos}
+
+Este proyecto trabaja con una base de datos no sql por lo tanto la manera en la que están estructurados los datos, es un poco diferente a la que estamos acostumbrados con bases de datos sql.
+Los datos en vez de estar estructurados en tablas (BD sql), se estructuran en documentos\footnote{Un documento es un conjunto de entidades de bases de datos que se agrupan en una entidad}. 
+
+Además Geoindoor utiliza el servicio web de bases de datos de Firebase, por lo que la BD esta formada por un único documento. Se usa JSON para el almacenamiento de datos, lo que nos lleva a utilizar un sistema de \textit{clave-valor} para la ordenación.
+
+En conclusión podríamos resumir las características de la BD de Geoindoor en 5 puntos:
+
+\begin{itemize}
+	\item Base de datos no sql.
+	\item Documentos en vez de entidades relacionales.
+	\item Estructura de un único documento.
+	\item Almacenamiento de datos a través \textit{clave-valor}
+	\item Utilización de JSON para almacenamiento de datos
+\end{itemize} 
+
+Entonces la manera de analizar el diseño de datos no se puede realizar desde el punto de vista relacional. De todas formas, a continuación se muestran diagramas que permiten entender mejor el diseño y estructura de datos de Geoindoor.
+
+\imagenResize{0.5}{img/DiagramaRelacionEntidades}{Diagrama de relacion de entidades}{DiagramaRelacionEntidades}
+
+Estos diagramas se leen de izquierda a derecha, para saber que entidad contiene a cual. Las entidades moradas contienen otras entidades, mientras que las azules guardan la relación \textit{clave-valor}, donde se almacenan realmente los datos. Todas las entidades se encuentran en un mismo documento (Geoindoor DB).
+
+La relación virtual indica que hay una relación lógica entre esas entidades, es decir, hay relación de datos entre entidades. En este caso la entidad ``id1 - id..n'', que identifica a los edificios, esta relacionada con ``id1rutas - id..nrutas'', que identifica las rutas de cada edificio. De esta manera podríamos decir que la relación entre ``id1 - id..n'' y ``id1rutas - id..nrutas' es de 1 - *.
+
+\newpage
+\textbf{ Geoindoor DB entidades:}
+\begin{itemize}
+	\item \textbf{Contador}
+	\begin{itemize}
+		\item Clave 1: id
+	\end{itemize}
+	\item \textbf{Emails}
+	\begin{itemize}
+		\item \textbf{e1 - e..n}: identificadores de email.
+		\begin{itemize}
+			\item Clave 1: contrasena
+			\item Clave 2: email 
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Edificios}
+	\begin{itemize}
+		\item \textbf{id1 - id..n}: identificadores de edificio.
+		\begin{itemize}
+			\item Clave 1: idmail 
+			\item Clave 2: nombre
+		\end{itemize}
+		\item \textbf{Rutas}
+		\begin{itemize}
+			\item \textbf{id1rutas - id..nrutas}: identificadores de ruta de edificio.
+			\begin{itemize}
+				\item \textbf{r1 - r..rn}: identificadores de ruta. \\
+				\hspace{0.5cm} Clave 1: nombre \\
+				\hspace{0.5cm} Clave 2: rutas\\
+				\hspace{0.5cm} Clave 3: puntos \\
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+
+
 
 \section{Diseño procedimental}
 
