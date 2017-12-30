@@ -1,0 +1,96 @@
+{
+  "Contador" : {
+    "id" : "id5"
+  },
+  "Edificios" : {
+    "Rutas" : {
+      "id1rutas" : {
+        "r1" : {
+          "nombre" : "silla",
+          "puntos" : "[ [ [2.5, 3.6], [4.5, 6.7], [3.6, 4.9] ] ]",
+          "ruta" : "jajajaja"
+        },
+        "r2" : {
+          "nombre" : "volar",
+          "puntos" : "[ [ [2.5, 3.6], [4.5, 6.7], [3.6, 5] ] ]",
+          "ruta" : "jajajaja"
+        }
+      },
+      "id2rutas" : {
+        "r1" : {
+          "nombre" : "0 Ruta al ascensor",
+          "puntos" : "[\"poi_6084b5d5-bd7d-414c-8610-e7e61264a25c\",\"poi_f55ee9de-c370-44d7-bfa9-273c82d9a486\"]",
+          "ruta" : "[{\"puid\":\"poi_6084b5d5-bd7d-414c-8610-e7e61264a25c\",\"lat\":\"42.33949401402166\",\"lng\":\"-3.6973848938941956\",\"floor_number\":\"0\",\"name\":\"Entrada\",\"description\":\"\"},{\"puid\":\"poi_f55ee9de-c370-44d7-bfa9-273c82d9a486\",\"lat\":\"42.339484101018776\",\"lng\":\"-3.697022795677185\",\"floor_number\":\"0\",\"name\":\"Ascensor\",\"description\":\"\"}]"
+        }
+      },
+      "id3rutas" : {
+        "r1" : {
+          "nombre" : "0 A las escaleras",
+          "puntos" : "[\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\",\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\"]",
+          "ruta" : "[{\"puid\":\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\",\"lat\":\"42.33927989281159\",\"lng\":\"-3.6970925331115723\",\"floor_number\":\"0\",\"name\":\"Centro\",\"description\":\"El centro\"},{\"puid\":\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\",\"lat\":\"42.33885363082469\",\"lng\":\"-3.6968109011650085\",\"floor_number\":\"0\",\"name\":\"Baños\",\"description\":\"Los baños\"}]"
+        },
+        "r2" : {
+          "nombre" : "0 Baños desde centro",
+          "puntos" : "[\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\",\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\"]",
+          "ruta" : "[{\"puid\":\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\",\"lat\":\"42.33885363082469\",\"lng\":\"-3.6968109011650085\",\"floor_number\":\"0\",\"name\":\"Baños\",\"description\":\"Los baños\"},{\"puid\":\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\",\"lat\":\"42.33927989281159\",\"lng\":\"-3.6970925331115723\",\"floor_number\":\"0\",\"name\":\"Centro\",\"description\":\"El centro\"}]"
+        },
+        "r3" : {
+          "nombre" : "0 Geron",
+          "puntos" : "[\"poi_3aaffc36-2785-4516-b799-af1537b30386\",\"poi_564c6435-8085-4c09-8f54-f162757c6840\",\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\"]",
+          "ruta" : "[{\"puid\":\"poi_3aaffc36-2785-4516-b799-af1537b30386\",\"lat\":\"42.339474188014314\",\"lng\":\"-3.6973795294761658\",\"floor_number\":\"0\",\"name\":\"Entrada al museo\",\"description\":\"-\"},{\"puid\":\"poi_564c6435-8085-4c09-8f54-f162757c6840\",\"lat\":\"42.3394642750083\",\"lng\":\"-3.6971917748451233\",\"floor_number\":\"0\",\"name\":\"Escaleras mecanicas\",\"description\":\"-\"},{\"puid\":\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\",\"lat\":\"42.33927989281159\",\"lng\":\"-3.6970925331115723\",\"floor_number\":\"0\",\"name\":\"Centro\",\"description\":\"El centro\"}]"
+        },
+        "r4" : {
+          "nombre" : "0 Gitere",
+          "puntos" : "[\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\",\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\"]",
+          "ruta" : "[{\"puid\":\"poi_c14b3f90-0d77-4a92-abc2-1eb058daf88f\",\"lat\":\"42.33885363082469\",\"lng\":\"-3.6968109011650085\",\"floor_number\":\"0\",\"name\":\"Baños\",\"description\":\"Los baños\"},{\"puid\":\"poi_aab81498-52b1-4272-bb78-dbb20afc7ec4\",\"lat\":\"42.33927989281159\",\"lng\":\"-3.6970925331115723\",\"floor_number\":\"0\",\"name\":\"Centro\",\"description\":\"El centro\"}]"
+        }
+      },
+      "id4rutas" : {
+        "r1" : {
+          "nombre" : "0 La ruta",
+          "puntos" : "[\"poi_de7c4232-4f17-47df-ab35-229fa10fca32\",\"poi_0ea5a4ad-6cf7-42e7-8418-9b12fb502236\"]",
+          "ruta" : "[{\"puid\":\"poi_de7c4232-4f17-47df-ab35-229fa10fca32\",\"lat\":\"42.339063788258414\",\"lng\":\"-3.6957111954689026\",\"floor_number\":\"0\",\"name\":\"La entrada\",\"description\":\"mi entrada\"},{\"puid\":\"poi_0ea5a4ad-6cf7-42e7-8418-9b12fb502236\",\"lat\":\"42.33895474439463\",\"lng\":\"-3.6957353353500366\",\"floor_number\":\"0\",\"name\":\"Subida\",\"description\":\"La subida\"}]"
+        },
+        "r2" : {
+          "nombre" : "0 Al centro",
+          "puntos" : "[\"poi_0ef8c4e3-98bd-48db-8208-1620f681bf67\",\"poi_0ea5a4ad-6cf7-42e7-8418-9b12fb502236\"]",
+          "ruta" : "[{\"puid\":\"poi_0ef8c4e3-98bd-48db-8208-1620f681bf67\",\"lat\":\"42.33895276177716\",\"lng\":\"-3.695555627346039\",\"floor_number\":\"0\",\"name\":\"El centro\",\"description\":\"centro educacional\"},{\"puid\":\"poi_0ea5a4ad-6cf7-42e7-8418-9b12fb502236\",\"lat\":\"42.33895474439463\",\"lng\":\"-3.6957353353500366\",\"floor_number\":\"0\",\"name\":\"Subida\",\"description\":\"La subida\"}]"
+        }
+      }
+    },
+    "id1" : {
+      "idmail" : "juanpedro@gmail.com",
+      "nombre" : "Burgos"
+    },
+    "id2" : {
+      "idmail" : "104995627141686724367",
+      "nombre" : "id2 Museo de la evolución"
+    },
+    "id3" : {
+      "idmail" : "104995627141686724367",
+      "nombre" : "id3 Museo de la Evolución Humana"
+    },
+    "id4" : {
+      "idmail" : "104995627141686724367",
+      "nombre" : "id4 Colegio prueba"
+    }
+  },
+  "Emails" : {
+    "e1" : {
+      "contrasena" : "aaaa",
+      "email" : "juanpedro@gmail.com"
+    },
+    "e2" : {
+      "contrasena" : "ya29",
+      "email" : "104995627141686724367"
+    },
+    "e3" : {
+      "contrasena" : "ya29",
+      "email" : "115448030700466934749"
+    },
+    "e4" : {
+      "contrasena" : "ya29",
+      "email" : "106598100923162126847"
+    }
+  }
+}
