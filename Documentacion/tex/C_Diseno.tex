@@ -67,6 +67,31 @@ La relación virtual indica que hay una relación lógica entre esas entidades, 
 
 \section{Diseño procedimental}
 
+En el diseño procedimental explica como interaccionan las distintas partes del algoritmo.
+A continuación se muestran unos diagramas de secuencia que describen el comportamiento de los algoritmos utilizados para el correcto funcionamiento de la herramienta Geoindoor. No se exponen todos los diagramas de secuencia resultantes de el análisis de los algoritmos, por que no son relevantes para el proyecto Geoindoor.
+
+Para los diagramas de la parte de Architect de Geoindoor, el usuario ya esta logeado una vez comienza la acción.
+\newpage
+\imagenResize{0.5}{img/DiagramasSecuencia/DSCrearEdificio}{Diagrama de secuencia de la creación de un edificio}{DSCrearEdificio}
+
+Para que el siguiente diagrama tenga sentido hay que ubicarle en un contexto. Debe haber un edificio creado y con al menos dos pois.
+\newpage
+\imagenResize{0.3}{img/DiagramasSecuencia/DSCrearRuta}{Diagrama de secuencia de la creación de una ruta predefinida}{DSCrearRuta}
+
+Para el siguiente diagrama el contexto cambia. Ahora deber haber un edificio con al menos una ruta predefinida.
+
+\imagenResize{0.5}{img/DiagramasSecuencia/DSDibujadoRuta}{Diagrama de secuencia del dibujado de una ruta predefinida al seleccionarla}{DSDibujadoRuta}
+
+\newpage
+El siguiente diagrama tiene el mismo contexto que el anterior.
+
+\imagenResize{0.5}{img/DiagramasSecuencia/DSBorrarRuta}{Diagrama de secuencia del borrado de una ruta}{DSBorrarRuta}
+
+\newpage
+En este diagrama, nos encontramos en Geoindoor Viewer, en un edificio con al menos una ruta predefinida.
+
+\imagenResize{0.5}{img/DiagramasSecuencia/DSDibujarRutaV}{Diagrama de secuencia del dibujado de una ruta (Viewer)}{DSDibujarRutaV}
+ 
 \section{Diseño arquitectónico}
 
 
