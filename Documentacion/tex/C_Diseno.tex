@@ -94,4 +94,52 @@ En este diagrama, nos encontramos en Geoindoor Viewer, en un edificio con al men
  
 \section{Diseño arquitectónico}
 
+En este apartado se hablara de como esta diseñado el sistema Geoindoor a nivel de su arquitectura de software.
 
+El patrón que se ha elegido para implementar y que en gran parte ha sido impuesto por la herramienta en la que se ha basado Geoindoor (AnyPlace), es el patrón Modelo-Vista-Controlador (MVC).
+
+El patrón MVC busca que la interfaz de usuario sea totalmente independiente de la lógica del sistema, pero con Geoindoor y AnyPlace, esta independencia, en ciertos aspectos se vuelve muy difícil de conseguir, ya que JavaScript y AngularJS dependen en gran medida de la interfaz HTML, lo que en varias ocasiones ha hecho que haya una relación de dependencia entre lógica e interfaz.
+
+\subsection{Modelo Vista Controlador}
+
+Este patrón se basa en separar los datos y la lógica del sistema de la interfaz del usuario. Para tal finalidad el MVC propone la construcción de 3 componentes: \textbf{modelo}, \textbf{vista} y \textbf{controlador}.
+
+\begin{itemize}
+	\item \textbf{Modelo:} es el encargado de mantener los datos, es decir, es el que se encarga de la representación y gestión (actualizaciones, borrados, consultas, creaciones) de la información. Envia a la \textit{Vista} la información que le solicita el \textit{Controlador}.
+	\item \textbf{Controlador:} Es el encargado de controlar la interacción entre la \textit{Vista} y el \textit{Modelo}. Responde a eventos como acciones del usuario, y transmite las peticiones al modelo.
+	\item \textbf{Vista:} es el componente encargado de mostrar la información recibida del \textit{Modelo} al usuario y transmitir las peticiones del usuario al \textit{Controlador}.
+\end{itemize}
+
+\imagenResize{1}{img/MVC/ModelViewControllerDiagram}{Diagrama Modelo-Vista-Controlador}{ModelViewControllerDiagram}
+
+La abstracción del funcionamiento de un sistema Modelo-Vista-Controlador, puede ser representada de la siguiente forma.
+
+\imagenResize{0.5}{img/MVC/angularjsmvc}{Diagrama de flujo Modelo-Vista-Controlador}{angularjsmvc}
+
+\subsection{Modelo-Vista-Controlador en Geoindoor}
+
+En cuanto a como esta implementado el Modelo-Vista-Controlador en Geoindoor podemos categorizar cada elemento participante, en cada uno de los estratos del MVC.
+
+\begin{itemize}
+	\item \textbf{Modelo:} en el modelo podemos introducir el servicio de base de datos de Firebase (Geoindoor), la REST API creada en Heroku (Geoindoor), la BD de AnyPlace y la REST API de AnyPlace. Ambas API REST nos permiten interactuar con las respectivas bases de datos.
+	\begin{itemize}
+		\item BD Geoindoor
+		\item REST API Geoindoor 
+		\item BD AnyPlace
+		\item REST API AnyPlace 
+	\end{itemize}
+	\item \textbf{Controlador:} en el componente de controladores podemos añadir el fichero ``\textit{app.js}''\footnote{app.js: es el fichero en el que se declara cada aplicación, y esta basada en un modulo, a partir de el cual surgen los controladores.}, todos los ficheros de la carpeta ``\textit{controllers}'' y los ficheros de la carpeta  ``\textit{scripts}'' que son utilidades, usadas por los controladores.
+	\item \textbf{Vista:} en la vista añadiremos el fichero ``\textit{index.html}''. Bootstrap, CSS y demás elementos para el estilo se podrían introducir en componentes que forman la \textit{Vista}.
+\end{itemize}
+
+\imagenResize{0.3}{img/MVC/MVCArchitect}{Elementos integrantes del Modelo-Vista-Controlador en Architect}{MVCArchitect}
+
+\imagenResize{0.3}{img/MVC/MVCViewer}{Elementos integrantes del Modelo-Vista-Controlador en Viewer}{MVCViewer}
+
+\subsection{Navegabilidad}
+
+En cuanto a la navegabilidad del sistema, es muy simple, una vez arrancada la herramienta o sistema Geoindoor, aparecerá una pantalla de inicio, dónde encontramos dos botones que pemitirán al usuario elegir si trabajar con la herramienta Architect o Viewer, de Geoindoor. 
+
+\imagenResize{0.6}{img/MVC/Nav}{Diagrama de navegabilidad de Geoindoor}{Nav}
+
+No se considera la fácil navegación (idas y vueltas intermitentes) entre la herramienta Architect y Viewer, ya que para el usuario no tiene ningún sentido esa navegación. 
