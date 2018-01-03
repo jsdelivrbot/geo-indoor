@@ -11,11 +11,18 @@
 \RequirePackage{xtab}
 \RequirePackage{multirow}
 
+% Verde oscuro
+\definecolor{darkgreen}{rgb}{0.0, 0.35, 0.0}
+
 % Links
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {darkgreen}
 }
+
+%Citas de bibliografía
+\usepackage{cite}
+\usepackage[numbers,sort]{natbib}
 
 % Ecuaciones
 \usepackage{amsmath}
@@ -488,7 +495,7 @@ Indoor geolocation, location system, location search, indoor location, predeterm
 \include{./tex/7_Conclusiones_Lineas_de_trabajo_futuras}
 
 
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{bibliografia}
 
 
