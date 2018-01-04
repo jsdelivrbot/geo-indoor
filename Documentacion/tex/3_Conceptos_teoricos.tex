@@ -70,28 +70,28 @@ Como se muestra en las imágenes en la trilateracion en tres dimensiones, los pu
 
 Los satélites tienen que saber la distancia entre ellos por lo tanto también mandan señales, además para hacer un cálculo correcto de distancias se necesitan tener relojes coordinados.
 \\
-\imagen{img/GPS-Trilateracion}{Explicacion de trilateración.}
+\imagen{img/GPS-Trilateracion}{Explicacion de trilateración.\cite{mejoresappgeo}}
 
 
 
-\imagen{img/trilateracion}{Explicacion de trilateración. \cite{abato_espanol:_2012:a}}
+\imagen{img/trilateracion}{Explicacion de trilateración. \cite{animaciontrila}}
 
 
-La geolocalización por wifi funciona de forma parecida a la de los sistemas de posicionamiento con satélites. Esta vez los puntos de referencia en vez de ser satélites son puntos de acceso wi-fi \cite{luz_wi-fi_2017:a}, y hay varias técnicas y tecnologías para hallar la ubicación de los dispositivos, además de la explicada anteriormente. Una de estas técnicas es la de utilizar RSSI, que indica la intensidad de la señal, a mayor intensidad más cerca está del punto de acceso Wi-Fi que proporciona la señal.  Pero normalmente para la ubicación en interiores se utilizan ondas de radio ya que se obtiene mayor precisión \cite{noauthor_mejores_nodate:a}. 
+La geolocalización por wifi funciona de forma parecida a la de los sistemas de posicionamiento con satélites. Esta vez los puntos de referencia en vez de ser satélites son puntos de acceso wi-fi, y hay varias técnicas y tecnologías para hallar la ubicación de los dispositivos, además de la explicada anteriormente. Una de estas técnicas es la de utilizar RSSI, que indica la intensidad de la señal, a mayor intensidad más cerca está del punto de acceso Wi-Fi que proporciona la señal.  Pero normalmente para la ubicación en interiores se utilizan ondas de radio ya que se obtiene mayor precisión \cite{wifiloc}. 
 
 \section{Formatos gráficos escalables}\label{formatos-graficos-escalables}
 
 Los formatos gráficos escalables son fundamentales en el proyecto ya que son utilizados a la hora de hacer el dibujado de rutas así como la creación de iconos.
 
 Cuando hablamos de formatos gráficos escalables, nos estamos refiriendo a aquellos formatos digitales basados en objetos geométricos, cuya labor es hacer que la imagen tenga formas m\'{a}s definidas.
-Los formatos más conocidos son SVG \cite{noauthorcursonodate:a}, WMF \cite{noauthor_metaarchivo_2016:a}, ODG \cite{noauthor_definicion_nodate:c} y AI \cite{noauthorextensionnodate:b}.
+Los formatos más conocidos son SVG, WMF, ODG  y AI.
 
 Debemos entender la importancia de los formatos gráficos escalables en la mejora de imágenes para hacerlas más geométricas.
 
 
 \subsection{WMF}\label{wmf}
 
-Es un formato de gráficos vectoriales creado por Microsoft, nació a principio de los 90 y ahora está en desuso. Un archivo WMF se utiliza para regenerar una imagen a través Windows GDI \footnote{Graphics Device Interface \textit{interfaz de programación de aplicaciones que se encarga del control gráfico de los dispositivos de salida}} \hypertarget{_Hlk482387012}{. WMF guarda una serie de llamadas a funciones que son enviadas a Windows GDI para regenerar la imagen.}
+Es un formato de gráficos vectoriales creado por Microsoft, nació a principio de los 90 y ahora está en desuso. Un archivo WMF se utiliza para regenerar una imagen a través Windows GDI \footnote{Graphics Device Interface \textit{interfaz de programación de aplicaciones que se encarga del control gráfico de los dispositivos de salida}} \hypertarget{_Hlk482387012}{. WMF guarda una serie de llamadas a funciones que son enviadas a Windows GDI para regenerar la imagen.} \cite{metaarchivo}
 
 Enhanced Metafile (EMF) es una versión de 32 bits de WMF (16 bits), con comandos adicionales.
 
@@ -100,7 +100,7 @@ Enhanced Metafile (EMF) es una versión de 32 bits de WMF (16 bits), con comando
 \subsection{ODG}\label{ODG}
 
 
-ODG formato de imagen vectorial enlazado con la versión 2 de OpenDocument de OpenOffice, es un estándar abierto para la creación de dibujos vectoriales, utiliza XML, fue creado por Sun Microsystems y OASIS.
+ODG formato de imagen vectorial enlazado con la versión 2 de OpenDocument de OpenOffice, es un estándar abierto para la creación de dibujos vectoriales, utiliza XML, fue creado por Sun Microsystems y OASIS \cite{definicionodg}.
 
 
 
@@ -109,7 +109,7 @@ ODG formato de imagen vectorial enlazado con la versión 2 de OpenDocument de Op
 \subsection{AI}\label{ai}
 
 Formato de imagen vectorial de Adobe Illustrator, está desarrollado por Adobe Systems para la representación de gráficos vectoriales en formato EPS o PDF. El formato AI está compuesto por rutas conectadas mediante puntos, en lugar de datos de imagen. 
-En principio el formato AI fue un formato nativo llamado PGF hasta que se compatibilizo con PDF mediante la copia completa de datos PGF en el archivo de formato PDF.
+En principio el formato AI fue un formato nativo llamado PGF hasta que se compatibilizo con PDF mediante la copia completa de datos PGF en el archivo de formato PDF \cite{extensionai}.
 
 
 
@@ -120,8 +120,8 @@ En principio el formato AI fue un formato nativo llamado PGF hasta que se compat
 Este es el formato gráfico utilizado para el dibujado de rutas y caminos en el proyecto.
 \end{flushleft}
 
-SVG (Scalable Vector Graphics) \cite{lasso_formatos_2015:a} es un formato de imagen vectorial recomendado y desarrollado por W3C (World Wide Web Consortium), es un estándar abierto, trabaja con gráficos vectoriales bidimensionales estáticos y animados, en formato XML \cite{noauthor_scalable_2017:a}.
-SVG aparece de forma nativa en multitud de navegadores como Amaya, Mozilla Firefox, Google Chrome, Safari e Internet Explorer. Para navegadores que no tienen SVG de forma nativa existen plugins que permiten mostrar imágenes en formato SVG.
+SVG (Scalable Vector Graphics) es un formato de imagen vectorial recomendado y desarrollado por W3C (World Wide Web Consortium), es un estándar abierto, trabaja con gráficos vectoriales bidimensionales estáticos y animados, en formato XML.
+SVG aparece de forma nativa en multitud de navegadores como Amaya, Mozilla Firefox, Google Chrome, Safari e Internet Explorer. Para navegadores que no tienen SVG de forma nativa existen plugins que permiten mostrar imágenes en formato SVG \cite{scalablevec} \cite{lassoformatos}.
 SVG permite tres tipos de objetos graficos:
 
 
@@ -160,19 +160,19 @@ SVG permite tres tipos de objetos graficos:
 Los objetos gráficos con los que trabaja SVG pueden transformarse y agruparse para después ser compuestos en otros objetos renderizados con anterioridad. 
 El dibujado con SVG es dinámico e interactivo, mediante el uso de DOM para SVG (Document Object Model), que mediante ECMAScript \footnote{ECMAScript \textit{es una especificación de lenguaje de programación publicada por ECMA International. Se empezó a desarrollar en 1996 y se basó en JavaScript, fue propuesto como estándar por Netscape Communications Corporation. Actualmente es el estándar ISO 16262.}} o SMIL \footnote{SMIL (Synchronized Multimedia Integration Language)\textit{es un estándar del World Wide Web Consortium (W3C) para presentaciones multimedia, permite integrar audio, video, imágenes, texto o cualquier otro contenido multimedia.}} permite animaciones de gráficos vectoriales sencillas y eficientes
 SVG tiene una gran cantidad de manejadores de eventos como ``onMouseOver" y ``onClick", que pueden ser asignados a cualquier objeto SVG. La compatibilidad de SVG con estándares web permiten aplicar características como el scripting sobre elementos SVG o XML, de forma simultánea, en la misma página web desde distintos espacios de nombre XML.
-Las imágenes SVG pueden ser comprimidas con gzip (SVGZ)
+Las imágenes SVG pueden ser comprimidas con gzip (SVGZ) \cite{scalablevec}.
 
-\imagen{img/mapabits}{explicación diferencia mapa de bits y gráfico vectorial}
+\imagen{img/mapabits}{explicación diferencia mapa de bits y gráfico vectorial.\cite{cursografvec}}
 
 \section{Lenguajes de etiquetas}\label{lenguajes-etiuetas}
 
 En cuanto al lenguaje de etiquetas o marcado al ser una herramienta para la web la interfaz se nutre de html, con lo cual es una parte fundamental del proyecto.
 
-Los lenguajes de etiquetas, o de marcado son utilizados para codificar un documento añadiendo etiquetas al texto, las cuales permiten otorgarle unas características o cualidades específicas. En este proyecto es mu importante ya que facilita tanto el procesado de la información, como a la hora de mostrar la información \cite{noauthor_lenguaje_2017:a}.
+Los lenguajes de etiquetas, o de marcado son utilizados para codificar un documento añadiendo etiquetas al texto, las cuales permiten otorgarle unas características o cualidades específicas. En este proyecto es mu importante ya que facilita tanto el procesado de la información, como a la hora de mostrar la información \cite{lenguajemarc}.
 
 No se debe confundir los lenguajes de etiquetas con los de programación, ya que el lenguaje de etiquetas no tiene funciones aritméticas ni variables.
 
-Podemos diferenciar entre 4 tipos de lenguajes de marcado \cite{noauthor_1.1_nodate:a} o de etiquetas \cite{noauthor_lenguaje_nodate:a}.
+Podemos diferenciar entre 4 tipos de lenguajes de marcado o de etiquetas \cite{lenguajemarcecu} \cite{lmarcas}.
 \begin{itemize}
 \item
 Marcado de presentación
@@ -236,7 +236,7 @@ En muchas ocasiones nos encontramos en sitios nuevos
 
 Se utilizan etiquetas o marcas para describir el texto, sin especificar cómo deben ser presentados, ni en qué orden.
 
-Este tipo de marcado tiene más usos que lo que aparenta a primera vista, pueden utilizarse para el almacenamiento de metadatos, comunicación de datos (cualquier aplicación pude escribir un documento de texto plano con datos en formato XML), migración de datos (si necesitamos migrar los datos de una base de datos a otra, si ambas trabajan en xml, el trabajo es más sencillo), almacenamiento de gráficos vectoriales (VML) \footnote{VML \textit{Vector Markup Language es un lenguaje XML destinado a la creación de los gráficos vectoriales en 2D o 3D}} \cite{noauthor_vector_2016:a}, fórmulas matemáticas con XML (MathML)\footnote{MathML \textit{Mathematical Markup Language lenguaje de marcado basado en XML \cite{noauthor_usos_2003:a}, cuyo objetivo es expresar notación matemática para que distintas máquinas puedan entenderla}}, Estructuras moleculares e información cientifica y química con XML ( CML ) \footnote{Chemical Markup Lenguaje \cite{noauthor_chemical_2016:a} \textit{es un lenguaje de marcas basado en XML cuyo objeto es expresar información molecular}} \cite{desarrolloweb.com_objetivos_nodate:b}
+Este tipo de marcado tiene más usos que lo que aparenta a primera vista, pueden utilizarse para el almacenamiento de metadatos, comunicación de datos (cualquier aplicación pude escribir un documento de texto plano con datos en formato XML), migración de datos (si necesitamos migrar los datos de una base de datos a otra, si ambas trabajan en xml, el trabajo es más sencillo), almacenamiento de gráficos vectoriales (VML) \footnote{VML \textit{Vector Markup Language es un lenguaje XML destinado a la creación de los gráficos vectoriales en 2D o 3D}\cite{vectorml}}, fórmulas matemáticas con XML (MathML)\footnote{MathML \textit{Mathematical Markup Language lenguaje de marcado basado en XML, cuyo objetivo es expresar notación matemática para que distintas máquinas puedan entenderla} \cite{xmlusos} \cite{mathmlwiki}}, Estructuras moleculares e información cientifica y química con XML ( CML ) \footnote{Chemical Markup Lenguaje\textit{es un lenguaje de marcas basado en XML cuyo objeto es expresar información molecular} \cite{chemicalml}} \cite{desarrollowebxml}
 \\
 \\
 Ejemplo: XML
@@ -264,7 +264,7 @@ $<$\textbackslash Documento $>$
 \subsection{Lenguajes especializados}\label{lenguajes-especializados}
 
 
-Los lenguajes especializados podríamos decir que derivan de los lenguajes de marcado descriptivo, ya que se diferencian con el tipo anterior, en que se especializan en una materia como podría ser la matemática ( OpenMath o MathML ) \cite{noauthor_openmath_2017:e} \cite{noauthor_usos_2003:a} o los gráficos (SVG o VRML).
+Los lenguajes especializados podríamos decir que derivan de los lenguajes de marcado descriptivo, ya que se diferencian con el tipo anterior, en que se especializan en una materia como podría ser la matemática ( OpenMath o MathML ) o los gráficos (SVG o VRML) \cite{openmath} \cite{xmlusos}.
 \\
 \\
 Ejemplo: OpenMath
@@ -297,11 +297,11 @@ A continuación explicaremos en que consiste este algoritmo.
 
 El algoritmo de Dijkstra o algoritmo de caminos mínimos es un algoritmo para encontrar el camino más corto en un grafo, desde un punto de partida u origen, hasta uno los demás puntos del grafo.
 
-El grafo consta de vértices y aristas donde cada arista tiene un peso, mediante el cual se calcula cual es el camino mas corto de un nodo o vértice hasta otro nodo. El principal problema de este algoritmo reside en que es una especialización de la búsqueda de costo uniforme, y no funciona en grafos con aristas de coste o peso negativo, es decir, al elegir siempre el nodo con un peso menor, pueden quedar excluidos nodos que en próximas iteraciones bajarían el costo general del camino. 
+El grafo consta de vértices y aristas donde cada arista tiene un peso, mediante el cual se calcula cual es el camino mas corto de un nodo o vértice hasta otro nodo. El principal problema de este algoritmo reside en que es una especialización de la búsqueda de costo uniforme, y no funciona en grafos con aristas de coste o peso negativo, es decir, al elegir siempre el nodo con un peso menor, pueden quedar excluidos nodos que en próximas iteraciones bajarían el costo general del camino \cite{dijkstrabib}. 
 \\
-\imagenResize{1}{img/Dijkstra}{Ejemplo de grafo con aplicación del algoritmo Dijkstra}{dijkstraimagen}
+\imagenResize{1}{img/Dijkstra}{Ejemplo de grafo con aplicación del algoritmo Dijkstra \cite{dijkstrabib}}{dijkstraimagen}
 \\
-\subsection{Algoritmo}\label{Explicacion-algoritmo-Dijkstra}
+\subsection{Algoritmo \cite{dijkstrabib}}\label{Explicacion-algoritmo-Dijkstra}
 \begin{itemize}
 \item
 Teniendo un grafo dirigido ponderado de N nodos no aislados.
