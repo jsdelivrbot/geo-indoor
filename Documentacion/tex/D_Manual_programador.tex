@@ -13,7 +13,7 @@ La estructura de directorios del proyecto en github es la siguiente:
 	\item \textbf{./BaseDeDatos}: directorio donde se encuentra el documento de la exportación de la base de datos.
 	\item \textbf{./Despliegue Geoindoor}: directorio donde se encuentra el diagrama del despliegue de la aplicación Geoindoor.
 	\item \textbf{./Geoindoor}: directorio donde se encuentra la aplicación Geoindoor pero sin el contexto para el lanzamiento de la herramienta.
-	\item  \textbf{./Paquete Geoindoor:} directorio donde se encuentra la aplicación Geoindoor con el contexto necesario para el lanzamiento de la herramienta.
+	\item  \textbf{./Paquete Geoindoor:} directorio donde se encuentra la aplicación Geoindoor con el contexto necesario para el lanzamiento de la herramienta y el zip que contiene la aplicación Geoindoor.
 	\item \textbf{./Planos Museo}: directorio donde se encuentran los planos del museo de la evolución, los cuales serán utilizados para la presentación de Geoindoor.
 	\item \textbf{./Server REST API}: directorio donde se encuentra el sistema de ficheros necesario, para crear una REST API en Heroku, la REST API de Geoindoor.
 	\footnote{Merece especial mención el fichero \textbf{./Server REST API/index.js} en el cual están las funciones y métodos para la REST API.}
@@ -25,15 +25,15 @@ La estructura de directorios del proyecto en github es la siguiente:
 En cuanto a la estructura de directorios del proyecto se merece especial análisis el \textbf{./Paquete Geoindoor}.
 
 \begin{itemize}
-	\item \textbf{Paquete Geoindoor/}: encontramos los lanzadores de la herramienta Geoindoor.
-	\item \textbf{Paquete Geoindoor/geoindoor/}: encontramos la página de inicio, con sus respectivas dependencias y las carpetas de las aplicaciones Architect y Viewer.
-	\item \textbf{Paquete Geoindoor/geoindoor/architect}: encontramos la página de login y la página de inicio de Architect. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
-	\item \textbf{Paquete Geoindoor/geoindoor/architect/controllers}: directorio donde se encuentran los controladores de la aplicación.
-	\item \textbf{Paquete Geoindoor/geoindoor/architect/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/}: encontramos los lanzadores de la herramienta Geoindoor.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/}: encontramos la página de inicio, con sus respectivas dependencias y las carpetas de las aplicaciones Architect y Viewer.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/architect}: encontramos la página de login y la página de inicio de Architect. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/architect/controllers}: directorio donde se encuentran los controladores de la aplicación.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/architect/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
 	
-	\item \textbf{Paquete Geoindoor/geoindoor/viewer}: encontramos la página de inicio de Viewer. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
-	\item \textbf{Paquete Geoindoor/geoindoor/viewer/controllers}: directorio donde se encuentran los controladores de la aplicación.
-	\item \textbf{Paquete Geoindoor/geoindoor/viewer/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/viewer}: encontramos la página de inicio de Viewer. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/viewer/controllers}: directorio donde se encuentran los controladores de la aplicación.
+	\item \textbf{Paquete Geoindoor/PaqueteGeoindoor/geoindoor/viewer/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
 \end{itemize}
 
 \imagenResize{0.3}{img/doctecprog/estructuradirectorios}{Esquema de directorios Geoindoor}{estructuradirectorios}
@@ -49,6 +49,8 @@ En el proyecto se han utilizado varias herramientas que nos han facilitado el de
 	\item \textbf{Node.js}
 	\item \textbf{Bower}
 	\item \textbf{Grunt}
+	\item \textbf{Heroku}
+	\item \textbf{Python}
 \end{itemize}
 
 \subsection{Java}
@@ -82,8 +84,182 @@ Para instalar Git debemos ir a la página oficial (\href{https://git-scm.com/dow
 	\item \textbf{Git GUI}: interfaz gráfica que nos permite trabajar con Git de forma más amigable. 
 \end{itemize}
 
+\imagenResize{0.5}{img/doctecprog/gitbash}{Terminal de bash de Git}{gitbash}
+
+\imagenResize{0.4}{img/doctecprog/gitgui}{Git GUI}{gitgui}
+
+\imagenResize{0.4}{img/doctecprog/githeroku}{Git en PowerShell}{githeroku}
+\textit{Contiene los comandos git utilizados para poner en producción los ficheros en Heroku.}
+
+\subsection{Node.js}
+
+Para poder utilizar bower y grunt temenos que tener instalados el manejador de paquetes ``npm'' y para ello debemos tener instalado Node.js. Para instalar Node.js tenemos que ir a la pagina oficial ()\href{https://nodejs.org/es/download/}{Node.js}) y descargar una versión igual o superior a la 6.11.0 (se recomienda la versión 6.11.0) compatible con nuestro sistema operativo. Una vez se haya descargado, ejecutamos y seguimos los pasos del instalador hasta haber finalizado la instalación.
+
+\imagenResize{0.7}{img/doctecprog/nodenpm}{Comandos ``node'' y ``npm'' una vez instalado Node.js.}{gitgui}
+
+\subsection{Bower}
+
+Bower es un gestor de paquetes para la web, que utilizamos para manejar los paquetes del proyecto, para su instalación, necesita que previamente este instalado node, npm y git. Para la instalación basta con abrir el terminal o consola y ejecutar ``npm install -g bower''.\cite{boweranexbib}
+
+\imagenResize{0.7}{img/doctecprog/bower}{Comando ``bower -v''una vez instalado Bower.}{bower}
+
+\subsection{Grunt}
+
+Grunt es un corredor de tareas (Task runner), que nos ha permitido compilar el proyecto de forma sencilla y rápida, ayudándonos a tener siempre centralizados los scripts y sus dependencias. Nos permite hacer cambios en caliente ya que recompila el proyecto para poder probarlo.
+
+Para la instalación de grunt es necesario tener previamente instalado npm (Node.js). Para instalarlo debemos ejecutar el comando ``npm install -g grunt-cli'' \cite{gruntbibanex}.
+
+\imagenResize{0.7}{img/doctecprog/grunt}{Comando ``grunt''una vez instalado Grunt.}{grunt}
+
+\subsection{Heroku}
+
+Heroku es el servicio web que hemos utilizado para crear la REST API de Geoindoor en Node.js, para poder trabajar con ello debemos descargarnos ``Heroku CLI'' para poder comunicarnos con ser servicio.
+
+Para ello debemos descargarnos e instalar la versión que corresponda a nuestro sistema operativo, desde la página oficial (\href{https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up}{Heroku CLI}), una vez hecha la descarga, se ejecuta el fichero y se siguen los pasos del instalador hasta finalizar la instalación.
+
+\subsection{Heroku}
+
+Python es un lenguaje de programación interpretado que ha sido utilizado para simular un servidor http, para el desarrollo de Geoindoor no se hace necesario, pero si ofrece comodidad.
+
+Para su instalación vamos a su página oficial (\href{https://www.python.org/downloads/}{Python}) y nos descargamos la versión (mayor o igual a 3.6.1) que corresponda a nuestro sistema operativo. A continuación ejecutamos el fichero descargado y seguimos los pasos del auto instalador hasta finalizar la instalación. En la mayoría de distros de Linux, Python viene ya instalado.
+
+\imagenResize{0.7}{img/doctecprog/pythonan}{Comando ``python -V''una vez instalado Python.}{pythonan}
+
+
 \section{Compilación, instalación y ejecución del proyecto}
-zxczxczxc
+En este apartado se va explicar como compilar, instalar y ejecutar el proyecto Geoindoor desde el principio. Es decir se explicara como se creo la REST API en Heroku de Geoindoor y como se creo la base de datos en Firebase.
+
+\imagenResize{0.35}{img/doctecprog/DespliegueGeoindoor}{Diagrama de despliegue Geoindoor.}{DespliegueGeoindoor}
+
+\subsection{Heroku Server REST API y Firebase Base de datos}
+
+Lo primero que debemos hacer es clonar o descargarnos el repositorio de Geoindoor desde GitHub.
+
+
+Una vez descargado el repositorio Geoindoor debemos ir a la página oficial de \href{https://id.heroku.com/login}{Heroku} y hacernos una cuenta. Una vez hecha, debemos crearnos un una app en Node.js en Heroku, que se hace mediante los siguientes comandos
+
+\begin{itemize}
+	\item \textbf{\textit{heroku login}}: login con la cuenta de Heroku.
+	\item \textbf{\textit{git clone https://github.com/heroku/node-js-getting-started.git}}: clonación de la plantilla.
+	\item \textbf{\textit{cd node-js-getting-started}}
+	\item \textbf{\textit{heroku create}}: creación de la app.
+	\item \textbf{\textit{git push heroku master}}: poner la app en el repositorio.
+	\item \textbf{\textit{heroku ps:scale web=1}}: asegurarnos de que esta funcionando al menos una instancia de la app.
+\end{itemize}
+
+Una vez hecho esto basta sustituir los ficheros del la app recién creada con los ficheros \textbf{./Server REST API/} del repositorio de Geoindoor.
+
+\imagenResize{0.4}{img/doctecprog/herokudash}{Heroku dashboard.}{herokudash}
+
+Ahora para crear el servicio de base de datos en \href{http://firebase.google.com/}{Firebase}, debemos ir a la página oficial y crearnos una cuenta (a través de la cuenta de gmail), desde la página de inicio de la consola creamos un nuevo proyecto, con el nombre que deseemos. Ahora en el apartado de ``Database'' en el panel de control, importamos la base de datos que encontramos en \textbf{./BaseDeDatos/}. 
+
+
+
+En este momento debemos enlazar nuestra REST API con la base de datos de Firebase, para ello pegamos en el index.js de nuestra REST API la siguiente porción de código con la información correspondiente, o cambiamos la que está por la correcta.
+
+
+\begin{verbatim}
+firebase.initializeApp({
+	serviceAccount: "nombre_del_fichero_de_nuestra_clave_Sin_extension",
+	databaseURL: "https://geoindoordb.firebaseio.com"
+});
+\end{verbatim}
+\imagenResize{0.3}{img/doctecprog/paginifire}{Página de inicio de la consola Firebase.}{paginifire}
+
+\imagenResize{0.29}{img/doctecprog/pcontrolfire}{Panel de control Firebase.}{pcontrolfire}
+
+Para generar la clave (serviceAccount) debemos ir al panel de control de nuestra aplicación web en Firebase, y desde Configuración/Cuentas de servicio debemos crear la clave. Una vez creada la ubicamos en la raiz de nuestra REST API y borramos la anterior.
+
+De esta forma quedaría enlazada la REST API con la base de datos de Firebase.
+
+\cite{herokutut}
+
+\subsection{Geoindoor cliente}
+
+Ahora vamos a analizar como compilar, instalar y ejecutar la parte del cliente de Geoindoor.
+
+En primer lugar debemos poner \textbf{./Paquete Geoindoor} en el directorio en el que se quiera trabajar, para lanzar la herramienta se debe ejecutar el lanzador (inicioWindows.bat o inicioLinux.sh), Geoindoor se lanzará en el puerto 9000 (localhost). En Windows, a través de Google Chrome y en Linux a través de Firefox.
+
+Si no se dispone de python instalado, puede usar mismamente \textbf{./Geoindoor} y ubicarlo en el lugar en el que se quiera trabajar, que proporcione un servicio http, ya sea XAMPP, WAMP u otra herramienta que simule un servidor.
+
+Tanto em Viewer como en Architect la forma de comenzar el desarrollo es la misma.
+
+\begin{itemize}
+	\item Abirmos la consolola y nos colocamos en la raíz de las aplicaciones, las carpetas \textbf{*/architect/} y \textbf{*/viewer/}
+	\item Ejecutamos \textbf{bower install}, si no existiera el fichero ``bower.json''.
+	\item Ejecutamos \textbf{grunt}.
+\end{itemize}
+
+Si nuestro servicio http funciona bien, nos dirigimos con el navegador a las raíz de la carpeta \textbf{*/architect/} y \textbf{*/viewer/} para comprobar que Geoindoor esta en funcionamiento.
+Si aún así no funciona, podemos dirigirnos manualmete a \textbf{*/architect/index.html} y \textbf{*/viewer/index.html} 
+
+\imagenResize{0.9}{img/doctecprog/localhost}{Url de Geoindoor al lanzarla.}{localhost}
 
 \section{Pruebas del sistema}
-zxczcxz
+
+La pruebas realizadas al sistema Geoindoor, se pueden dividir en dos.
+
+\begin{itemize}
+	\item \textbf{Pruebas de integración.}
+	\item \textbf{Pruebas de estrés.}
+\end{itemize} 
+
+\subsection{Pruebas de integración}
+
+Para las pruebas de integración se ha utilizado Selenium, que es un automatizador de los navegadores, lo que nos permite automatizar acciones sobre la herramienta Geoindoor y ver los resultados.
+
+Las pruebas de integración que se han hecho a Geoindoor son las siguientes.
+
+\tablaSinColores{Requisitos por test de interfaz.}
+{L{4cm} L{8cm}}
+{2}
+{Requisitos por test de interfaz.}
+{\textbf{Test} & \textbf{Requisito} \\}
+{Gestión de edificios 		&
+	\begin{itemize}
+		\item RF-1.1 Emplazar edificio.
+		\item RF-1.2 Detallar información del edificio.
+		\item RF-1.3 Emplazar plano.
+		\item RF-1.4 Redimensionar y mover el plano
+	\end{itemize}  				
+	\\
+	Gestión de pois &
+	\begin{itemize}
+		\item RF-2.1 Emplazamiento de pois.
+		\item RF-2.2 Detallar información del poi.
+		\item RF-2.3 Ubicar poi.
+		\item RF-2.4 Enlazar pois.
+	\end{itemize}
+	\\  				
+	Gestión de rutas &
+	\begin{itemize}
+		\item RF-3.1 Crear ruta.
+		\item RF-3.2 Detallar información de la ruta.
+		\item RF-3.3 Añadir pois a ruta.
+		\item RF-3.4 Trazar ruta.
+		\item RF-3.5 Seleccionar ruta.
+		\item RF-3.6 Limpiar ruta.
+		\item RF-3.7 Borrar ruta.
+	\end{itemize}  				
+	\\}
+
+Los test quedan recogidos en \textbf{./TestGeoindoor/Test.mp4} y el código en java para el test con Selenium en \textbf{./TestGeoindoor/Test.zip}.
+\subsection{Pruebas de estrés}
+
+Las pruebas de estrés han sido realizadas a través de la herramienta Webserver Stress Tool, una aplicación de prueba HTTP-client/server, que detecta problemas de rendimiento en un sitio web o servidor web \cite{webserverstresstool}. 
+
+La prueba de estrés consiste en simular 10 usuarios simultáneos, 5 clicks por usuario y 12 segundos entre clicks.
+
+
+\imagenResize{0.7}{img/doctecprog/tabusers}{Resultados por usuario.}{tabusers}
+
+\imagenResize{0.6}{img/doctecprog/serveruserband}{Ancho de banda del servidor y del usuario.}{serveruserband}
+
+En \textbf{./TestEstresGeoindoor/} se encuentra un informe más detallado de los resultados del test, así como la herramienta Webserver Stress Tool. Además en \textbf{./TestEstresGeoindoor/TestEstres.pdf} se encuentran las restricciones en cuanto a rendimiento de Firebase y Heroku.
+
+
+
+
+
+
+
