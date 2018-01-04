@@ -2,10 +2,88 @@
 
 \section{Introducción}
 
+En este apartado se hablará de la estructura final de directorios del proyecto, se detallará información importante para los desarrolladores, como la forma de compilar, instalar y ejecutar el proyecto. Además se explicarán las pruebas realizadas a Geoindoor.
+
 \section{Estructura de directorios}
+
+La estructura de directorios del proyecto en github es la siguiente:
+
+\begin{itemize}
+	\item \textbf{./}: directorio raiz donde se encuentra el proyecto Geoindoor.
+	\item \textbf{./BaseDeDatos}: directorio donde se encuentra el documento de la exportación de la base de datos.
+	\item \textbf{./Despliegue Geoindoor}: directorio donde se encuentra el diagrama del despliegue de la aplicación Geoindoor.
+	\item \textbf{./Geoindoor}: directorio donde se encuentra la aplicación Geoindoor pero sin el contexto para el lanzamiento de la herramienta.
+	\item  \textbf{./Paquete Geoindoor:} directorio donde se encuentra la aplicación Geoindoor con el contexto necesario para el lanzamiento de la herramienta.
+	\item \textbf{./Planos Museo}: directorio donde se encuentran los planos del museo de la evolución, los cuales serán utilizados para la presentación de Geoindoor.
+	\item \textbf{./Server REST API}: directorio donde se encuentra el sistema de ficheros necesario, para crear una REST API en Heroku, la REST API de Geoindoor.
+	\footnote{Merece especial mención el fichero \textbf{./Server REST API/index.js} en el cual están las funciones y métodos para la REST API.}
+	\item \textbf{./TestEstresGeoindoor}: directorio donde se encuentran los test de estrés de Geoindoor.
+	\item \textbf{./TestGeoindoor}: directorio donde se encuentran los test de integración de Geoindoor.
+	\item \textbf{./Documentacion}: directorio donde se encuentra la documentación de Geoindoor, escrita en la latex.
+\end{itemize}
+
+En cuanto a la estructura de directorios del proyecto se merece especial análisis el \textbf{./Paquete Geoindoor}.
+
+\begin{itemize}
+	\item \textbf{Paquete Geoindoor/}: encontramos los lanzadores de la herramienta Geoindoor.
+	\item \textbf{Paquete Geoindoor/geoindoor/}: encontramos la página de inicio, con sus respectivas dependencias y las carpetas de las aplicaciones Architect y Viewer.
+	\item \textbf{Paquete Geoindoor/geoindoor/architect}: encontramos la página de login y la página de inicio de Architect. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
+	\item \textbf{Paquete Geoindoor/geoindoor/architect/controllers}: directorio donde se encuentran los controladores de la aplicación.
+	\item \textbf{Paquete Geoindoor/geoindoor/architect/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
+	
+	\item \textbf{Paquete Geoindoor/geoindoor/viewer}: encontramos la página de inicio de Viewer. Además encontramos las carpetas ``bower\_components'' y ``node\_modules'' donde se encuentran las dependencias de bower y node.
+	\item \textbf{Paquete Geoindoor/geoindoor/viewer/controllers}: directorio donde se encuentran los controladores de la aplicación.
+	\item \textbf{Paquete Geoindoor/geoindoor/viewer/scripts}: directorio donde se encuentran los ficheros que contienen las utilidades.\footnote{Se desestima hablar de las restantes carpetas, ya que no son de tanto interés.}
+\end{itemize}
+
+\imagenResize{0.3}{img/doctecprog/estructuradirectorios}{Esquema de directorios Geoindoor}{estructuradirectorios}
 
 \section{Manual del programador}
 
+En el proyecto se han utilizado varias herramientas que nos han facilitado el desarrollo, y que habitualmente requieren de instalación.
+
+\begin{itemize}
+	\item \textbf{Java} (Tests)
+	\item \textbf{Eclipse} (Tests)
+	\item \textbf{Git}
+	\item \textbf{Node.js}
+	\item \textbf{Bower}
+	\item \textbf{Grunt}
+\end{itemize}
+
+\subsection{Java}
+
+Se ha necesitado instalar Java DK 8 (Development Kit) y Java RE 8 (Runtime Environment) para las pruebas de integración a través de selenium. JDK es un software que nos permite crear programas en java \cite{jdkbib}, mientras que JRE son las utilidades que nos permiten correr programas java \cite{jrebib}.
+
+Para la instalación de ambos es, necesario ir a la pagina web oficial (\href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{JDK}, \href{http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html}{JRE}), ahí debemos buscar la versión que deseemos, y descargarla asegurando que es compatible con nuestro sistema operativo. Una vez descargada, se siguen los pasos del asistente para acabar con la instalación. Posteriormente debemos configurar las variables de entorno \cite{jdkbib}.
+
+\begin{itemize}
+	\item \textbf{JAVAPATH}: la ruta completa donde está instalado JDK.
+	\item \textbf{CLASSPATH}: la ruta en la que están las bibliotecas o clases de usuario.
+	\item \textbf{PATH}: variable en la que se añade la ruta donde esta el JDK.
+\end{itemize}
+
+
+\subsection{Eclipse}
+ Para realizar nuestros test de integración con selenium hemos necesitado un IDE (Integrated Development Environment) para realizar la tarea, se ha usado Eclipse Jee Neon \footnote{Eclipse Jee Neon es un IDE que nos permite desarrollar programas java en un entorno determinado, con un contexto determinado.}.
+ 
+ Para la instalación debemos ir a la página oficial (\href{https://www.eclipse.org/downloads/}{Eclipse}) y descargar la versión que queramos, asegurándonos que es compatible con nuestro sistema operativo. Una vez descargado, ejecutamos y seguimos los pasos del asistente hasta finalizar la instalación o en el caso de no haber asistente, se descomprime en el lugar deseado.
+ 
+ \imagenResize{0.25}{img/doctecprog/eclipse}{Eclipse Jee Neon}{eclipse}
+ 
+\subsection{Git} 
+
+Git es un software de control de versiones que ha sido utilizado conjuntamente con GitHub para llevar el control de versiones de Geoindoor. También ha sido utilizado para poner en producción, los cambios en la REST API de Geoindoor (Heroku).
+
+Para instalar Git debemos ir a la página oficial (\href{https://git-scm.com/downloads}{Git}) y descargar la versión que deseemos, fijándonos en que sea compatible con nuestro sistema operativo. Una vez hecha la descarga se sigue el asistente hasta finalizar la instalación. Con la instalación vienen dos herramientas que nos permiten trabajar con Git.
+
+\begin{itemize}
+	\item \textbf{Git bash}: consola con la cual se puede trabajar en el control de versiones a través de comandos de Git.
+	\item \textbf{Git GUI}: interfaz gráfica que nos permite trabajar con Git de forma más amigable. 
+\end{itemize}
+
 \section{Compilación, instalación y ejecución del proyecto}
+zxczxczxc
 
 \section{Pruebas del sistema}
+zxczcxz
