@@ -243,7 +243,14 @@ Las pruebas de integración que se han hecho a Geoindoor son las siguientes.
 	\end{itemize}  				
 	\\}
 
-Los test quedan recogidos en \textbf{./TestGeoindoor/Test.mp4} y el código en java para el test con Selenium en \textbf{./TestGeoindoor/Test.zip}.
+Para la ejecución del test, debemos importar en eclipse el proyecto ``Test'' que se encuentra en \textbf{./TestGeoindoor/Test.zip}. Una vez importado, debemos asegurarnos que tenemos importadas las librerias de Selenium, si no es así debemos hacerlo. Una vez importadas las librerías tenemos que ubicar el driver (Google Chrome, Mozilla Firefox, Safari, etc\ldots), en el lugar que deseemos, sin olvidar que después hay que indicar la ruta del driver en el código de nuestro test. Una vez realizados todos estos pasos, solo nos quedaría lanzar Geoindoor a través de sus lanzadores (inicioLinux.sh o inicioWindows.sh), y ejecutar el test desde eclipse.
+
+\imagenResize{0.35}{img/doctecprog/driverfire}{Test lanzado en Firefox a través de Selenium.}{driverfire}
+
+
+Los test quedan recogidos en \textbf{./TestGeoindoor/Test.mp4} y el código en java, para el test con Selenium, en \textbf{./TestGeoindoor/Test.zip}. Se proporciona también las librerías de Selenium (\textbf{./TestGeoindoor/selenium-java-3.7.1.zip}) y los drivers de Firefox (\textbf{./TestGeoindoor/geckodriver-v0.19.1-win64.zip}) y Google Chrome (\textbf{./TestGeoindoor/chromedriver\_win32.zip}). Además de la cuenta en Geoindoor para tests (\textbf{./TestGeoindoor/TestCuenta.txt})
+
+
 \subsection{Pruebas de estrés}
 
 Las pruebas de estrés han sido realizadas a través de la herramienta Webserver Stress Tool, una aplicación de prueba HTTP-client/server, que detecta problemas de rendimiento en un sitio web o servidor web \cite{webserverstresstool}. 
@@ -255,7 +262,14 @@ La prueba de estrés consiste en simular 10 usuarios simultáneos, 5 clicks por 
 
 \imagenResize{0.6}{img/doctecprog/serveruserband}{Ancho de banda del servidor y del usuario.}{serveruserband}
 
-En \textbf{./TestEstresGeoindoor/} se encuentra un informe más detallado de los resultados del test, así como la herramienta Webserver Stress Tool. Además en \textbf{./TestEstresGeoindoor/TestEstres.pdf} se encuentran las restricciones en cuanto a rendimiento de Firebase y Heroku.
+Para ejecutar el test debemos instalar Webserver Stress Tool, una vez instalado, abrimos Webserver Stress Tool y en el apartado de ``Test type'' elegimos la casilla ``CLICKS'', a continuación en el campo ``Run until'' ponemos el valor \textit{5}. En el apartado de ``User simulation'' en ``Number Of Users'', ponemos \textit{10} y en ``Click delay'' \textit{12}. \footnote{En la versión de pago no hay limitación de valores en estos campos, pero en la versión gratuita sí.}
+
+Ahora en el apartado ``URLs'' ponemos la url de Geoindoor, en nuestro caso \textit{http://localhost:9000}. Navegamos hasta el apartado ``Browser Settings'' y en ``Browser Simulation / Use agent'', marcamos la casilla, y ponemos \textit{Mozilla/5.0 (compatible; Webserver Stress Tool 8; Windows)}, en el caso que queramos hacer el test con Firefox en Windows, si no, se debe poner el correspondiente al navegador y sistema operativo. A continuación marcamos la casilla ``Use Timeouts'' y le ponemos un valor de \textit{120}. De esta manera se replica el test que se ha hecho a Geoindoor.
+
+\imagenResize{0.35}{img/doctecprog/webstrestool}{Apartado ``Test Type'' en Webserver Stress Tool.}{webstrestool}
+
+
+En \textbf{./TestEstresGeoindoor/GeoindoorWebStress.\{pdf doc\}} se encuentra un informe más detallado de los resultados del test, así como la herramienta Webserver Stress Tool (\textbf{./TestEstresGeoindoor/webstress.zip}). Además en \textbf{./TestEstresGeoindoor/TestEstres.\{pdf tex\}} se encuentran las restricciones en cuanto a rendimiento de Firebase y Heroku.
 
 
 
