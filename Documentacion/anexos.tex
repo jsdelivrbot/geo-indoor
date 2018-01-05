@@ -11,6 +11,9 @@
 \RequirePackage{xtab}
 \RequirePackage{multirow}
 
+% Verde oscuro
+\definecolor{darkgreen}{rgb}{0.0, 0.35, 0.0}
+
 %Citas bibliografía
 \usepackage{cite}
 \usepackage[numbers,sort]{natbib}
@@ -24,7 +27,7 @@
 % Links
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {darkgreen}
 }
 
 % Ecuaciones
@@ -444,7 +447,7 @@
 \include{./tex/E_Manual_usuario}
 
 
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{bibliografiaAnexos}
 
 \end{document}
