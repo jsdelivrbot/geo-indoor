@@ -2,10 +2,173 @@
 
 \section{Introducción}
 
+En este apartado hablaremos de cuales son los requisitos del usuario para poder utilizar Geoindoor, los requerimientos para su instalación, y se explicará como un usuario puede utilizar la herramienta Geoindoor. 
+
 \section{Requisitos de usuarios}
+
+Los requisitos de un usuario para poder utilizar la aplicación Geoindoor, son los siguientes.
+
+\begin{itemize}
+	\item \textbf{Dispositivo con acceso a internet.}
+	\item \textbf{Navegador web con JavaScript hablilitado}: se recomienda Firefox o Google Chrome
+	\item \textbf{Python 3.6.1 o una versión mayor instalada}: en los distros Linux, la versión no es relevante siempre y cuando tengan el módulo SimpleHTTPServer.
+	\item \textbf{El dispositivo debe tener libre el puerto 9000.}
+\end{itemize}
 
 \section{Instalación}
 
+
+En cuanto a la instalación, Geoindoor no necesita una instalación al uso. Lo primero que tenemos que hacer es descargarnos el PaqueteGeoindoor.zip (\textbf{./Paquete Geoindoor/PaqueteGeoindoor.zip}) ya sea directamente desde el repositorio \footnote{Repositorio: jppasvit/geo-indoor} de \href{https://github.com/jppasvit/geo-indoor/tree/master/Paquete\%20Geoindoor}{GitHub}, o desde \href{https://github.com/jppasvit/geo-indoor/releases}{Release} del repositorio. Una vez hecha la descarga, descomprimimos en la ruta en la que queramos que se haga la instalación. Finalizada la descompresión en el directorio deseado, la instalación se da por terminada. Solo queda lanzar la aplicación a través de los lanzadores (inicioWindows.bat y inicioLinux.sh).
+
+\imagenResize{0.65}{img/manualusuario/descomgeo}{Descompresión de PaqueteGeoindoor.zip.}{descomgeo}
+
+
 \section{Manual del usuario}
 
+En este apartado se darán una serie de indicaciones que facilitará a los usuarios finales el uso de la herramienta Geoindoor.
 
+
+\subsection{Architect}
+
+Esta herramienta que forma parte de Geoindoor, nos permitirá crearnos nuestros propios edificios, para que posteriormente en la herramienta Viewer, todo el mundo pueda verlos.
+
+\imagenResize{0.34}{img/manualusuario/pagini}{Página de inicio Geoindoor.}{descomgeo}
+
+\subsubsection{Login}
+
+En primer lugar para acceder a la herramienta Architect, en la pagina de inicio de Geoindoor pulsamos el botón ``Architect''. Esto nos redirigirá a la pagina de Architect, si ya nos habíamos registrado con anterioridad, no hará falta un nuevo login, de manera contraría debemos pulsar en botón login y registrarnos con nuestra cuenta de Gmail. \footnote{Es posible que la aplicación también pida registro para AnyPlace. El usuario debe registrarse también en AnyPlace para poder trabajar.}
+
+\imagenResize{0.52}{img/manualusuario/architect/login}{Página de registro Architect.}{login}
+
+\imagenResize{0.52}{img/manualusuario/architect/regarch}{Registro en Architect con Gmail.}{regarch}
+
+\subsubsection{Crear edificio}
+
+Una vez hecho el registro ya nos encontraríamos en la herramienta Architect sin ninguna restricción.
+
+Para crear un edificio debemos ir a la pestaña ``Buildings'' de nuestro panel de control, pinchar en el icono de ``drag to add new building'' y arrastrar a una posición del plano que nosotros deseemos.
+
+\imagenResize{0.65}{img/manualusuario/architect/pctrlbuild}{Panel de control en la pestaña ``Buildings''.}{pctrlbuild}
+
+Una vez ubicado el edificio aparecerá un panel en el cual podemos decidir el nombre, el código y la descripción del del edificio y si queremos que todo el mundo vea nuestro edificio en la herramienta Viewer.
+
+Una vez rellenada la información correspondiente, se pulsa en el botón ``Add'' para añadir el edificio de forma definitiva.
+
+\imagenResize{0.7}{img/manualusuario/architect/pemergenteedif}{Panel emergente de un edificio.}{pemergenteedif}
+
+Para eliminar un edificio basta con ir a la pestaña ``Delete'' del apartado ``Building Toolbox'' de la pestaña ``Buildings'' de nuestro panel de control, y confirmar el borrado, una vez se ha seleccionado el edificio.\footnote{Se selecciona un edificio pinchando en el icono del rascacielos que aparece en el mapa y que corresponde con su posición, o a través de el desplegable de la pestaña ``Buildings''.}
+
+\subsubsection{Añadir una planta (plano)}
+
+Una vez creado un edificio procedemos a agregarle una planta, un plano de la planta del edificio. Para ello debemos seleccionar el edificio al que queremos añadirle una planta, pinchando sobre el icono del edificio o eligiéndolo a través del desplegable en la pestaña ``Buildings'' del panel de control.
+
+\imagenResize{0.7}{img/manualusuario/architect/iconoedif}{Icono de edificio en el mapa.}{iconoedif}
+
+A continuación, una vez seleccionado el edificio, en nuestro panel de control, pinchamos en la pestaña de ``Floors''. Allí encontraremos un desplegable donde elegir las plantas que ya tenemos creadas, y en el apartado ``Floor Toolbox'', en la pestaña ``Add'', elegimos el numero de planta y damos al botón ``Seleccionar archivo'' para subir el plano de la planta.
+
+Al subir el plano de la planta, la imagen del plano tendrá las típicas herramientas de edición de imagen para girarla y dimensionarla y moverla. Una vez encontrada la posición deseada para el plano, pulsamos el botón ``\checkmark'' del panel de control para añadir el plano de forma definitiva.
+\newpage
+\imagenResize{0.7}{img/manualusuario/architect/floorpanel}{Pestaña ``Floors'' en el panel de control.}{floorpanel}
+
+Para editar la planta basta con elegir el número de planta que quieres editar y en la pestaña ``Add'' de ``Floors'', subir un nuevo plano, que sobrescribirá al anterior.
+
+Para borrar una planta, se debe elegir el número de planta y en la pestaña ``Delete'' de ``Floors'', confirmar el borrado.
+
+\subsubsection{Añadir POIs}
+
+Para añadir un poi debemos elegir un edificio con plano. Una vez elegido, en el apartado ``POI Toolbox'' de la pestaña ``POIs'' de nuestro panel de control, pinchamos en el icono de ``drag to add new POI'' y arrastramos a una posición del plano deseada.
+
+\imagenResize{0.7}{img/manualusuario/architect/poispanel}{Pestaña ``POIs'' en el panel de control.}{poispanel}
+
+Una vez asentado el poi, aparecerá un un panel, que emerge del icono del poi en el plano, donde se debe rellenar la información del poi (nombre del poi, descripción del poi y tipo de poi). Para añadirlo de forma definitiva se debe pulsar el botón ``Add'' del panel emergente.
+\newpage
+\imagenResize{0.7}{img/manualusuario/architect/poiiconplano}{Panel emergente del poi.}{poiiconplano}
+
+Podemos encontrar otro tipo de poi, un \textit{conector poi}, que se coloca en el plano de la misma manera que el anterior, pero que se utiliza principalmente, para unir varios pois. Para seleccionar este poi en vez de pinchar y arrastrar desde el icono de ``drag to add new POI'', debemos pinchar y arrastrar desde el icono ``drag to add new connector'' .
+
+\imagenResize{0.75}{img/manualusuario/architect/poiconector}{Panel emergente de conector poi.}{poiconector}
+
+Para eliminar un poi basta con pinchar en el mismo y pulsar el botón con el texto ``x''.
+
+Para crear un camino entre pois, debemos activar el ``toggle edge mode'' que se encuentra en el apartado ``POI Toolbox'' de la pestaña ``POIs'' de nuestro panel de control. Una vez activado debemos ir pinchando de poi en poi para crear un camino
+
+\imagenResize{0.9}{img/manualusuario/architect/caminopoi}{Ejemplo de un camino creado}{caminopoi}.
+
+Sabremos que el modo camino esta activado si el botón de ``toggle edge mode'' esta a on.  
+
+\imagenResize{0.9}{img/manualusuario/architect/toggle}{``toggle edge mode'' on off.}{toggle}.
+
+\subsubsection{Añadir ruta predefinida}
+
+Para añadir una ruta predefinida a un edificio debemos activar ``add route mode'' que se encuentra en el apartado ``POI Toolbox'' de la pestaña ``POIs'' de nuestro panel de control.
+
+\imagenResize{0.9}{img/manualusuario/architect/addmode}{``add route mode'' on off.}{addmode}
+
+
+Una vez activado el modo añadir ruta, debemos pinchar en un poi que queramos añadir a la ruta, y aparecerá un desplegable donde nos encontramos un botón con el texto ``add POI to the route'', el cual debemos pulsar para añadir el poi a la ruta.
+
+\imagenResize{0.75}{img/manualusuario/architect/poiaddroute}{Panel emergente del poi}{poiaddroute}
+
+Cada vez que añadimos un poi a la ruta, se va coloreando la ruta. Una vez se hayan añadido todos los pois que se deseen, ponemos nombre a la ruta a través del campo ``Name'' de nuestro panel de control. Cuando se ha rellenado el campo con el nombre deseado, pulsamos el botón ``Create route'' para añadir la ruta de forma definitiva.  
+
+\imagenResize{0.85}{img/manualusuario/architect/miruta}{Ejemplo de ruta coloreada.}{miruta}
+
+Para editar la ruta, debemos poner el nombre de la ruta en el campo ``Name'' y añadir los pois que deseemos, lo que hará que se sobrescriba la ruta anterior.
+
+Para visualizar las rutas debemos dirigirnos a la esquina superior izquierda de Architect y encontraremos un desplegable, que tiene 2 botones ``x'' para borrar la ruta seleccionada y ``Clear'' para no mostrar el trazado de la ruta. A la hora de seleccionar una ruta, aparece un número a la izquierda, que detalla la planta a la que pertenece la ruta. 
+
+\imagenResize{0.85}{img/manualusuario/architect/selecruta}{Desplegable para seleccionar ruta, y botones de ``Clear'' y de borrado ``x''.}{selecruta}
+
+
+
+
+\subsection{Viewer}
+
+Para acceder a la herramienta Viewer, en la pagina de inicio de Geoindoor debemos pulsar el botón ``Viewer''. Viewer es la herramienta que utiliza un usuario para localizar puntos de interés de un edificio. Se visualizan edificios que han sido creados por los usuarios de Architect.
+\newpage
+\imagenResize{0.4}{img/manualusuario/viewer/viewerini}{Viewer inicio.}{viewerini}
+
+\subsubsection{Búsqueda de edificio}
+
+Para la búsqueda de un edificio se puede hacer de dos formas:
+
+\begin{itemize}
+	\item \textbf{Por nombre}: a través del desplegable de la parte superior.
+	\item \textbf{Por posición}: a través del mapa e iconos.
+\end{itemize} 
+
+\imagenResize{0.8}{img/manualusuario/viewer/cluster}{Cluster de edificios.}{cluster}
+\imagenResize{0.8}{img/manualusuario/viewer/gposicion}{Icono que indica la posición de un edificio.}{gposicion}
+
+Para elegir un edificio basta con pulsar sobre los iconos de búsqueda por posición.
+
+\subsubsection{Navegabilidad}
+
+Una vez se ha elegido un edificio, se selecciona un poi. Al seleccionarlo aparece un panel emergente mediante el cual podemos elegir crear un camino automático (pulsando el botón de navegación) desde nuestra posición real (física), hasta el poi.
+
+\imagenResize{0.8}{img/manualusuario/viewer/pemergente}{Panel emergente.}{pemergente}
+
+\imagenResize{1}{img/manualusuario/viewer/btcamino}{Botón para crear el camino automático.}{btcamino}
+
+\imagenResize{1}{img/manualusuario/viewer/caminocreado}{Camino automático.}{caminocreado}
+
+\newpage
+Si miramos a la derecha de interfaz, veremos unas flechas que sirven para elegir que planta mostrar del edificio.
+
+\imagenResize{1}{img/manualusuario/viewer/planta}{Selector de planta del edificio.}{planta}
+
+En la esquina inferior izquierda, encontramos unos botones que nos sirven para mostrarnos nuestra posición física, ajustar nuestra posición física, y mostrar la posición del poi seleccionado.
+
+\imagenResize{1}{img/manualusuario/viewer/btnav}{Botones de navegación.}{btnav}
+
+\imagenResize{1}{img/manualusuario/viewer/mpoi}{Botón para mostrar la posición del poi.}{mpoi}
+\imagenResize{1}{img/manualusuario/viewer/mposicion}{Botón de mostrar posición del usuario.}{mposicion}
+\imagenResize{1}{img/manualusuario/viewer/ajpos}{Botón de ajuste de posición.}{ajpos}
+
+\subsubsection{Rutas predefinidas}
+
+Para mostrar las rutas predefinidas de un edificio nos dirigimos a la parte superior izquierda, y encontramos un desplegable con las rutas predefinidas del edificio. A la izquierda del nombre de las rutas se indica la planta a la que pertenece (0, 1, 2 \ldots). Cada vez que se selecciona una ruta, se dibuja su traza en el plano. Para dejar de mostrar la ruta basta con pulsar el botón ``x''.
+
+\imagenResize{1}{img/manualusuario/viewer/despleg}{Desplegable para la selección de rutas.}{despleg}
+
+\imagenResize{1}{img/manualusuario/viewer/rutadib}{Dibujado de la ruta seleccionada.}{rutadib}
