@@ -1,8 +1,8 @@
 \capitulo{3}{Conceptos teóricos}
 
-A continuación se explicaran unos conceptos indispensables para el entendimiento del proyecto.
+A continuación se explicarán unos conceptos indispensables para el entendimiento del proyecto.
 \section{Geolocalización}\label{geolocalizacion}
-La Geolocalización es le concepto mas importante en este proyecto, y primero hablaremos un poco del API utilizada y después profundizaremos más en el concepto.
+La Geolocalización es el concepto más importante en este proyecto, y primero hablaremos un poco del API utilizada y después profundizaremos más en el concepto.
 
 En el proyecto, el mapa que ofrece Google Maps es fundamental, ya que nos permite dibujar sobre el plano y añadir imágenes 
 sobre él.
@@ -11,7 +11,7 @@ La API utilizada para este proyecto se basa en la API Google Maps, que está esc
 
 La clase principal es google.maps.Map, cuyo constructor nos permite crear un mapa dentro de un contenedor HTML. Después encontramos google.maps.LatLng, donde LatLng es un punto en coordenadas geográficas: latitud y longitud.
 
-Para más información se puede visitar la documentación de Google Maps donde aparece información más detallada, ya que no profundizaremos en cuales, y como son las clases y funciones de esta API, si no como funciona Google Maps en si.
+Para más información se puede visitar la documentación de Google Maps donde aparece información más detallada, ya que no profundizaremos en cuáles, y cómo son las clases y funciones de esta API, sino cómo funciona Google Maps en sí.
 
 Google Maps funciona a través de conexión a internet y la función de GPS del dispositivo, las coordenadas de Google Maps están en el sistema WGS842 \footnote{WGS84 \textit{es un sistema de coordenadas geográficas mundial que permite localizar cualquier punto de la Tierra (sin necesitar otro de referencia) por medio de tres unidades dadas.}} y se mostrará la latitud y la longitud, positiva para Norte y Este, negativa para Sur y Oeste.
 
@@ -22,7 +22,7 @@ Cuando nos referimos a la función GPS, estamos hablando de la función de geolo
 
 Por lo tanto, la geolocalización consiste en la ubicación de un ``lugar`` en la ``tierra`` \cite{diccionarioetim}. 
 
-Haciendo una definición más exacta, la geolocalización consiste en ubicar o determinar donde se encuentra un objeto o lugar en un determinado espacio.
+Haciendo una definición más exacta, la geolocalización consiste en ubicar o determinar dónde se encuentra un objeto o lugar en un determinado espacio.
 
 Cuando nos referimos a objeto no tiene porqué ser inanimado, y el determinado espacio al que nos referimos es la tierra como tal, pero no siempre se la pone como plano de referencia. 
 
@@ -64,11 +64,11 @@ De esta manera obtendríamos la solución para los tres puntos x, y y z. Al ser 
 	
 \end{itemize}
 
-Se consigue saber la distancia entre objetos y puntos de referencia gracias a que el dispositivo emite una señal y espera una respuesta de los puntos de referencia, el diferencial de tiempo entre el envío y la recepción se utiliza para determinar la distancia.
+Se consigue saber la distancia entre objetos y puntos de referencia gracias a que el dispositivo emite una señal y espera una respuesta de los puntos de referencia. El diferencial de tiempo entre el envío y la recepción se utiliza para determinar la distancia.
 
-Como se muestra en las imágenes en la trilateracion en tres dimensiones, los puntos de referencia (satélites) crean una esfera virtual o imaginaria de radio igual a la distancia entre el objeto y el satélite, donde ellos son el epicentro. Se utilizan los puntos de intersección entre esferas para calcular la posición del objeto a localizar.
+Como se muestra en las imágenes en la trilateración en tres dimensiones, los puntos de referencia (satélites) crean una esfera virtual o imaginaria de radio igual a la distancia entre el objeto y el satélite, donde ellos son el epicentro. Se utilizan los puntos de intersección entre esferas para calcular la posición del objeto a localizar.
 
-Los satélites tienen que saber la distancia entre ellos por lo tanto también mandan señales, además para hacer un cálculo correcto de distancias se necesitan tener relojes coordinados.
+Los satélites tienen que saber la distancia entre ellos, por lo tanto también mandan señales. Además para hacer un cálculo correcto de distancias se necesitan tener relojes coordinados.
 \\
 \imagen{img/GPS-Trilateracion}{Explicacion de trilateración.\cite{mejoresappgeo}}
 
@@ -77,13 +77,13 @@ Los satélites tienen que saber la distancia entre ellos por lo tanto también m
 \imagen{img/trilateracion}{Explicacion de trilateración. \cite{animaciontrila}}
 
 
-La geolocalización por wifi funciona de forma parecida a la de los sistemas de posicionamiento con satélites. Esta vez los puntos de referencia en vez de ser satélites son puntos de acceso wi-fi, y hay varias técnicas y tecnologías para hallar la ubicación de los dispositivos, además de la explicada anteriormente. Una de estas técnicas es la de utilizar RSSI, que indica la intensidad de la señal, a mayor intensidad más cerca está del punto de acceso Wi-Fi que proporciona la señal.  Pero normalmente para la ubicación en interiores se utilizan ondas de radio ya que se obtiene mayor precisión \cite{wifiloc}. 
+La geolocalización por wifi funciona de forma parecida a la de los sistemas de posicionamiento con satélites. Esta vez los puntos de referencia en vez de ser satélites son puntos de acceso wi-fi, y hay varias técnicas y tecnologías para hallar la ubicación de los dispositivos, además de la explicada anteriormente. Una de estas técnicas es la de utilizar RSSI, que indica la intensidad de la señal, a mayor intensidad más cerca está del punto de acceso Wi-Fi que proporciona la señal.  Pero normalmente para la ubicación en interiores se utilizan ondas de radio, ya que se obtiene mayor precisión \cite{wifiloc}. 
 
 \section{Formatos gráficos escalables}\label{formatos-graficos-escalables}
 
-Los formatos gráficos escalables son fundamentales en el proyecto ya que son utilizados a la hora de hacer el dibujado de rutas así como la creación de iconos.
+Los formatos gráficos escalables son fundamentales en el proyecto ya que son utilizados a la hora de hacer el dibujado de rutas, así como la creación de iconos.
 
-Cuando hablamos de formatos gráficos escalables, nos estamos refiriendo a aquellos formatos digitales basados en objetos geométricos, cuya labor es hacer que la imagen tenga formas m\'{a}s definidas.
+Cuando hablamos de formatos gráficos escalables, nos estamos refiriendo a aquellos formatos digitales basados en objetos geométricos, cuya labor es hacer que la imagen tenga formas más definidas.
 Los formatos más conocidos son SVG, WMF, ODG  y AI.
 
 Debemos entender la importancia de los formatos gráficos escalables en la mejora de imágenes para hacerlas más geométricas.
@@ -159,36 +159,36 @@ SVG permite tres tipos de objetos graficos:
 
 Los objetos gráficos con los que trabaja SVG pueden transformarse y agruparse para después ser compuestos en otros objetos renderizados con anterioridad. 
 El dibujado con SVG es dinámico e interactivo, mediante el uso de DOM para SVG (Document Object Model), que mediante ECMAScript \footnote{ECMAScript \textit{es una especificación de lenguaje de programación publicada por ECMA International. Se empezó a desarrollar en 1996 y se basó en JavaScript, fue propuesto como estándar por Netscape Communications Corporation. Actualmente es el estándar ISO 16262.}} o SMIL \footnote{SMIL (Synchronized Multimedia Integration Language)\textit{es un estándar del World Wide Web Consortium (W3C) para presentaciones multimedia, permite integrar audio, video, imágenes, texto o cualquier otro contenido multimedia.}} permite animaciones de gráficos vectoriales sencillas y eficientes
-SVG tiene una gran cantidad de manejadores de eventos como ``onMouseOver" y ``onClick", que pueden ser asignados a cualquier objeto SVG. La compatibilidad de SVG con estándares web permiten aplicar características como el scripting sobre elementos SVG o XML, de forma simultánea, en la misma página web desde distintos espacios de nombre XML.
+SVG tiene una gran cantidad de manejadores de eventos como ``onMouseOver" y ``onClick", que pueden ser asignados a cualquier objeto SVG. La compatibilidad de SVG con estándares web permite aplicar características como el scripting sobre elementos SVG o XML, de forma simultánea, en la misma página web desde distintos espacios de nombre XML.
 Las imágenes SVG pueden ser comprimidas con gzip (SVGZ) \cite{scalablevec}.
 
 \imagen{img/mapabits}{explicación diferencia mapa de bits y gráfico vectorial.\cite{cursografvec}}
 
 \section{Lenguajes de etiquetas}\label{lenguajes-etiuetas}
 
-En cuanto al lenguaje de etiquetas o marcado al ser una herramienta para la web la interfaz se nutre de html, con lo cual es una parte fundamental del proyecto.
+En cuanto al lenguaje de etiquetas o marcado, al ser una herramienta para la web, la interfaz se nutre de html, con lo cual es una parte fundamental del proyecto.
 
-Los lenguajes de etiquetas, o de marcado son utilizados para codificar un documento añadiendo etiquetas al texto, las cuales permiten otorgarle unas características o cualidades específicas. En este proyecto es mu importante ya que facilita tanto el procesado de la información, como a la hora de mostrar la información \cite{lenguajemarc}.
+Los lenguajes de etiquetas, o de marcado, son utilizados para codificar un documento añadiendo etiquetas al texto, las cuales permiten otorgarle unas características o cualidades específicas. En este proyecto es muy importante ya que facilita tanto el procesado de la información, como la muestra de la misma \cite{lenguajemarc}.
 
 No se debe confundir los lenguajes de etiquetas con los de programación, ya que el lenguaje de etiquetas no tiene funciones aritméticas ni variables.
 
 Podemos diferenciar entre 4 tipos de lenguajes de marcado o de etiquetas \cite{lenguajemarcecu} \cite{lmarcas}.
 \begin{itemize}
 \item
-Marcado de presentación
+Marcado de presentación.
 \item
-Marcado de procedimientos
+Marcado de procedimientos.
 \item
-Marcado descriptivo
+Marcado descriptivo.
 \item
-Lenguajes especializados
+Lenguajes especializados.
 
 \end{itemize}
 
 También existen lenguajes de etiquetado que son difíciles de enmarcar en uno de estos 4 tipos, ya que comparten características de varios de ellos, como podría ser el caso de HTML, que contiene etiquetas procedimentales, como la B de bold , con otras descriptivas como es BLOCKQUOTE y atributo HREF.
 
 
-(Los ejemplos representan como se suele ver el lenguaje de marcado)
+(Los ejemplos representan cómo se suele ver el lenguaje de marcado)
 
 \subsection{Marcado de presentación}\label{marcado-presentacion}
 
@@ -198,7 +198,7 @@ Indica el formato del texto, y como su propio nombre indica es utilizado para ca
 Ejemplo: Microsoft Word
 \\
 \\
-Cuantas veces habremos oído esa frase...
+Cuántas veces habremos oído esa frase...
 \\
 En muchas ocasiones nos encontramos en sitios nuevos
 
@@ -224,7 +224,7 @@ Ejemplo: LaTeX
 \\
 \textbackslash texttt\{``No se dónde está"\}
 \\
-Cuantas veces habremos oído esa frase...
+Cuántas veces habremos oído esa frase...
 \\
 En muchas ocasiones nos encontramos en sitios nuevos
 \\
@@ -236,7 +236,7 @@ En muchas ocasiones nos encontramos en sitios nuevos
 
 Se utilizan etiquetas o marcas para describir el texto, sin especificar cómo deben ser presentados, ni en qué orden.
 
-Este tipo de marcado tiene más usos que lo que aparenta a primera vista, pueden utilizarse para el almacenamiento de metadatos, comunicación de datos (cualquier aplicación pude escribir un documento de texto plano con datos en formato XML), migración de datos (si necesitamos migrar los datos de una base de datos a otra, si ambas trabajan en xml, el trabajo es más sencillo), almacenamiento de gráficos vectoriales (VML) \footnote{VML \textit{Vector Markup Language es un lenguaje XML destinado a la creación de los gráficos vectoriales en 2D o 3D}\cite{vectorml}}, fórmulas matemáticas con XML (MathML)\footnote{MathML \textit{Mathematical Markup Language lenguaje de marcado basado en XML, cuyo objetivo es expresar notación matemática para que distintas máquinas puedan entenderla} \cite{xmlusos} \cite{mathmlwiki}}, Estructuras moleculares e información cientifica y química con XML ( CML ) \footnote{Chemical Markup Lenguaje\textit{es un lenguaje de marcas basado en XML cuyo objeto es expresar información molecular} \cite{chemicalml}} \cite{desarrollowebxml}
+Este tipo de marcado tiene más usos que lo que aparenta a primera vista. Pueden utilizarse para el almacenamiento de metadatos, comunicación de datos (cualquier aplicación pude escribir un documento de texto plano con datos en formato XML), migración de datos (si necesitamos migrar los datos de una base de datos a otra, si ambas trabajan en xml, el trabajo es más sencillo), almacenamiento de gráficos vectoriales (VML) \footnote{VML \textit{Vector Markup Language es un lenguaje XML destinado a la creación de los gráficos vectoriales en 2D o 3D}\cite{vectorml}}, fórmulas matemáticas con XML (MathML)\footnote{MathML \textit{Mathematical Markup Language lenguaje de marcado basado en XML, cuyo objetivo es expresar notación matemática para que distintas máquinas puedan entenderla} \cite{xmlusos} \cite{mathmlwiki}}, Estructuras moleculares e información científica y química con XML ( CML ) \footnote{Chemical Markup Lenguaje\textit{es un lenguaje de marcas basado en XML cuyo objeto es expresar información molecular} \cite{chemicalml}} \cite{desarrollowebxml}
 \\
 \\
 Ejemplo: XML
@@ -250,7 +250,7 @@ $<$Documento$>$
 	\\
 		 \tab \tab $<$Parrafo$>$
 		\\
-			\tab\tab\tab Cuantas veces habremos oído esa frase...
+			\tab\tab\tab Cuántas veces habremos oído esa frase...
 			\\
 			\tab\tab\tab En muchas ocasiones nos encontramos en sitios
 			\\
@@ -264,7 +264,7 @@ $<$\textbackslash Documento $>$
 \subsection{Lenguajes especializados}\label{lenguajes-especializados}
 
 
-Los lenguajes especializados podríamos decir que derivan de los lenguajes de marcado descriptivo, ya que se diferencian con el tipo anterior, en que se especializan en una materia como podría ser la matemática ( OpenMath o MathML ) o los gráficos (SVG o VRML) \cite{openmath} \cite{xmlusos}.
+Los lenguajes especializados podríamos decir que derivan de los lenguajes de marcado descriptivo, ya que se diferencian con el tipo anterior en que se especializan en una materia como podría ser la matemática ( OpenMath o MathML ) o los gráficos (SVG o VRML) \cite{openmath} \cite{xmlusos}.
 \\
 \\
 Ejemplo: OpenMath
@@ -293,11 +293,11 @@ $<$\textbackslash svg4$>$
 
 \section{Algoritmo de Dijkstra}\label{Dijkstra}
 En Geoindoor es fundamental el algoritmo de Dijkstra ya que es utilizado para el trazado de rutas a la hora de elegir el camino.
-A continuación explicaremos en que consiste este algoritmo.
+A continuación explicaremos en qué consiste este algoritmo.
 
-El algoritmo de Dijkstra o algoritmo de caminos mínimos es un algoritmo para encontrar el camino más corto en un grafo, desde un punto de partida u origen, hasta uno los demás puntos del grafo.
+El algoritmo de Dijkstra o algoritmo de caminos mínimos es un algoritmo para encontrar el camino más corto en un grafo, desde un punto de partida u origen, hasta uno de los demás puntos.
 
-El grafo consta de vértices y aristas donde cada arista tiene un peso, mediante el cual se calcula cual es el camino mas corto de un nodo o vértice hasta otro nodo. El principal problema de este algoritmo reside en que es una especialización de la búsqueda de costo uniforme, y no funciona en grafos con aristas de coste o peso negativo, es decir, al elegir siempre el nodo con un peso menor, pueden quedar excluidos nodos que en próximas iteraciones bajarían el costo general del camino \cite{dijkstrabib}. 
+El grafo consta de vértices y aristas donde cada arista tiene un peso, mediante el cual se calcula cuál es el camino mas corto de un nodo o vértice hasta otro nodo. El principal problema de este algoritmo reside en que es una especialización de la búsqueda de costo uniforme, y no funciona en grafos con aristas de coste o peso negativo, es decir, al elegir siempre el nodo con un peso menor, pueden quedar excluidos nodos que en próximas iteraciones bajarían el costo general del camino \cite{dijkstrabib}. 
 \\
 \imagenResize{1}{img/Dijkstra}{Ejemplo de grafo con aplicación del algoritmo Dijkstra \cite{dijkstrabib}}{dijkstraimagen}
 \\
@@ -313,15 +313,15 @@ Teniendo un vector D de tamaño N en el cual se guardará las distancias desde x
 
 \begin{enumerate}
 \item
-Inicializar la distancia de x en D a 0, debido a que la distancia de x a x es 0. Las demás distancias de D deben ser inicilizadas a un valor infinito, ya que al principio son desconocidas.
+Inicializar la distancia de x en D a 0, debido a que la distancia de x a x es 0. Las demás distancias de D deben ser inicializadas a un valor infinito, ya que al principio son desconocidas.
 \item
 Siendo a = x tomamos a como nodo inicial.
 \item
-Recorreremos todos los nodos adyacentes de a, menos los nodos que ya han sido marcados, llamaremos a los nodos no han sido marcados $v_i$.
+Recorreremos todos los nodos adyacentes de a, menos los nodos que ya han sido marcados. Llamaremos a los nodos que no han sido marcados $v_i$.
 \item
 Para el nodo actual, calculamos la distancia desde dicho nodo a los vecinos con la fórmula: dt($v_i$) = Da + d(a,$v_i$), y Si dt($v_i$) $<$ D$v_i$ entonces D$v_i$ = dt($v_i$)
 \item
-Marcamos el noda a como completo.
+Marcamos el nodo a como completo.
 \item
 Tomamos como próximo nodo actual el de menor valor en D, y volvemos al paso 3 mientras existan nodos no marcados. También se podría hacer almacenando los valores en una cola de prioridad.
 

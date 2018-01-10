@@ -4,44 +4,42 @@ En el desarrollo de este proyecto han surgido varios obstáculos que han sido re
 
 \section{Análisis e investigación de la aplicación }\label{analisis-investigacion}
 
-El principal problema que me encontré fue entender la aplicación sobre la que trabajar y como hacerlo. La ausencia de documentación detallada dificultaba la labor, ya que no existía ningún documento donde se explicara el funcionamiento de la aplicación y cuales son sus métodos y funciones. Con lo cual tuve que investigar y analizar la aplicación a conciencia hasta entenderla.
+El principal problema que me encontré fue entender la aplicación sobre la que trabajar y cómo hacerlo. La ausencia de documentación detallada dificultaba la labor, ya que no existía ningún documento donde se explicara el funcionamiento de la aplicación y cuáles son sus métodos y funciones. Con lo cual tuve que investigar y analizar la aplicación a conciencia hasta entenderla.
 
-Otro gran problema que surgió, fue entender y crear el servidor que ofrecía AnyPlace, hasta que se decidió trabajar con la aplicación por separado, es decir Architect por un lado y Viewer por otro y después unificarlos para crear la herramienta. 
+Otro gran problema que surgió, fue entender y crear el servidor que ofrecía AnyPlace, hasta que se decidió trabajar con la aplicación por separado, es decir, Architect por un lado y Viewer por otro y después unificarlos para crear la herramienta. 
 
 \section{Viewer}\label{viewer}
 
-En el proyecto en la parte del Viewer de la herramienta, un gran problema que ha surgido, es el contenido mixto ya que muchas veces se ha mezclado contenido cifrado y contenido en plano.
+En el proyecto en la parte del Viewer de la herramienta, un gran problema que ha surgido es el contenido mixto ya que muchas veces se ha mezclado contenido cifrado y contenido en plano.
 
-Recordar que han surgido problemas a la hora de relacionar la base de datos de Geoindoor con el Viewer ya que en múltiples ocasiones el sistema de búsqueda anteriormente utilizado hacia devolver al servidor una gran cantidad de información que no era necesaria y ralentizaba las búsquedas, la búsqueda por id se hace menos costosa y más rápida.
+Recordar que han surgido problemas a la hora de relacionar la base de datos de Geoindoor con el Viewer ya que en múltiples ocasiones el sistema de búsqueda anteriormente utilizado hacia devolver al servidor una gran cantidad de información que no era necesaria y ralentizaba las búsquedas (la búsqueda por id se hace menos costosa y más rápida).
 
 \section{Architect}\label{Architect} 
 
-En la herramienta en la parte de Architect, han surgido varios inconvenientes, pero los principales tienen que ver con el tema de procesado de datos, el dibujado sobre el plano y las llamadas a la rest API, en varias ocasiones el dibujado de las rutas no quedaba determinado por los pois, y no quedaba un resultado satisfactorio. A la hora de recoger los datos, muchos cambios introducidos por el usuario no causaban un resultado ``inmediato'', lo cual se soluciono gracias a JS y a AngularJS.
+En la herramienta en la parte de Architect, han surgido varios inconvenientes, pero los principales tienen que ver con el tema de procesado de datos, el dibujado sobre el plano y las llamadas a la REST API. En varias ocasiones el dibujado de las rutas no quedaba determinado por los pois, y no quedaba un resultado satisfactorio. A la hora de recoger los datos, muchos cambios introducidos por el usuario no causaban un resultado ``inmediato'', lo cual se solucionó gracias a JS y a AngularJS.
 
 \section{Heroku}\label{heroku5}
 
 El principal problema que tuve con ello es que no lo conocía, por lo que tuve que adaptarme y aprender su funcionamiento, aunque hay que decir que los primeros pasos los facilitan gracias a sus tutoriales.
 
-He de decir que el sistema de Heroku para dormir el servidor cuando no se utiliza hace, a veces, ralentizar las funcionalidades ofrecidas por Geoindoor, y al no tener una cuenta de pago los servicios que ofrece Heroku son limitados, pero no surge ninguna pega una vez esta activo. 
+He de señalar que el sistema de Heroku para dormir el servidor cuando no se utiliza hace, a veces, ralentizar las funcionalidades ofrecidas por Geoindoor, y al no tener una cuenta de pago los servicios que ofrece Heroku son limitados, pero no surge ninguna pega cuando está activo. 
 
-Una vez que se aprendió como funcionaba heroku se comenzo a realizar la Rest API cuyo principal problema fue entender como funcionaba Node.js y las llamadas POST Y GET en Node.js con express.
+Una vez que se aprendió cómo funcionaba heroku se comenzó a realizar la REST API cuyo principal problema fue entender como funcionaba Node.js y las llamadas POST Y GET en Node.js con express.
 
 También es importante decir que con las llamadas al servidor surgieron problemas CORS (access-control-allow-origin),
-que se ha solucionado añadiendo las cabeceras de Access-Control-Allow-Origin. 
+que se han solucionado añadiendo las cabeceras de Access-Control-Allow-Origin. 
 
 \section{Firebase}\label{firebase5}
 
-Lo que sucedió con Firebase esta relacionado con su base de datos JSON, cuya estructura de base de datos tuve que idear para que se pudiese conseguir una gran cantidad de información de calidad evitando cantidad de información de poco valor.
+Lo que sucedió con Firebase está relacionado con su base de datos JSON, cuya estructura de base de datos tuve que idear para que se pudiese conseguir una gran cantidad de información de calidad, evitando cantidad de información de poco valor.
 
 La idea es utilizar keys iguales y añadir una palabra clave para utilizar esa clave como otra key. Es decir la key id2 es la key de un edificio y la key id2rutas tiene las rutas del edificio de key id2.
 
 
 \section{Otros problemas}\label{otros}
 
-En este apartado quiero hablar de uno de los problemas que mas roturas de cabeza me ha provocado y ha sido el CORS 'Access-Control-Allow-Origin', o control de acceso por origen. Cada vez que se hacia una solicitud desde un dominio diferente al oficial de AnyPlace, se bloqueaba la respuesta de esa solicitud, aun siendo perteneciente a la propia API que ofrece AnyPlace. Este obstáculo no solo aparecía en las peticiones en el Architect si no también en el Viewer, con lo cual la solución que le di fue lanzar la herramienta de forma local por el puerto 9000 continuando las peticiones a la rest API de AnyPlace, evitando de esta manera el CORS, ya que en su servidor no tienen bloqueada esta acción.
+En este apartado me gustaría hablar de uno de los problemas que mas roturas de cabeza me ha provocado y ha sido el CORS 'Access-Control-Allow-Origin', o control de acceso por origen. Cada vez que se hacía una solicitud desde un dominio diferente al oficial de AnyPlace, se bloqueaba la respuesta de esa solicitud, aun siendo perteneciente a la propia API que ofrece AnyPlace. Este obstáculo no solo aparecía en las peticiones en el Architect sino también en el Viewer, con lo cual la solución que le dí fue lanzar la herramienta de forma local por el puerto 9000 continuando las peticiones a la REST API de AnyPlace, evitando de esta manera el CORS, ya que en su servidor no tienen bloqueada esta acción.
 
-El contenido mixto también me ha supuesto una dificultad, tanto en la parte de Architect como la de Viewer, pero se soluciono al lanzar la herramienta de forma local con acceso a internet. 
+El contenido mixto también me ha supuesto una dificultad, tanto en la parte de Architect, como la de Viewer, pero se solucionó al lanzar la herramienta de forma local con acceso a internet. 
 
-Existieron otros muchos problemas pero que no son comentables ya que no son de tanto interés como estos.
-
-Pero si hay que comentar alguno problema más que me he encontrado, ha sido el uso de jquery para las llamadas, sobre todo con el dataType, y los dynos de heroku a la hora de ofrecer servicios.
+Por otro lado, existieron otros muchos problemas que considero que no son relevantes. Aunque me gustaría destacar el problema que me encontré con el uso de jquery para las llamadas, sobre todo con el dataType, y los dynos de heroku a la hora de ofrecer servicios.

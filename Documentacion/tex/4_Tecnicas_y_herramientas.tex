@@ -1,59 +1,54 @@
 \capitulo{4}{Técnicas y herramientas}
 
+En este apartado se hablará de las técnicas y herramientas que han sido utilizadas en el desarrollo del sistema Geoindoor. Para facilitar la comprensión de esta sección, se han organizado las herramientas según los siguientes criterios de clasificación:
 
-
-\tablaSmall{Manejadores de paquetes y Corredeores de tareas utilizados en el proyecto}{|l|}{manejadores}
-{ Manejadores de paquetes y Corredeores de tareas\\ }{ 
-Bower \\
-Grunt \\
-}
-
-\tablaSmall{Formato de intercambio de datos}{|l|}{intercambiodedatos}
-{ Formato de intercambio de datos\\ }{ 
-JSON\\
-}
-
-\tablaSmall{Lenguajes y frameworks utilizados en el proyecto}{|l|}{lenguajes}
-{ Lenguajes y Frameworks\\ }{ 
-JavaScript \\
-Python\\
-AngularJS\\
-Java (Selenium)\\
-Node.js\\
-jQuery\\
-}
-
-\tablaSmall{Herramientas utilizadas para realizar los test del proyecto}{|l|}{pruebas}
-{ Herramientas para pruebas \\ }{ 
-Selenium \\
-Webserver Stress Tool \\
-}
-
-\tablaSmall{Software de control de versiones}{|l|}{controlversion}
-{ Control de versiones\\ }{ 
-Git\\
-ZenHub\\
-}
-
-\tablaSmall{Documentación}{|l|}{documentacion}
-{ Documentación\\ }{ 
-\TeX{}\\
-\LaTeX \\
-Zotero \\
-}
-
-\tablaSmall{Servicios web}{|l|}{servicios}
-{ Servicios web\\ }{ 
-Heroku\\
-Firebase\\
-}
-
-\tablaSmall{Herramientas utilizadas para la interfaz del proyecto}{|l|}{interfaz}
-{ Interfaz \\ }{ 
-HTML5\\
-CSS3\\
-Bootstrap\\
-}
+\begin{itemize}
+	\item \textbf{Manejadores de paquetes y Corredeores de tareas}
+		\begin{itemize}
+			\item Bower
+			\item Grunt
+		\end{itemize}
+	\item \textbf{Formato de intercambio de datos}
+		\begin{itemize}
+			\item JSON
+		\end{itemize}
+	\item \textbf{Lenguajes y frameworks}
+		\begin{itemize}
+			\item JavaScript
+			\item Python
+			\item AngularJS
+			\item Java (Selenium)
+			\item Node.js
+			\item jQuery
+		\end{itemize}
+	\item \textbf{Herramientas utilizadas para realizar los test}
+		\begin{itemize}
+			\item Selenium
+			\item Webserver Stress Tool
+		\end{itemize}
+	\item \textbf{Software de control de versiones}
+		\begin{itemize}
+			\item Git
+			\item ZenHub
+		\end{itemize}
+	\item \textbf{Documentación}
+		\begin{itemize}
+			\item \TeX{}
+			\item \LaTeX
+			\item Zotero
+		\end{itemize}
+	\item \textbf{Servicios web}
+		\begin{itemize}
+			\item Heroku
+			\item Firebase
+		\end{itemize}
+	\item \textbf{Herramientas utilizadas para la interfaz}
+		\begin{itemize}
+			\item HTML5
+			\item CSS3
+			\item Bootstrap
+		\end{itemize}
+\end{itemize}
 
 \section{Bower}\label{Bower}
 
@@ -68,7 +63,7 @@ Grunt es un corredor de tareas de javascript, que es utilizado para centralizar 
 \section{JSON}\label{JSON}
 JSON tiene un papel fundamental en el proyecto ya que al trabajar con JS se hace indispensable, además se ha utilizado en la base de datos.
 
-JSON (JavaScript Object Notation) es un formato de intercambio de datos. Es simple tanto a  la  hora de leerlo, como de escribirlo, es ideal para la transmisión de objetos por la red, y es esa la razón por la que es utilizado.
+JSON (JavaScript Object Notation) es un formato de intercambio de datos. Es simple, tanto a  la  hora de leerlo, como de escribirlo. Es ideal para la transmisión de objetos por la red, y es ésa la razón por la que es utilizado.
 
 \section{JavaScript}\label{JavaScript}
 
@@ -84,7 +79,7 @@ En este proyecto es indispensable ya que es utilizado a la hora de lanzar la apl
 
 AngularJS (Google) es un framework JavaScript de desarrollo de aplicaciones web en el lado cliente, y utiliza el patrón MVC (Model-View-Controller).
 
-AngularJS adquiere las buenas características que tiene JavaScript, pero añade que permite procesar datos de forma mas sencilla y realizar un gran control sobre el flujo de salida.
+AngularJS adquiere las buenas características que tiene JavaScript, pero añade que permite procesar datos de forma más sencilla y realizar un gran control sobre el flujo de salida.
 
 Este framework se ha utilizado enormemente en este proyecto, ha sido fundamental ya que con ello hemos creado los controladores que permiten interactuar con la información y los usuarios, haciendo control sobre accesos y lo que se permite editar o no.
 
@@ -94,21 +89,21 @@ Java es un lenguaje de programación orientado a objetos, concurrente y de prop�
 
 \section{Node.js}\label{Node.js}
 
-Node es un intérprete Javascript en el lado del servidor. Permite construir aplicaciones muy escalables y  maneja miles de conexiones simultáneas en una sólo una máquina física.
+Node es un intérprete Javascript en el lado del servidor. Permite construir aplicaciones muy escalables y  maneja miles de conexiones simultáneas en una sola máquina física.
 
-En el proyecto ha sido utilizado para crear la Rest API para manejar la base de datos, se ha elegido por su simpleza, aunque cabe destacar que debido a que te permite manejar muchas opciones, es fácil equivocarse y realizar acciones que no se tenían pensadas.
+En el proyecto ha sido utilizado para crear la REST API para manejar la base de datos. Se ha elegido por su simpleza, aunque cabe destacar que debido a que te permite manejar muchas opciones, es fácil equivocarse y realizar acciones que no se tenían pensadas.
 
 \section{jQuery}\label{jquery}
 
-jQuery podría se considerado una librería más que un framework, esta basada en JavaScript, y su función es simplificar la manera de interactuar con los documentos HTML, con los elementos DOM, manejar eventos, crear animaciones y permite el uso de AJAX \cite{jquerybib}.
+jQuery podría se considerado una librería más que un framework. Está basada en JavaScript, y su función es simplificar la manera de interactuar con los documentos HTML, con los elementos DOM, manejar eventos, crear animaciones y permite el uso de AJAX \cite{jquerybib}.
 
-En este proyecto se ha utilizado tanto sus funcionalidades de AJAX como las manejar eventos y manejar elementos DOM.
+En este proyecto se ha utilizado tanto sus funcionalidades de AJAX, como las de manejar eventos y las de manejar elementos DOM.
 
 \section{Selenium}\label{selenium}
 
-Selenium es un automatizador los navegadores, lo que quiere decir es que permite automatizar pruebas (acciones) directamente sobre una navegador, a través de un WebDriver del propio navegador \cite{seleniumbib}.
+Selenium es un automatizador de los navegadores. Lo que quiere decir es que permite automatizar pruebas (acciones) directamente sobre una navegador a través de un WebDriver del propio navegador \cite{seleniumbib}.
 
-Existen varias librerías para diferentes lenguajes para crear pruebas automatizadas. Pero para este proyecto se ha elegido en lenguaje Java.
+Existen varias librerías de diferentes lenguajes para crear pruebas automatizadas. Pero para este proyecto se ha elegido en lenguaje Java.
 
 \section{Webserver Stress Tool}\label{WebserverStressTool} 
 
@@ -118,7 +113,7 @@ En este proyecto se ha utilizado para realizar pruebas de rendimiento y estrés.
 
 \section{Git}\label{Git}
 
-Git es un software de control de versiones diseñado por Linus Torvalds, se ha elegido porque es usado por el servicio web heroku así como por GitHub, que es la plataforma en la que se aloja el repositorio del proyecto.
+Git es un software de control de versiones diseñado por Linus Torvalds. Se ha elegido porque es usado por el servicio web heroku, así como por GitHub, que es la plataforma en la que se aloja el repositorio del proyecto.
 
 \section{ZenHub}\label{zenhub}
 
@@ -130,12 +125,12 @@ ZenHub es un plug in que permite añadir a GitHub características para mejorar 
 
 \section{\TeX{} y \LaTeX}\label{Latex}
 
-\TeX{} es una herramienta para el manejo de \LaTeX{}, y \LaTeX{} es un sistema para la creación de documentos de texto, de gran calidad tipográfica \cite{latexbib} \cite{texbib}.
-Han sido utilizados para documentar ya que, a pesar de que al principio se hace un poco difícil trabajar con ello, los resultados son excelentes.
+\TeX{} es una herramienta para el manejo de \LaTeX{}, y este último es un sistema para la creación de documentos de texto de gran calidad tipográfica \cite{latexbib} \cite{texbib}.
+Han sido utilizados para documentar ya que a pesar de que al principio se hace un poco difícil trabajar con ello, los resultados son excelentes.
 
 \section{Zotero}\label{zotero}
 
-Zotero es una herramienta y plug-in de Firefox que se ha utilizado para la administración de las referencias bibliográficas, nos permite almacenar referencias a las páginas que se visitan a la hora de buscar información por la web. 
+Zotero es una herramienta y plug-in de Firefox que se ha utilizado para la administración de las referencias bibliográficas. Nos permite almacenar referencias a las páginas que se visitan a la hora de buscar información por la web. 
 
 \section{Heroku}\label{heroku}
 
@@ -144,18 +139,18 @@ En el proyecto ha sido utilizado para sostener el servidor con Node.js con la Re
 
 \section{Firebase}\label{firebase}
 
-Firebase es una plataforma de desarrollo de aplicaciones móviles y web, es un servicio de google y nos ofrece hosting, base de datos, almacenamiento, entre otras opciones. Ha sido elegido en este proyecto por su base da datos (JSON) no SQL en tiempo real, que permite trabajar con la base de datos de forma muy rápida y sencilla. El utilizar una base de datos JSON como AnyPlace (aplicación en la que se basa Geoindoor), si se quisiera aunar bases de datos, se conseguiría de una forma relativamente sencilla.
+Firebase es una plataforma de desarrollo de aplicaciones móviles y web. Es un servicio de google y nos ofrece hosting, base de datos y almacenamiento, entre otras opciones. Ha sido elegido en este proyecto por su base de datos (JSON) no SQL en tiempo real, que permite trabajar con la base de datos de forma muy rápida y sencilla. El utilizar una base de datos JSON como AnyPlace (aplicación en la que se basa Geoindoor), si se quisiera aunar bases de datos, se conseguiría de una forma relativamente sencilla.
 
 
 \section{HTML5}\label{HTML5}
 
-HTML5 es un lenguaje de marcado que se ha utilizado para mostrar al usuario la información así como para aprovechar algunas de sus caractrísticas para el procesamiento de información.
+HTML5 es un lenguaje de marcado que se ha utilizado para mostrar al usuario la información, así como para aprovechar algunas de sus caractrísticas para el procesamiento de información.
 
 Se ha usado en el proyecto porque es muy utilizado, y es soportado por todos los dispositivos.
 
 \section{CSS3}\label{CSS3}
 
-CSS3 lenguaje de hojas de estilo en cascada utilizado para dar una impresión diferente al código HTML, hay que decir que permite crear estilos de forma rápida y sencilla, pero al aumentar el número de clases y el anidamiento es muy difícil de mantener. 
+CSS3 es un lenguaje de hojas de estilo en cascada utilizado para dar una impresión diferente al código HTML. Hay que decir que permite crear estilos de forma rápida y sencilla, pero al aumentar el número de clases y el anidamiento es muy difícil de mantener. 
  
 \section{Bootstrap}\label{bootstrap}
 

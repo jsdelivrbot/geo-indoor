@@ -7,7 +7,7 @@ En este apartado, nos detendremos a detallar la estructura de datos, los procedi
 Este proyecto trabaja con una base de datos no sql por lo tanto la manera en la que están estructurados los datos, es un poco diferente a la que estamos acostumbrados con bases de datos sql.
 Los datos en vez de estar estructurados en tablas (BD sql), se estructuran en documentos\footnote{Un documento es un conjunto de entidades de bases de datos que se agrupan en una entidad}. 
 
-Además Geoindoor utiliza el servicio web de bases de datos de Firebase, por lo que la BD esta formada por un único documento. Se usa JSON para el almacenamiento de datos, lo que nos lleva a utilizar un sistema de \textit{clave-valor} para la ordenación.
+Además Geoindoor utiliza el servicio web de bases de datos de Firebase, por lo que la BD está formada por un único documento. Se usa JSON para el almacenamiento de datos, lo que nos lleva a utilizar un sistema de \textit{clave-valor} para la ordenación.
 
 En conclusión podríamos resumir las características de la BD de Geoindoor en 5 puntos:
 
@@ -25,7 +25,7 @@ Entonces la manera de analizar el diseño de datos no se puede realizar desde el
 
 Estos diagramas se leen de izquierda a derecha, para saber que entidad contiene a cual. Las entidades moradas contienen otras entidades, mientras que las azules guardan la relación \textit{clave-valor}, donde se almacenan realmente los datos. Todas las entidades se encuentran en un mismo documento (Geoindoor DB).
 
-La relación virtual indica que hay una relación lógica entre esas entidades, es decir, hay relación de datos entre entidades. En este caso la entidad ``id1 - id..n'', que identifica a los edificios, esta relacionada con ``id1rutas - id..nrutas'', que identifica las rutas de cada edificio. De esta manera podríamos decir que la relación entre ``id1 - id..n'' y ``id1rutas - id..nrutas' es de 1 - *.
+La relación virtual indica que hay una relación lógica entre esas entidades, es decir, hay relación de datos entre entidades. En este caso la entidad ``id1 - id..n'', que identifica a los edificios, está relacionada con ``id1rutas - id..nrutas'', que identifica las rutas de cada edificio. De ésta manera podríamos decir que la relación entre ``id1 - id..n'' y ``id1rutas - id..nrutas' es de 1 - *.
 
 \newpage
 \textbf{ Geoindoor DB entidades:}
@@ -67,10 +67,10 @@ La relación virtual indica que hay una relación lógica entre esas entidades, 
 
 \section{Diseño procedimental}
 
-En el diseño procedimental explica como interaccionan las distintas partes del algoritmo.
+En el diseño procedimental explica cómo interaccionan las distintas partes del algoritmo.
 A continuación se muestran unos diagramas de secuencia que describen el comportamiento de los algoritmos utilizados para el correcto funcionamiento de la herramienta Geoindoor. No se exponen todos los diagramas de secuencia resultantes de el análisis de los algoritmos, por que no son relevantes para el proyecto Geoindoor.
 
-Para los diagramas de la parte de Architect de Geoindoor, el usuario ya esta logeado una vez comienza la acción.
+Para los diagramas de la parte de Architect de Geoindoor, el usuario ya está logeado una vez comienza la acción.
 \newpage
 \imagenResize{0.5}{img/DiagramasSecuencia/DSCrearEdificio}{Diagrama de secuencia de la creación de un edificio}{DSCrearEdificio}
 
@@ -94,7 +94,7 @@ En este diagrama, nos encontramos en Geoindoor Viewer, en un edificio con al men
  
 \section{Diseño arquitectónico}
 
-En este apartado se hablara de como esta diseñado el sistema Geoindoor a nivel de su arquitectura de software.
+En este apartado se hablará de cómo esta diseñado el sistema Geoindoor a nivel de su arquitectura de software.
 
 El patrón que se ha elegido para implementar y que en gran parte ha sido impuesto por la herramienta en la que se ha basado Geoindoor (AnyPlace), es el patrón Modelo-Vista-Controlador (MVC).
 
@@ -118,7 +118,7 @@ La abstracción del funcionamiento de un sistema Modelo-Vista-Controlador, puede
 
 \subsection{Modelo-Vista-Controlador en Geoindoor}
 
-En cuanto a como esta implementado el Modelo-Vista-Controlador en Geoindoor podemos categorizar cada elemento participante, en cada uno de los estratos del MVC.
+En cuanto a cómo está implementado el Modelo-Vista-Controlador en Geoindoor podemos categorizar cada elemento participante, en cada uno de los estratos del MVC.
 
 \begin{itemize}
 	\item \textbf{Modelo:} en el modelo podemos introducir el servicio de base de datos de Firebase (Geoindoor), la REST API creada en Heroku (Geoindoor), la BD de AnyPlace y la REST API de AnyPlace. Ambas API REST nos permiten interactuar con las respectivas bases de datos.
@@ -128,7 +128,7 @@ En cuanto a como esta implementado el Modelo-Vista-Controlador en Geoindoor pode
 		\item BD AnyPlace
 		\item REST API AnyPlace 
 	\end{itemize}
-	\item \textbf{Controlador:} en el componente de controladores podemos añadir el fichero ``\textit{app.js}''\footnote{app.js: es el fichero en el que se declara cada aplicación, y esta basada en un modulo, a partir de el cual surgen los controladores.}, todos los ficheros de la carpeta ``\textit{controllers}'' y los ficheros de la carpeta  ``\textit{scripts}'' que son utilidades, usadas por los controladores.
+	\item \textbf{Controlador:} en el componente de controladores podemos añadir el fichero ``\textit{app.js}''\footnote{app.js: es el fichero en el que se declara cada aplicación, y está basada en un modulo, a partir de el cual surgen los controladores.}, todos los ficheros de la carpeta ``\textit{controllers}'' y los ficheros de la carpeta  ``\textit{scripts}'' que son utilidades, usadas por los controladores.
 	\item \textbf{Vista:} en la vista añadiremos el fichero ``\textit{index.html}''. Bootstrap, CSS y demás elementos para el estilo se podrían introducir en componentes que forman la \textit{Vista}.
 \end{itemize}
 

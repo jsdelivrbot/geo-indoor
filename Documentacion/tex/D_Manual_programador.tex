@@ -62,7 +62,7 @@ Para la instalación de ambos es, necesario ir a la pagina web oficial (\href{ht
 \begin{itemize}
 	\item \textbf{JAVAPATH}: la ruta completa donde está instalado JDK.
 	\item \textbf{CLASSPATH}: la ruta en la que están las bibliotecas o clases de usuario.
-	\item \textbf{PATH}: variable en la que se añade la ruta donde esta el JDK.
+	\item \textbf{PATH}: variable en la que se añade la ruta donde está el JDK.
 \end{itemize}
 
 
@@ -127,7 +127,7 @@ Para su instalación vamos a su página oficial (\href{https://www.python.org/do
 
 
 \section{Compilación, instalación y ejecución del proyecto}
-En este apartado se va explicar como compilar, instalar y ejecutar el proyecto Geoindoor desde el principio. Es decir se explicara como se creo la REST API en Heroku de Geoindoor y como se creo la base de datos en Firebase.
+En este apartado se va explicar cómo compilar, instalar y ejecutar el proyecto Geoindoor desde el principio. Es decir se explicara cómo se creo la REST API en Heroku de Geoindoor y cómo se creó la base de datos en Firebase.
 
 \imagenResize{0.35}{img/doctecprog/DespliegueGeoindoor}{Diagrama de despliegue Geoindoor.}{DespliegueGeoindoor}
 
@@ -144,7 +144,7 @@ Una vez descargado el repositorio Geoindoor debemos ir a la página oficial de \
 	\item \textbf{\textit{cd node-js-getting-started}}
 	\item \textbf{\textit{heroku create}}: creación de la app.
 	\item \textbf{\textit{git push heroku master}}: poner la app en el repositorio.
-	\item \textbf{\textit{heroku ps:scale web=1}}: asegurarnos de que esta funcionando al menos una instancia de la app.
+	\item \textbf{\textit{heroku ps:scale web=1}}: asegurarnos de que está funcionando al menos una instancia de la app.
 \end{itemize}
 
 Una vez hecho esto basta sustituir los ficheros del la app recién creada con los ficheros \textbf{./Server REST API/} del repositorio de Geoindoor.
@@ -176,7 +176,7 @@ De esta forma quedaría enlazada la REST API con la base de datos de Firebase.
 
 \subsection{Geoindoor cliente}
 
-Ahora vamos a analizar como compilar, instalar y ejecutar la parte del cliente de Geoindoor.
+Ahora vamos a analizar cómo compilar, instalar y ejecutar la parte del cliente de Geoindoor.
 
 En primer lugar debemos poner \textbf{./Paquete Geoindoor} en el directorio en el que se quiera trabajar, para lanzar la herramienta se debe ejecutar el lanzador (inicioWindows.bat o inicioLinux.sh), Geoindoor se lanzará en el puerto 9000 (localhost). En Windows, a través de Google Chrome y en Linux a través de Firefox.
 
@@ -190,7 +190,7 @@ Tanto em Viewer como en Architect la forma de comenzar el desarrollo es la misma
 	\item Ejecutamos \textbf{grunt}.
 \end{itemize}
 
-Si nuestro servicio http funciona bien, nos dirigimos con el navegador a las raíz de la carpeta \textbf{*/architect/} y \textbf{*/viewer/} para comprobar que Geoindoor esta en funcionamiento.
+Si nuestro servicio http funciona bien, nos dirigimos con el navegador a las raíz de la carpeta \textbf{*/architect/} y \textbf{*/viewer/} para comprobar que Geoindoor está en funcionamiento.
 Si aún así no funciona, podemos dirigirnos manualmete a \textbf{*/architect/index.html} y \textbf{*/viewer/index.html} 
 
 \imagenResize{0.9}{img/doctecprog/localhost}{Url de Geoindoor al lanzarla.}{localhost}
