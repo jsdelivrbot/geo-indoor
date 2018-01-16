@@ -6,9 +6,15 @@
 </div>
 <h1>Geoindoor</h1>
 
-Sistema que con múltiples aplicaciones, añade servicios de geolocalización dentro edificios. 
-Una aplicación Web permite etiquetar ubicaciones dentro del plano del edificio. 
-Otra aplicación permite consultar las ubicaciones de un edificio, las posiciones en plano del edificio y navegar hasta ellas desde la ubicación actual.
+Es un sistema web de geolocalización en interiores. Está compuesto por 2 aplicaciones o herramientas.
+
++ Architect
++ Viewer
+
+Architect, es la aplicación donde los usuarios gestionan o administran su edificios. Ubican los edificios en un mapa, añaden planos de planta a los edificios, agregan puntos de interés, crean caminos y rutas.
+
+Viewer, es la aplicación donde los usuarios acuden para visualizar sus edificios o los agenos. Viewer permite ver las rutas que tiene un edificio, guiar a al usuario hasta un punto de interés elegido, ver la información de los puntos de intrés y navegar entre plantas.
+
 
 Autor: Juan Pedro Pascual
 
