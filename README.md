@@ -13,7 +13,7 @@ Es un sistema web de geolocalización en interiores. Está compuesto por 2 aplic
 
 Architect, es la aplicación donde los usuarios gestionan o administran su edificios. Architect permite ubicar los edificios en un mapa, añadir planos de planta a los edificios, agregar puntos de interés, crear caminos y rutas.
 
-Viewer, es la aplicación donde los usuarios acuden para visualizar sus edificios o los agenos. Viewer permite ver las rutas que tiene un edificio, guiar a al usuario hasta un punto de interés elegido, ver la información de los puntos de interés y navegar entre plantas.
+Viewer, es la aplicación donde los usuarios acuden para visualizar sus edificios o los ajenos. Viewer permite ver las rutas que tiene un edificio, guiar a al usuario hasta un punto de interés elegido, ver la información de los puntos de interés y navegar entre plantas.
 
 
 Autor: Juan Pedro Pascual
